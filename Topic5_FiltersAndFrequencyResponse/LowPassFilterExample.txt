@@ -1,0 +1,65 @@
+Let's take the example of a low pass filter.
+As we recall, there are different types of filters
+that differ depending upon their amplitude or their frequency response.
+And so we'll look at the low pass filter here, which
+has a frequency response that looks like the one that you see on the top there.
+And so the idea of the low pass filter is
+that it tends to pass components of the signal that have low frequencies,
+below a certain cutoff frequency FCO, and then it
+tends to block the higher frequencies.
+And so if we were talking about an audio application, this kind of filter
+would block high frequencies
+or emphasize the lower frequencies of the base of the signal.
+And so if we take a look at the operation of the filter,
+remember what we do.
+We first take the input signal, then we find its frequency spectrum,
+and then we multiply the frequency spectrum
+by the scaling of the amplitude response.
+And that gives us the frequency spectrum of the output, which we can then
+convert back into our time wave form.
+OK?
+And so if we look at this, what happens is that this for all filters
+is fixed, right?
+This is just taking the Fourier series.
+This is also fixed.
+This is just the inverse of the Fourier series
+or reconstructing the signal by adding those sine waves together.
+So the only thing that really differs for different filters
+is this step inside here, which is the amplitude response.
+And you can see here what we're doing is we're
+going to pass all frequencies here, multiply all these components by 1,
+so they pass through the filter unchanged,
+and block all the frequency components, let's say, past about 48.
+And so you can see those two frequency components down
+there are blocked so they're missing, and because we've
+subtracted relatively high frequency sine waves from the signal, what
+you see is that there is a high frequency oscillation now
+in the signal, and if we counted this,
+we will see there would be about, let's say,
+52 peaks inside this oscillation here.
+Now, we can also see that the transitions here from low to high
+have also been somewhat blurred, right?
+You can see the transition here is quite fast, but here quite slow.
+And we can say, well, what happens to the signal or the output signal
+when we keep the same input but we change the cutoff frequency.
+And so when we lower the cutoff frequency, what
+we'll see is that we'll start to cut off more of these signals,
+so if we look here, these components here were present in the input.
+There's nothing changed here from the previous example,
+but what's changed is because of the cutoff frequency here,
+we're now blocking more high frequency signals.
+And so now, what you can see here is that the oscillations are much slower,
+you can see because it has mainly low frequency components or things that
+vary slowly, and you can also see that, compared
+to the previous example, if you go back here and just look
+at the change in the response to the low-to-high transition
+and the high-to-low transition, you can see that the slope is much lower.
+So we're blocking more and more of those quick changes.
+And finally, if we lower the cutoff frequency one more time so
+that we in the end pass only one component, only one frequency
+component, then what you can see is that the output
+waveform just looks like a sine wave, as you can see here.
+So then let's just take a quick look at what
+happens when we change the frequency response from going from high to low,
+you can see that the signal gets slower and slower,
+and we see only the low frequencies in the end.

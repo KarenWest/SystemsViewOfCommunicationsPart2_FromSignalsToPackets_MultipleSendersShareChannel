@@ -1,0 +1,100 @@
+The discrete Fourier transform is very closely related to the discrete Fourier
+series which we studied before.
+So just as quick review, the discrete Fourier series
+is a way of expressing any sample waveform, x of n,
+which has capital N samples, as the sum of a bunch of cosine waves.
+The frequencies of the cosine waves are all
+fixed at f_k is equal to k divided by N,
+where k runs from 1 to N divided by 2.
+So for any sample waveform, those are all the same.
+What differs from sample waveform to sample waveform
+are the scaling coefficients, A_0 and A_k,
+and the phase shift phi sub k.
+Now, to understand the relationship between the Fourier series
+and the Fourier transform, which expresses any sample
+waveform as a sum of a bunch of complex exponentials,
+let's start with what we know.
+So we know the expression for the Fourier series, which
+I saw in the previous slide, and I repeat here,
+and I'm going to combine this with the fact
+that I know that I can express the cosine as a sum of two
+complex exponentials, right?
+One complex exponential, e to the j 2 pi fk n times
+e to the j phi sub k, where phi sub k is the phase
+shift, plus its complex conjugate.
+Where, to obtain the complex conjugate, what I do is I just take the exponents
+and I just take the negative, or I flip the sign, right?
+And I add those two things together and I divide by 2.
+So I can express the cosine as the sum of the complex exponential
+plus its complex conjugate divided by 2, and I'm simply
+going to replace that into that expression
+we see on the top over there.
+And that gives me the discrete Fourier transform, right?
+So when I do that replacement, all I do is I get the A_0, as I saw before,
+and I'm going to get the sum here, but now I'm
+going to get two sums, because I have the complex exponential here
+plus its complex conjugate shown over there.
+And I also get the factor of 1/2 in each of these sums over here.
+And so, I can express this, then,  as the sum, now, from k is equal to,
+minus N divided by 2, all the way up to N divided by 2,
+where the sum from the negative indices of k
+are obtained from that second summation over there, right?
+So if I swap the sign of k from positive to negative,
+then I can swap the signs inside there, and I
+get an expression inside that sum that's exactly
+the same as the one inside here, and so I get this much simplified sum.
+And I can relate the coefficients now, of this sum
+here, x of k, which are now complex, with the coefficients inside here
+just by matching terms, right?
+And so I know, for example, for k is equal to 0,
+then, I'm just going to get x of 0 is equal to A_0, right?
+And then for non-zero values of k, what I'm going to get
+is, matching this one here with that term here,
+you can see that, for positive values of k,
+I'm just going to get this thing here.
+And then for negative values of k, I'm going
+to get the one that you can see on the other sum there.
+And so then, in summary, then, the discrete Fourier transform,
+instead of expressing any sample waveform with N samples
+as a sum of cosine waveforms, what it does is,
+it expresses it as a sum of complex exponentials, where,
+now, the magnitude, A_0, or A_k, and the phase shift, phi sub k,
+are combined into x of k, which is now a complex valued number.
+So as an example of the relationship between the Fourier
+transform and the Fourier series, let's take a look at the amplitude spectrum.
+So remember that, if we have a waveform, for example, that looks like this one
+here, we can always express it as the sum of a bunch of cosine components,
+right?
+This a particularly simple waveform here.
+It consists of a constant term here of 1,
+which is represented by this frequency component of 0, right?
+Plus two additional cosine waves, one which oscillates up and down once,
+right?
+So that's at A1 here, and that has magnitude 0.8.
+And then another one, a smaller one, with magnitude 0.4 that
+oscillates up and down 10 times, right?
+So that occurs at k is equal to 10.
+So that was the discrete Fourier series amplitude spectrum
+that we talked about before.
+Now, we can also express this as a sum of complex exponentials,
+where, if we're only interested in the amplitude, right, not in the phase,
+we get that expression that we show over there, right?
+And so, I plot that spectrum, the magnitude of x of k, over here.
+And what we can see is that, just as we saw in the previous slide,
+instead of only having positive values of k, as you can see over here,
+we have both positive and negative values of k over here.
+But there's a certain symmetry about the spectrum that you can see here.
+You can see that this central element is preserved,
+and it's preserved exactly the same.
+So the magnitude of X_0 is exactly A_0.
+Then what happens is, for every co-sinusoidal component
+that we got over here, we get two complex exponentials, as we saw,
+but now the magnitude is divided by 1/2.
+Because remember, we had the cosine was equal to the complex
+exponential plus it's complex conjugate, divided by 2.
+So the magnitude of each of those complex exponentials is divided by 2.
+And then you can see the other cosine represented by these two
+complex exponentials over here.
+So given the Fourier series spectrum, we can always go
+to the Fourier transform spectrum.
+And it turns out, we can also go vice-versa, the other way.

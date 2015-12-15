@@ -1,0 +1,115 @@
+So to understand how we can do source coding, let's go back to an idea
+that we talked about at the beginning of Part 1,
+where we introduced the idea that binary numbers can
+be interpreted as the answers to a sequence of yes/no questions.
+So if you recall, a binary number is a way of representing integers.
+In this case here, for example.
+I might represent integers from 0 to 3 using
+two binary bits where b1 is the most significant bit
+and b0 is the least significant bit.
+And each of those binary digits, then, is going to weight a power of 2,
+and I can recover the original number x just
+by adding together those powers of 2.
+For example, if I had the binary number 1 0,
+then I would recover x by just saying that's equal to 2 times 1, or 2 plus 0.
+So that's just 2.
+And so now you can see that for all of those four
+possibilities of x from 0 to 3, I can represent it
+using the binary numbers shown there.
+We can also think about the binary number,
+though, in an alternative way, which is similar to this idea of the animal
+game.
+So if I asked you to think of an animal, what you could do is think of one,
+and I would then try to figure out what animal you're thinking of by asking you
+a sequence of yes/no questions.
+So for example, my first question might be does it have four legs,
+and you can answer yes or no.
+And depending on that, I might ask you other questions
+to try to narrow down exactly what animal you're thinking about.
+So we can do the exact same thing for numbers.
+I could ask you, think of a number from 0 to 3,
+and then I'm going to try to think of yes or no
+questions to ask you to figure out what number you're thinking about.
+And one strategy is shown in the tree here.
+The top of the tree shows you the first question I'm going to ask you.
+And then depending on your answer to that first question,
+I'm going to ask you a second question, but that second question may
+be different.
+So for example, to see how this works, let's
+say you were thinking about the number 2.
+And the first question I would ask you, well, is the number
+you're thinking about x bigger than 1?
+And because it's 2, x is 2, you'd answer yes.
+And I'm going to indicate that by saying that the first bit b1 is equal to 1.
+If you had answered no, then b1 would be equal to 0.
+So you answered yes, and now I ask you a second question. Is the number you're
+thinking about bigger than 2?
+And so because 2 is not bigger than 2, you would answer no to that.
+And I would then be able to figure out, OK, the number
+that you're thinking about is 2.
+And the sequence of answers that you gave me was yes and no,
+or 1 0, which is the binary representation of 2.
+Now, we can imagine we can play this game with any other choice
+that we can think of.
+So for example, we can play it with color.
+So I might ask you, pick one of the four colors below.
+And I'm going to ask do some yes/no questions to try to figure out what
+color that you're thinking about.
+So think of one of the colors, and I'll ask you, is the color blue or yellow.
+For example, you might be thinking of green in this case,
+and so you'd answer no to that.
+And then I would know that since it's not blue or yellow,
+it must be green or red.
+And then I would ask you, well, is it green?
+And you'd say yes, and so the sequence of answers you gave me was a no and yes
+or a 0 1.
+And from that, I can identify that you're thinking about green.
+But maybe many of you didn't think about green.
+Maybe a lot of you thought about blue, maybe because it's the first one here
+or because I'm wearing a blue shirt, and the background is blue,
+and the screen is blue.
+And so if I suspect that, maybe what I should do
+is to try to solve the problem faster, change my strategy.
+So if I think that you are highly likely to,
+let's say, select blue and then maybe yellow
+because you see yellow over there and maybe not so much green or red,
+then I might choose a strategy that looks like this.
+I might right away ask you. Hey are you thinking about blue?
+And if you are, then you'll answer yes, and.
+I'll know the answer right away, and I'll only have to ask you one question.
+Now, the disadvantage of this strategy, though,
+is that if you answer no, then I have three things that I have to figure out.
+And so I can only answer you yes or no questions.
+And so in this case here, I might ask you, well,
+are you thinking about yellow?
+And you might answer yes or no.
+And then if you answer no, then I would know that it was green or red,
+and I could just ask you whether it's green or not.
+Now, what you can see here is that the number
+of questions that I have asked you here can vary depending
+on what you're thinking about here.
+But if you have a high likelihood of choosing blue or conversely
+or equivalently, a low likelihood of choosing red or green,
+then this might be a good strategy.
+So what we can see, then, is that we actually have
+two strategies for solving this game.
+And then the question is, which of these strategies
+is going to be more effective?
+And as we've seen, this is really going to depend on how often you choose blue.
+If you have a strong preference for blue,
+then you can imagine that that strategy might be better.
+If you are choosing things equally likely,
+then you can imagine this strategy might be better.
+Intuitively, we have the idea that if you have a strong preference,
+the game is easier to play.
+For example, when my daughter was young, she really liked the color orange.
+And so whenever I asked her to think of a color,
+I would immediately ask right away is it orange, and most the time,
+I would be correct, and the game would be over.
+Later on, she realized that she had to try
+to make her selections more unpredictable or more variable,
+or try to choose equally among these to try to make the game harder for me.
+And so moving forward, what we're going to be looking at
+is how can we formalize the idea that this strategy is better
+than that in what cases, and what's the connection of all
+of this to source coding.

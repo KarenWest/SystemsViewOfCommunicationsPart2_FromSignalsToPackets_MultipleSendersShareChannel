@@ -1,0 +1,201 @@
+Constellation diagrams are way of visualizing
+the performance of a digital modulation system using QPSK or, in fact,
+many other kinds of modulation systems.
+And what it does is it allows us to examine or visualize
+the effect of different phenomena that we might encounter
+in practical communication systems.
+So what is a constellation diagram?
+Well, here I show you the original QPSK system that we talked about.
+I have the in-phase and quadrature data that I've
+encoded as a modulating waveform.
+And I modulate it by the sine and cosine carrier,
+send it across, then demodulate and low-pass filter.
+And I get the signal, which looks very similar to these two here.
+And in order to recover the original digital data, what I need to do,
+remember, is subsample that at different points in time,
+and eventually I would compare with a threshold.
+But when I do the constellation diagram, or I
+construct the constellation diagram, what I do
+is I only do that sampling operation.
+So if I'm going to sample at these points in order to do my comparison,
+what I'm going to do is I'm just going to get a value at each sample
+point for I and Q. And I'm going to plot each of those values for I
+and Q on a 2D plane.
+All right?
+So for example, if I sample this point here, I might get this point here,
+let's say, a plus 1 and plus 1.
+That would correspond to this point over here.
+So I would make that plot over there.
+Then I would go to the next sample point, let's say, minus 1, minus 1.
+That would correspond to this one here.
+Then I would get plus 1, plus 1.
+So I'd get another point over here, which I would just plot
+on top of the existing point.
+Then when I get plus 1, minus 1, that would give me this point down here.
+And I would just do that looking at those samples
+where I'm going to do the bit comparisons
+and then plotting it, or overlaying, those plots.
+And so as more and more samples are collected,
+the constellation diagram eventually displays all possible symbol values
+that appear at the receiver.
+Right?
+And what the constellation diagram does, then,
+is it gives us a way of visualizing how separated different situations are.
+All of those four different dots there correspond
+to different combinations of input bits, 1's and 0's,
+at the in-phase and quadrature channels.
+Right?
+Now, in this case here, everything was very simple,
+and so we only see four dots, even though there are actually
+many, many dots that are just all overlaid on top of each other.
+And we call this thing a constellation diagram
+in reference to the constellation of stars that you see in the sky.
+In this case, you can only see four of them.
+But in a more realistic situation, you might
+see different kinds of constellations, and that will tell you
+how well your communication system is performing
+and how difficult it is to recover the original data.
+So one practical situation you might encounter is that of noise.
+And you can imagine that what noise is going to do
+is it's going to take the signal, maybe it's
+going to be introduced inside here in the channel after the modulation.
+And then after I do the demodulation, instead
+of getting that nice smooth signal that we saw on the previous slide,
+you might see this kind of variation, right?
+Even though it's supposed to be relatively constant inside here,
+there's some variation due to the noise that we saw before.
+Now, depending on where I sample, right, that red dot that I get
+is going to be moved up and down according to the noise.
+And so when I plot those dots, they're not
+going to overlap all on the same point now,
+but there's going to be some spread, right?
+So now you can see the constellation here
+has spread out from that single point out to a wider region here.
+And the size of that region is a function of how much noise
+there is in the channel.
+The more noise there is, the more spread those points or those stars
+are going to be in the constellation.
+So if the noise is big enough, you can imagine
+what's going to happen is that these points here are actually
+going to spread out so far that some of the points
+will actually cross over into the other part over here,
+and that would cause a bit error.
+And so now using the constellation diagram,
+you can visualize the effect of noise and perhaps
+anticipate whether your channel is going to have a lot of bit errors
+or not based on your examination of that.
+Now, in fact, we've already seen some other way
+of visualizing the channel output, right,
+and that was the eye diagram, right?
+And so remember what we did with the eye diagram is we said,
+well, we send in a random bitstream into the channel,
+and maybe we're going to get some output over here.
+And we're going to look at pairs of bits,
+or waveforms corresponding to pairs of bits, and overlay them.
+And so now in this case here, what I'm going to look at
+is the effect of the transmission filter, right?
+So remember that when we're doing this modulation process,
+we take this digital data.
+We create this waveform over here.
+Because of the very, very sharp transitions here,
+this waveform here is going to have a very, very wide frequency spectrum.
+And so when we translate that up by modulating
+by the carrier over here, what's going to happen
+is that that frequency spectrum is going to spread out
+into neighboring channels that are not allocated to me
+but are allocated to other people to use.
+And so that's not allowed.
+And so in order to eliminate that or reduce
+that spreading of the spectrum, what I normally do
+is add this low-pass filter here, also called the pulse-shaping filter
+or the transmit filter.
+So I call it the transmit filter here.
+And so then remember what happens with the transmit filter is
+you have to be careful because it can limit the performance of your system
+due to intersymbol interference.
+And we saw that one way of visualizing the effect of intersymbol interference
+was the eye diagram.
+So what we can do is look at these outputs
+over here, the output of the low-pass filter, and construct the eye diagram.
+In fact, because we have two waveforms, one for I and Q,
+we'll have two eye diagrams, as we can see over here, one for the I channel
+and one for the Q channel.
+But because the properties are very similar,
+the eye diagrams will look very similar after I construct them here.
+And so you remember that what we want to have for a very, very
+good communication system is a wide-open eye.
+So we can see here the wide I has this nice, wide, open shape over here.
+And the eye diagram, then, tells us also a little bit about what
+happens when we decode, right?
+So remember what happens when we decode, we
+choose to sample at different points along the waveform over here.
+That corresponds to sampling on the eye diagram at different points.
+And what we'd like to do is sample at the points which are at the points
+where the eye diagram is as wide open as possible
+because that's going to lead to the fewest bit errors as possible.
+So I would sample here, and then one more bit period over here.
+Now, when I do the constellation diagram,
+remember what I do is I don't plot that whole time trajectory.
+I only look at the value over here at the sample points here and here.
+So I'm only looking at these values over here and these values over here.
+So you can see there's a little bit of a spread.
+And so when I plot the I and the Q values simultaneously on the I/Q plane
+to create the constellation diagram, what you can see
+is that you're going to get a little bit of spread in the constellation values
+at each of those four different points in the constellation diagram.
+So there's some spread there, but it's fairly confined, right?
+You can see you're not going to get that many bit errors.
+Although there's a spread, it's still maintained within a small area,
+as you can see over here.
+So if I have a nice, wide, open eye diagram,
+right, then in the constellation diagram what I'm going to see
+is very, very tight symbol clusterings or symbol
+groupings inside the constellation.
+Now, I can further reduce the amount of spectrum
+that I'm using, right, by decreasing the bandwidth of this low-pass filter,
+by cutting out more and more high frequencies.
+But what that's going to do, it's going to introduce more and more intersymbol
+interference.
+And so we can visualize that with both the eye diagram
+and the constellation diagram.
+So here what I show you is a very similar situation.
+The only thing that I've done here is I've changed the low-pass filter
+here so that it has a slower response, right,
+so that it's not passing as many high frequencies.
+And you can see the waveform here looks much smoother than it
+did on the previous screen that we saw.
+And so now I can plot both the eye diagram and the constellation diagram.
+And what you can see here is that the eye now has closed, right?
+Now, before we had that nice, big, open eye, but now you can see
+the eye is relatively closed.
+Again, we can construct the constellation diagram
+by looking at the sample points over here and looking at these points
+here and plotting them versus the I and Q. And what you can see
+is you can see a much larger spread in the size of the constellation,
+indicating that you're getting closer and closer to introducing
+bit errors in this communication system because of the introduction of the ISI.
+So the eye diagrams show the increased ISI.
+And they also show you the sensitivity to the sample time placement, right?
+So for example, instead of sampling over here, if I had offset in the sample,
+you can see that the difference between the high values and the low values
+will be smaller.
+And you can imagine that as I change the sampling point,
+you could also construct a constellation diagram.
+And you can expect that those stars that you're seeing
+there would expand even more, right.
+If I sample, let's say, over here, you can
+imagine that you can see the constellation expanding out
+so that it actually crosses over into the other quadrants.
+So in conclusion, then, what we've seen is
+we've seen that the eye diagram and the constellation diagram
+can be used to understand or visualize the effect of different phenomena
+that occur when I'm dealing with QPSK.
+The eye diagram and the constellation diagram
+can be used in conjunction with each other.
+They each tell us slightly different things.
+The eye diagram shows us a little bit more about the actual time trajectory
+and how sensitive we are to the sample time,
+whereas the constellation diagram would show us
+more about the joint relationship between the samples
+and the I and the Q channel, whereas that's missing here because we have two
+separate eye diagrams, as you can see.

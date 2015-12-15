@@ -1,0 +1,95 @@
+If we understand continuous-time sine waves,
+the question is, what are the changes that
+happen when we move to discrete time?
+And when we move to discrete time, what we'll do
+is replace the time parameter t by the sample N.
+And so, if we consider a discrete-time cosine waveform with N samples,
+we'll have something like this equation here, cosine 2 pi f n plus phi,
+where we've replaced the f tilde by f, indicating that we're now
+dealing with a discrete-time quantity.
+We've ignored the amplitude because that's just going to scale the cosine.
+And the index here, n, is going to run from 0 to N minus 1.
+In the following, what we're going to do is
+we're going to assume that N is even.
+But if N is odd, we can do a similar analysis.
+It's just a little bit, slightly different.
+So if we only have N samples, then it turns out
+that we only need to consider about half as many frequencies,
+or N divided by 2 plus 1 frequencies.
+And those frequencies have this general form here,
+f_k equal to k divided by N, where this index here k
+is an integer that runs from 0 to N divided by 2.
+And f_k is called the "normalized" frequency.
+Now, if I substitute in the possible values of k from 0
+to N divided by 2, then what I can see is that, no matter what the value of N
+is, the normalized frequency is always going to lie between 0 and 0.5.
+And what k indicates is how many times a cosine repeats in N samples.
+Now in order to see that, what I can do is
+I can simply take the expression cosine 2 pi fkn, replace fk by k divided by n.
+And then what I can do is look at that resulting equation.
+And I notice that, if I substitute little n by big N,
+then what will happen is the cosine will repeat k times,
+because I'll go through 2 pi k radians.
+And so what that means is that the higher the value of k is,
+the more times it repeats within N samples.
+Or in other words, the higher the frequency.
+So, in order to see that more concretely,
+let's take a look at a couple of different discrete-time cosines
+with different values of k.
+So if I choose f sub 1, which is k is equal to 1,
+I get a cosine that looks like that.
+And what can see is that the cosine goes up and down only once
+in the 64 samples.
+So here I'm assuming big N is equal to 64.
+If I increase the value of k. Let's say I double it. So I look at k
+is equal to 2, then you can see that the cosine goes up and down two times.
+If I look at f_4, or k is equal to 4, it goes up and down four times.
+And f_8, it goes up and down eight times.
+And this shows you one reason why we only
+consider discrete frequencies that go all the way up to k
+is equal to N divided by 2.
+Because what happens when we do N divided by 2,
+it goes up and down N divided by 2 times.
+And so, if there's only N samples, it can really
+only go up and down that many times.
+Because in order to go up and down, it has to have at least two samples
+in order to do that.
+Now let's take a closer look at the idea of the normalized frequency.
+And if we sample a continuous-time cosine 2 pi f tilde t at frequency F_s,
+sampling frequency F_s, then since every sample occurs
+at the sample period T_s, which is the inverse of the sample frequency,
+then sample n occurs at time t is equal to n divided by F_s.
+And so, if I replace n divided by F_s for t,
+inside that cosine, over here, what I get is the nth sample
+has this form over here.
+What I can do then is, I can move the F_s from underneath the n
+to underneath the f.
+And what I can see is, if I replace this quantity here,
+by the normalized frequency f, what you
+can see is that the discrete frequency or the normalized frequency
+is equal to the continuous frequency divided by the sample frequency.
+For an example, let's take a look at a 1 Hertz continuous-time cosine sampled
+at F_s is equal to 6 Hertz.
+So here is a 1 Hertz cosine.
+And so, from time 0 up to time 2, you know that it oscillates twice.
+Now, since the sample frequency is 6 Hertz, then, within one second,
+I sample it one, two, three, four, five, six times.
+So each individual sample, then, occurs at time 0, 1/6, 2/6,
+3/6 and so on.
+So these are the sample periods, just like I showed over there.
+n divided by F_s, where Fs is 6 now.
+And so, at each of these samples, I can index it by the sample index n.
+And what you can see is that the cosine here will go up and down once
+in these six samples.
+And so here, f sub k is equal to 1/6.
+Now, the units of normalized frequency are going to be,
+then, in terms of how many cycles occur per sample.
+Right?
+So rather than Hertz, like we talk about in the continuous-time case,
+we're going to talk about cycles per sample.
+And you can obtain that by a simple dimensionality argument,
+as shown over here.
+So what you can see is that, if I have frequency, continuous-time frequency
+in cycles per second or Hertz, sampling frequency in samples per second,
+then the 1 over seconds cancels out and the normalized frequency
+is in cycles per sample.

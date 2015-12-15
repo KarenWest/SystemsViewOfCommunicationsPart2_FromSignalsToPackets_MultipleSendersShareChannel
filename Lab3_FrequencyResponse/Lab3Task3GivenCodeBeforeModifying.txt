@@ -1,0 +1,49 @@
+﻿% Exponential factor controlling step response of channel
+ach = 0.93;
+% Exponential factor controlling the equalizer. This is the
+% equalizer's estimate of the a of the channel.  Ideally, this
+% should equal ach, but in practice, there is often mismatch.
+aeq = 0.98;
+
+nsamp = 1200;
+n=0:(nsamp-1);
+
+flist = logspace(-3,-1);
+h_rx = zeros(1,length(flist));
+h_eq_rx = zeros(1,length(flist));
+h_eq_tx = zeros(1,length(flist));
+  
+for i=1:length(flist)
+    % % % % Revise the following code   % % % %  
+        
+    % normalized frequency of the signal (cycles/sample)
+    freq = 0.0001;
+    
+    % create a sinusoidal function with frequency freq and nsamp samples
+    tx_wave = cos(2*pi*freq*n);
+    
+    % send the signal through the channel
+    rx_wave = txrx(tx_wave,ach,'pureexp');
+    eq_rx = rx_wave;
+    eq_tx = rx_wave;
+
+    h_rx(i) = 1;
+    h_eq_rx(i) = 2;
+    h_eq_tx(i) = 3;
+        
+	% % % % Do not change the code below   % % % %  
+    
+end
+figure(1);
+% Divide the peak to peak amplitude of the output by 
+% the peak to peak amplitude of the input (2)
+loglog(flist,h_rx/2,'b'); 
+hold on;
+loglog(flist,h_eq_rx/2,'r'); 
+loglog(flist,h_eq_tx/2,'g'); hold off;
+grid
+legend('output','equalized output','equalized input');
+xlabel('Normalized Frequency');
+ylabel('Amplitude');
+title('Frequency responses');
+      

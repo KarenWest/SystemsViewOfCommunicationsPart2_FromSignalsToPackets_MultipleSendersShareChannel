@@ -1,0 +1,31 @@
+Hello, everyone.
+Welcome to the demo for the second lab.
+In the first lab, we have introduced source
+coding to our communications system.
+The objective of source coding is to reduce the data traffic
+through a communications system, by removing the redundancy in the source
+information.
+By far, our communications system is almost completed.
+We have performed many different types of analysis and design.
+For example, we have investigated the channel effect.
+We have built the error correct coding and also the source coding.
+All the previous analyses have been performed from one angle, that is,
+in the time domain.
+However, based on our daily life experience,
+we know that sometimes if we look at that same thing
+from different perspectives, we may have some interesting understanding.
+And those interesting understandings may be very useful for our system design.
+Now, the question is what will signals look like in another domain?
+Here, I have my voice recorded and this is the time domain representation
+of my voice.
+We can easily tell how my voice will change as time goes by.
+The question is how will this voice signal look like in another domain?
+For example, here is the frequency domain representation
+of my voice signal.
+What kind of interesting phenomenon can we observe? At least now
+I know my voice will occupy the spectrum with frequencies
+less than 3k or 4k hertz.
+In the following, I will use two Matlab programs
+to show you how to perform time frequency analysis.
+And more importantly, how such analysis will be beneficial for designing
+our communications system.

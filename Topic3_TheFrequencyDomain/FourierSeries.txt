@@ -1,0 +1,232 @@
+The Fourier Series formalizes the idea that any signal
+can be expressed as the sum of cosinusoidal waves
+at different frequencies.
+So the Fourier Series that we'll introduce is for discrete time.
+And so we'll consider any sample data waveform x of n
+with N samples, where we'll assume that N is even.
+Now the Fourier Series says that this waveform
+can be expressed as the sum of N divided by 2 plus 1 cosinusoidal waves, where
+the frequencies are given by normalized frequencies f
+sub k, where f sub k is k divided by N for k running from 0 to N divided by 2.
+And the Fourier Series expression says that x of n
+can be written as the sum of N divided by 2 cosine waves,
+plus a constant A sub 0.
+Every term in that summation is known as a frequency component.
+And it has the general form of the cosinusoidal signal,
+consisting of an amplitude determining the size, the frequency, and the phase.
+Different sample waveforms x of n will all
+share the same frequencies, f sub k, as long as they all have N samples,
+capital N samples.
+The way that they'll differ is in the values of the amplitudes, A sub
+k and the phase values phi sub k.
+So I show here the general form for the Fourier Series expansion.
+And like I said, each one of these values
+will change with different values of x of n.
+So if I have a different waveform, I'll have different values of A and phi,
+but the f's will all be the same.
+And so as review, then, the amplitude A sub k
+corresponds to the size of that particular frequency component.
+It tells us how large that cosine is inside the waveform.
+And so intuitively, you can think of the A sub k here as being the volume.
+The frequencies, like I said before, were all fixed.
+But different values of k correspond to different frequencies of signal,
+where the smaller values of k correspond to low frequencies, or slowly
+varying changes.
+And the larger values of k correspond to high frequencies,
+or quickly varying changes.
+Remember, the value of k corresponds to the number
+of times the signal goes up and down within those N samples.
+The phase parameter, for our purposes, is really not that important.
+Remember what the phase does is really just
+shift the cosinusoidal component left or right, depending on whether the phase
+shift is negative or positive.
+So let's take a look at one example of a Fourier Series expansion of a signal.
+So here I show you two different sample waveforms, two different x of n.
+And you can see they have quite different shapes.
+But it turns out that both of these things
+can be described by exactly the same equation, x of n
+is equal to the summation shown on the top over there.
+The only difference between this waveform and this waveform
+is that the values of the amplitudes are going to be different.
+For these waveforms over here, it turns out
+that all the phase parameters, phi, are equal to 0.
+If I look at the equation over there, even though there's
+N divided by 2 plus 1 terms in that equation,
+it turns out that most of those are 0.
+I can obtain that by setting most of the values of A sub k equal to 0.
+And I only have three of them being non-zero.
+And it turns out that the three frequency components that are non-zero
+are the same here and here.
+So these two waveforms consist of the same frequency components,
+but they consist of the frequency components in different amounts.
+Let's look at the first term, A₀.
+A₀ is a constant term.
+What that does is it determines an overall baseline
+around which those cosinusoidal signals, which vary around 0, vary.
+So the overall signal then, varies around this value of A₀, which is 1.
+And so because the two waveforms here have both the same value of A₀,
+they both vary around this 1 signal.
+Now, the other two terms correspond to cosinusoidal components.
+And those are at different frequencies.
+So A₁ corresponds to k is equal to 1, and that's
+a waveform, a cosinusoidal waveform, that goes up and down only once.
+Remember, k is the number of times the signal goes up and down.
+And so for the top waveform here, the amplitude
+of that signal that goes up and down once is relatively large.
+There's also another cosinusoidal signal inside that summation, given by A₂₀,
+and in that case k is equal to 20.
+That means that the sinusoidal signal corresponding to that one
+goes up and down 20 times.
+And so you can see those two components here.
+This is the signal that goes up and down once.
+And added on top of that is another signal that's going up
+and down much quicker, right, it's going up and down 20 times.
+So if counted the number of peaks here, you
+can count and see that there's 20 peaks there.
+That has a much smaller amplitude.
+So I would say that this signal here has a large low frequency component,
+and a small high frequency component.
+And mainly what you'd say is this is a kind of slowly varying signal.
+If I look at this one over here, it has exactly the same frequency components,
+just in different amounts.
+In this particular case, I have a small low frequency component,
+and a very large high frequency component.
+So if I look at this one here I can see it's
+dominated by this signal, this cosinusoidal signal that's
+going up and down 20 times.
+And that's indicated by the fact that A₂₀ is equal to 0.8,
+whereas in this case here, A₁ was equal to 0.8.
+And the cosine component that goes up and down once is relatively small.
+And what you can see there is you can see that the value here
+is much higher or a little bit higher than the value here,
+and then goes back up.
+So you can see the shift up and down here as this small variation over here.
+So you can see then, that the values of A
+determine, to a large extent, the shape or the appearance of the waveform.
+And so the variation of A with respect to k, which determines the frequency,
+is known as the amplitude spectrum.
+And so what we can do is we can show the time waveforms that we saw in the
+previous page on the top here.
+And what I've done here is I've plotted the amplitude spectrum on the bottom
+here.
+And so the amplitude spectrum plots A as a function of k.
+And so like I said, for most of the values of k that value of A is 0.
+So those terms drop out of the summation.
+And at only three values here can I see large values of A.
+This one here, when A is equal to 1 at 0, that remember
+determines the overall baseline level.
+And then here, there's one at 1 and one at 20.
+For this waveform, Time Waveform 1, the low frequency component is large
+and the high frequency component is small.
+Whereas the opposite thing is true in Time Waveform 2.
+And note that change in the amplitude spectrum then,
+tells us about how the two signals are different.
+To illustrate, let's take a look at a slightly more complex waveform, which
+is this square wave that we see here.
+The square wave is somewhat similar to the cosinusoidal waveforms,
+because it's periodic.
+But we can see it has these sharp transitions at regular time intervals.
+We can still express this as a sum of sine waves,
+and the amplitude spectrum of that decomposition
+is shown here on the right hand side.
+Now, to illustrate how this amplitude spectrum reflects the frequency
+content of this square wave, what we can do
+is look at each individual frequency component and add them in together one
+by one.
+So let's just take that first frequency component at k is equal to 2,
+and add that one in.
+That's the largest frequency component.
+And if we do that, we get this red waveform that we show here.
+So since we have a single cosinusoidal waveform,
+this looks like a regular cosine.
+It has relatively large amplitude.
+And looks somewhat close to the square wave signal that we see here,
+but there are some key differences.
+For example, it's above the waveform here and below the blue waveform
+down here.
+And you can see it's not changing quite as quickly.
+So in order to make this red waveform closer
+to the blue waveform, what we need to do is
+we need to add in more frequency components.
+And so what we'll do is we'll add in the next largest frequency component, which
+occurs at k is equal to 6.
+And when we do that, we get a waveform that looks like this.
+What you can see here is that there's a lot more bumps inside here.
+In fact, we've added six more bumps into this waveform.
+If you can count, 1, 2, 3, 4, 5, 6.
+And what those additional cosinusoidal variations have done
+is to, number one, push down the signal where it was too high,
+and push up the signal where it was too low, so we get closer to the blue line.
+And also because of the fact that the k is
+equal to 6 cosine is oscillating much faster,
+it exhibits much faster transitions.
+And we can see that the transition here, which was relatively slow,
+has now been steepened by the addition of that more high frequency
+information.
+We can get something even closer by even adding more frequency components.
+So if we add the next one, what we get is a waveform like this.
+You can see that there's more bumps consistent with the idea
+that we have a higher frequency cosine added in.
+But you can see that this waveform is much closer to this one, the blue one,
+than this one here.
+And the transition, again, is much steeper.
+And in fact, if we go ahead and add all the rest of those frequency
+components in one by one, the waveform will get closer and closer and closer
+until we exactly recover the blue waveform shown as the square wave.
+Now this example was still quite close to the cosine wave,
+because of the fact that we had a periodic waveform.
+But it turns out that we can apply this kind of analysis
+to almost any kind of waveform that we want.
+So here I show you a time waveform that doesn't look periodic at all.
+Still looks somewhat like the cosine wave, or the square wave
+that we talked about last time.
+But you can see that the oscillations become faster over time.
+If we plot the corresponding amplitude spectrum, what we see
+is an amplitude spectrum that looks like the one down here.
+You can see that there are many, many more frequency components inside here,
+reflecting the more complex nature of the waveform that we see here.
+Nonetheless, we can get some kind of information about the waveform
+that we see here by looking at the amplitude spectrum over here.
+For example, we see that this waveform has a lot of slowly varying components
+corresponding to the flat parts there.
+And what you can see in the amplitude spectrum
+is that there's still a lot of cosines here
+with relatively low frequencies that have high amplitude.
+Nonetheless, there are still a lot of frequency components
+at the higher end of this spectrum, at the frequencies, because of the fact
+that we need to account for the complexity of the waveform,
+in particular these rapid transitions that you can see here.
+So in conclusion then, the Fourier Series expansion
+is a way of expressing any time waveform as the sum of frequency components.
+And this is an example of what we call a transform.
+And you'll study many other kinds of transforms,
+if you go on in engineering.
+For example, the Fourier Transform, the Laplace Transform or the Z Transform.
+And the idea is that the transform is really just an equivalent way
+of looking at the signal.
+We can look at the signal in the time domain
+by looking at perhaps an expression that gives the value of the time waveform
+x of n at every sample value of N.
+Or we can look at it in the frequency domain, where
+we look at it as a sum of a bunch of different frequency components, cosines
+at different frequencies.
+And roughly speaking, you can think about the
+transform as being something like a translation.
+You have a story but you want to tell the story in a slightly different way.
+For example, you have something that's in a book
+and you translated that into a movie format.
+Right?
+So you're trying to tell essentially the same story.
+But you want to give people additional insight into that.
+And a transform is essentially the same thing.
+You want to have the time waveform be expressed in a different way.
+In this case here, the transform is not like the translation,
+because usually something is lost in translation.
+But with a transform there is no information lost.
+But the way you can think about it, it's the same signal, or the same story,
+just presented in a different way.
+And the reason that we do this is for two.
+One is that it gives us a different way of viewing or understanding the signal.
+And number two, it gives us a way of operating
+on signals that is somehow easier to understand or analyze
+when we take the signal and deal with it in the transform domain.

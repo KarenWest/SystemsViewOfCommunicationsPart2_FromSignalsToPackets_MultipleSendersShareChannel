@@ -1,0 +1,125 @@
+Modulation is the process by which we can
+enable users to share the same channel using frequency division multiplexing.
+So remember that in frequency division multiplexing,
+what we do is we allocate each user a separate band of frequencies.
+The problem, though, is that typically, the band of frequencies
+that we allocate them, for example in 3G it was about 2 gigahertz,
+are not the same range of frequencies of the signals that we want to transmit.
+For example, if I want to speak and transmit voice over my mobile phone,
+my voice data is typically on the range of 20 hertz
+up to about 5 or 10 kilohertz, very different than the 2 gigahertz
+that I was allocated.
+And so in order to solve this problem, what we're going to do is we're
+going to take the frequencies that we want to transmit in this range
+in, let's say, kilohertz, and translate or move them
+into the band of frequencies that we're allowed to transmit in.
+And so the process by which we can do that is called modulation.
+We're going to give a special name to the kind of signals that we want to transmit.
+We're going to call those baseband signals.
+And so the kinds of signals that we typically want to transmit
+might be digital data signals, voice, video signals.
+And so on the right-hand side, I show you on the top an example of something
+that you might get from transmitting digital data, maybe
+a sequence of ones and zeros.
+Now, if I take the Fourier transform or the Fourier series
+expansion of that to try to analyze what that
+looks like in the frequency domain, you see what I get on the bottom there.
+Now, it turns out that because of the very fast transitions
+between ones and zeros.
+That signal actually has infinite frequency content.
+It covers all frequencies.
+But the spectrum has a very nice property.
+If I look at that spectrum down there, it dies away very quickly
+as the frequencies increase.
+It looks like in this case it can be bounded by that triangular gray region
+that I show over there.
+So typically, the baseband signal will have a spectrum
+that looks something like this.
+It may extend beyond this, but that would be relatively small.
+And so I'm going to approximate that thing by saying,
+well, it has a frequency spectrum that looks
+like this that is limited within a certain frequency
+range I'm going to call the bandwidth, which I've abbreviated here by BW.
+Now, what frequency division multiplexing does
+is it takes the baseband signal and moves it up
+into a higher frequency range, for example,
+that 2 gigahertz range that I'm allowed to transmit in.
+And what you can see here schematically
+and we're going to study this in more detail,
+is that the frequency spectrum gets moved up,
+but it changes in shape a little bit.
+So it's not just shifted up there, but there are some differences.
+For example, you can see here we have this half pyramid over here,
+but we get a full pyramid over there.
+And the magnitude looks a little bit different.
+Here it's high, but there, it looks a little bit lower.
+So in order to understand, we're going to have
+to do a little bit more analysis.
+But anyways, the way that we can share the same channel
+is we can allocate different users with different messages,
+different frequencies, that they're going to shift into.
+So this user here would shift their message into a band around f_0.
+This user here would shift their message into a band around f_1.
+And if I add those together, transmit them at the same time,
+you can see they're not going to overlap in the frequency domain.
+So in order to understand this, let's look at the baseband signal
+and make some approximations.
+So here, I show you the blue signal that might be the digital data
+that we're transmitting.
+On the right-hand side, I show you the spectrum, which is relatively complex.
+But we know that we can approximate this signal fairly well by one frequency
+component.
+So I'm going to assume that our baseband signals are just
+one frequency component.
+Even though they're more than one frequency component,
+it turns out that we can take that analysis for a single frequency
+component and extend it fairly easily.
+So making that assumption, let's try to understand the process of modulation.
+What is modulation?
+Modulation is really taking a baseband signal
+and multiplying it by a sinusoidal carrier.
+And the effect of this modulation can be understood
+using fairly simple rules from trigonometry
+that we learned in high school.
+So for example, many of us have seen this.
+We may not remember them, but we've seen it.
+For example, cosine of A plus B can be expressed
+as the product of two cosines minus the product of two sines, and similarly,
+for cosine of A minus B.
+Now, what I can do is I can get something
+that tells me about the multiplication of two
+cosines, that first term over here, just by adding those two equations together.
+So if I add those two equations together, what will happen
+is the plus sign and the minus sign will cancel each other,
+and I'll get that the product of those two cosines
+is equal to the sum of another two cosines over here.
+And so when I apply this to a sinusoidal or a cosinusoidal signal,
+one in the baseband, I'm going to call with frequency f_s.
+This is typically a low frequency.
+And another in a carrier frequency, f_0, this is typically the frequency
+that I want to translate up to.
+So for example, that might be somewhere around 2 gigahertz.
+When I multiply these two things together using the equation over here,
+you can see that I get a signal here that has two cosinusoidal components.
+One of them has frequency f_0 minus f_s.
+The other one has frequency f_0 plus f_s.
+So I get a difference of frequencies and a sum of frequencies.
+Now, remember that that carrier frequency, f_0,
+that I want to translate up to is typically very high,
+and so what I'm going to get is frequencies close to f_0
+but just offset from it by a little bit, by f_s.
+Let's give you a simple example of this.
+Suppose that I have a signal here at 1 hertz, relatively low,
+and I want to modulate it by multiplying it by a cosinusoidal signal here
+at 10 hertz, much higher.
+And so when I do that multiplication, I'm
+going to get a frequency component at 10 plus 1 and 10 minus 1.
+And when I do that product, you can see what I get down on the bottom there.
+You can see the 10 hertz sine wave.
+That's the high frequency fast modulations
+you can see in the yellow signal.
+And then the low frequency signal that we're modulating,
+this 1 hertz sine wave, is the one that's shown in red.
+So when I multiply that quickly varying waveform with that slowly varying
+cosinusoidal signal in red, you can see that I get the shape that you
+can see in that example right there.

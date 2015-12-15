@@ -1,0 +1,194 @@
+In this topic we'll be talking about how to send digital information
+over wireless channels.
+And the first method we'll talk about is called Binary Phase Shift Keying.
+Critical to the idea of sending information over channels
+is the idea of modulation.
+So generally speaking modulation refers to the process
+of taking a carrier signal for example, a sine or cosine wave,
+and changing or modulating some part of it in response
+to information that we want to send.
+Up to the current time what we've been talking about
+is a situation like this where we have a modulating signal multiplying
+the cosinusoidal carrier before transmission.
+And so in this case, what we have, is we have
+what's called amplitude modulation because what the modulating signal
+m of t is doing is changing the amplitude of that cosinusoidal carrier.
+Now, when we talk about modulation we also
+often talk about analog or digital modulation.
+And this is not specific to the idea of amplitude modulation
+but what it really refers to is looking at this m of t
+signal, the modulating signal, and asking well, what kind of information
+are we trying to send?
+Are we trying to send analog information,
+for example, voice or video or sound, or something like that?
+Or are we trying to send some digital information: digital bitstreams, maybe
+digitally encoded video, or something like that.
+And so, depending on the kind of information
+we want to send through m of t, we call it analog or digital modulation.
+And this can apply to other kinds of modulation
+schemes besides the amplitude modulation that I show you here.
+In any event, what we're going to be doing is
+we're going to be talking about, in this topic, digital modulation.
+How do we send digital data?
+And the first way we'll talk about is called Binary Phase Shift Keying.
+And so, in one sense we can think about Binary Phase Shift Keying
+as being an amplitude modulation scheme where the modulating signal here
+is created by looking at the incoming bitstream, let's say 1 0 1 1
+0 1, and simply creating a waveform, m of t,
+which is constant at A if the bit is 1, and or consonant minus A
+if the bit is 0.
+And so we're going to hold that waveform constant for a certain time, t,
+which is the bit time.
+So we studied this before in Part One.
+And so all we're going to do is just going
+to take this signal here and multiply that by the cosinusoidal carrier,
+or, in this case here I use the sinusoidal carrier
+and that's fine as long as I use the sinusoidal carrier to demodulate.
+And when I do that multiplication, I get the signal that's
+shown on the other side over there.
+And what you can see in that signal over there is that for each bit time
+we're really sending two different waveforms.
+Right?
+We're taking the sinusoidal carrier and we're either multiplying it
+by plus A, in which case it looks very similar, just scaled by A, or minus A,
+in which case the waveform is flipped upside down.
+So if you look the waveform here in comparison to the waveform over here,
+you can see that it's simply flipped upside down.
+So that corresponds to multiplying by minus a.
+So in some sense we can think about then Binary Phase Shift
+Keying as being a form of amplitude modulation.
+So why we call this Binary Phase Shift Keying?
+Why do we talk about this phase?
+Well it turns out that we can also consider
+BPSK to be a form of phase modulation.
+So remember what we're doing is, if the input bit is 1, we multiply by A.
+Right?
+So we send a sine 2 pi f_0 t, right.
+If the input is 0 we multiply by minus A,
+and it turns out that if we multiply by a negative 1, what we're doing
+is just shifting the phase by pi, right?
+So if I put in sine of 2 pi f_0 t plus pi
+that's the same as minus sine of 2 pi f_0 t.
+And so now if I look at this waveform here, or this expression here,
+and compare it, the amplitude is the same.
+So the amplitude hasn't changed in response to the information
+that we're trying to send.
+What has changed is the phase.
+So we call this Phase Modulation.
+And for this particular case because we have two different symbols we're
+sending, we call this Phase Shift Keying.
+And if we visualize that phase as being, for example,
+the phase of a number in a complex plane,
+then we say that we're changing the phase of the carrier between 0, which
+is on the right hand side, and pi, which is on the left hand
+side in that diagram over here.
+So we're changing between two different phase values
+to send two different digital bits.
+Once we modulated the signal we can then transmit it and then at the receiver
+we need to figure out how to recover our original digital data.
+And so in order to take thereceived signal
+and then recover the digital data what we're going to do is we're
+going to do the demodulation process that we talked about before
+and combine that with the ideas of sampling and thresholding
+that we talked about in Part One.
+So here I show you a diagram of the BPSK receiver.
+What we have is a signal that we sent so this
+is modulated so you can see that the phase or the amplitude
+is changing in two different ways, depending
+on whether we send a 1 or a 0.
+We take that, we multiply it by a coherent carrier.
+Right, so since we modulated by a sine we need to demodulate by a sine.
+So here's a sinusoidal carrier that we're
+going to multiply these two things by in the mixing step.
+Then we have the images that we need to reject by lowpass filtering
+and once we do that we recover a waveform that
+is very similar to the original waveform that we saw before.
+Of course, because of the lowpass filtering there's going to be,
+perhaps, some blurring of the transitions and things like that.
+But in any event, we have a signal that now
+is varying between a high value and a low value
+and we're going to then subsample that every T seconds and then compare
+the value at the sample to the threshold.
+And so you can see there if we mark the sampling points by the red dots there
+and compare with the threshold in the middle,
+let's say around here, then what we're going to get is 1 0 1 1 0 1.
+So now we know the basic ideas about how we can transmit and receive
+digital data over a wireless channel using BPSK.
+Seems like it was a fairly straightforward combination
+of the ideas of modulation and demodulation
+and the sampling and thresholding arguments
+that we talked about in Part One.
+However, when we're dealing with wireless communication channels
+there's one more consideration that we need to take an account.
+That consideration is the transmission bandwidth
+that we're using when we're transmitting the signal.
+Remember that wireless communication is going
+over the air, which is shared by everybody who wants to transmit.
+And so as I discussed before, when you want to transmit something over the air
+usually you have to apply to the government
+and the government gives you a small area
+within the spectrum that you can use and you're not
+allowed to go outside that spectrum.
+So what's the problem with this kind of naive idea of BPSK
+that we talked about just now?
+Well if we look at the digital signal that we're trying to transmit here
+you can see that we have these very, very sharp transitions.
+And so remember whenever we have very, very sharp transitions what
+that implies is that the signal has a lot of high frequency content.
+So what I show you over here is the spectrum of the signal.
+And what you can see is that there is, of course,
+a lot of low frequency content corresponding with these flat regions
+here.
+It drops down over here at 1 over T, where T is the bit period,
+and then it comes back up.
+And so you can see that there are these sidelobes over here
+which are relatively high frequency.
+Now the problem is going to happen when we take this signal
+and we modulate it up using the sinusoidal carrier.
+Remember, when we do that modulation process what we're going to get is
+we're going to get two copies of the signal,
+one at f_0 and the other one at minus f_0.
+And so I show you the spectrum over there
+on the right hand side of the screen and what you can see
+is that because of the high frequency content over here
+that spectrum is spread out over the entire spectral range.
+And so usually we're given a very small, narrow range, for example,
+the range around this region over here.
+And so we're not allowed to go outside that range as we show here.
+And so, to some extent, when we send this signal,
+we're kind of encroaching into other people's territory.
+Territory that has been granted to other people to use.
+And so that's going to cause interference to them
+and they're not going to be very happy about that.
+So how can we address this problem?
+Well in order to address this problem what we need to do
+is we need to reduce the bandwidth that we're
+using before we do the modulation.
+And, of course, we've already studied a way to do that.
+The way that we can do that is using lowpass filtering.
+And so if we apply a lowpass filter here that has the right bandwidth
+then we can eliminate or significantly reduce
+these higher frequency sidelobes sitting at the higher frequencies
+as you can see over here.
+So after I apply the lowpass filter the spectrum
+might look like that, considerably more narrow.
+And so this lowpass filter is sometimes called a pulse
+shaping filter or transmit filter.
+And then when I take that orange signal that you can see there and then
+modulate it up to plus f_0 and minus f_0 by multiplying by that sinusoidal
+carrier, what you can see is that the spectrum is going to be much more
+contained within a small region around f_0.
+So I'm not going to be sneaking over or leaking over into other people's
+territory in the wireless spectrum.
+The one thing that we have to be careful about when
+we're doing this lowpass filter is you can
+see that, because we've applied this lowpass filter,
+the transitions that were getting over here have been blurred out.
+And so we saw before in Part One that that(low pass filtering) leads to something which
+is called intersymbol interference.
+So when we're applying this lowpass filter
+the good thing is we're not going to be taking over other people's
+or leaking into other people's radio spectrum.
+But we're going to be introducing intersymbol interference
+and that's going to be limiting the rate at which we can transmit information.
+And so we need to be careful when designing that lowpass filter.

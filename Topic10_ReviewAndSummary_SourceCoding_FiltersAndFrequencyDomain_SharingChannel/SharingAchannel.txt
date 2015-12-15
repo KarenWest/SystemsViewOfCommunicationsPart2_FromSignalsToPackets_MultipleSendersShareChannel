@@ -1,0 +1,221 @@
+Let's review what we've learned about sharing
+a channel in wireless communications.
+In wireless communication, when we're sharing channel
+we call that process multiplexing.
+There are many different ways we can do multiplexing.
+And in this course, we focused on the idea
+of frequency division multiplexing.
+Frequency division multiplexing is commonly
+used even for other kinds of things like CDMA,
+you can think of-- you may have heard as being Co-Division Multiple Access,
+but still that technology still uses frequency division multiplexing.
+So frequency division multiplexing is a critical component
+in any wireless communication system.
+The idea of frequency division multiplexing
+is that we have this air channel that we can transmit over.
+We're going to transmit information using radio waves.
+But we can change the frequency of the radio waves
+that we're using to transmit the information.
+And so the whole spectrum or range of frequencies that we can transmit over
+is known as the radio spectrum and that's vast.
+It turns out that it's also quite crowded,
+so even though there's a lot of room there it
+seems like, it's quite crowded.
+So here I show you the frequency allocations within the United States
+of what different bands are enabled or allowed for use for what
+different applications.
+And you can see as I go across each row here,
+I'm looking at different frequencies.
+And the color blocks show you what's been allocated.
+And pretty much everything has been allocated, so it's quite crowded.
+And so if we are granted the use of a certain region of that frequency
+spectrum to use, we can't go into other people's space, because it's so crowded.
+And so we number 1, have to make sure that we
+can get the space, and number 2, that we can use the space
+and stay with inside that space.
+One of the key problems, though, with wireless communication
+is typically the signals that we want to transmit do not exist in the frequency
+spectrum that we've been allocated.
+So for example, if we're transmitting voice data,
+that's typically in the range of a few kilohertz.
+But in CDMA or a 3G channel, we might be talking on the range of 2 gigahertz.
+And so what we need to do in wireless communication then
+is take the signals that we want to transmit,
+which are typically at a low frequency called the baseband,
+and move them up into the frequency range
+where we've been allocated where we can transmit.
+And so that process of moving the signals from baseband
+up into that region where we can transmit is known as modulation.
+And the way we do that with frequency division multiplexing is
+we take a signal m of t and multiply it by a carrier
+signal c of t, which is a cosine signal or a sine wave signal.
+Here I assume that it's a cosine signal.
+And we saw that we can analyze this in the frequency domain
+by looking at the spectrum of m of t, which
+I call M of f; the spectrum of the modulating signal-- sorry,
+the carrier signal C of t, which I'll call C of f.
+And we saw that when we do the multiplication here, what happens
+is we get a copy of the original spectrum at the two peaks over there,
+at f_0 and minus f_0.
+And so that process is shown graphically like this.
+And so the resulting spectrum at the output that I'm transmitting here
+is translated from that baseband around 0
+up to a frequency around f_0 and minus f_0.
+However, one of the disadvantages of this modulation process
+is now the amount of radio spectrum that we occupy is now twice as big.
+We can see this in the complex domain.
+If we look there, we have one region approximately this size over here.
+But now we have two regions over here.
+So when we do that modulation process, we're using twice as much space
+as we were originally using.
+And so we're going to have to have some way of dealing with that.
+So we can use this basic modulation technique to transmit digital data.
+And if we do that, we get a process which
+is called binary phase shift keying.
+We can create a modulating signal just by taking a bit sequence
+and if there's a 1, we hold it constant at plus A for a certain amount of time
+called the bit time.
+And if it's 0, we hold it constant at minus A for a certain amount of time.
+And we get this wave form m of t, which we can then multiply by the carrier
+in order to get the signal to transmit. So that will take this signal
+and translate it up into that frequency range around f 0.
+However, remember I told you that the radio frequency
+spectrum is very crowded.
+And so I'm not allowed to move over into other places,
+other regions of the space, which have been allocated for other uses.
+The problem, though, with this waveform here
+is that it has a lot of frequency components
+that are very, very high, because of the fact
+it has these very, very sharp transitions over here.
+So here I'm showing you the spectrum of the signal.
+And if I take this one and I shift it over to around f_0, what will happen
+is that those higher frequency components
+will leak or spread out into other people's frequency space
+that I'm not allowed to use.
+So in order to avoid that problem what we do is we apply a low pass filter.
+That cuts off or doesn't allow these higher frequency components
+to pass through, resulting in that orange spectrum,
+so that when I translate that up to the frequency around f_0,
+you can see that I only occupy a very narrow range around f_0.
+There is a disadvantage, though, to adding this low pass filter.
+And that can be seen if I look at the time wave form here and here.
+What we can see here is that we have these very, very sharp transitions.
+But after I pass through the low pass filter, which cuts out
+the high frequencies or the quickly varying components,
+you can see that those transitions have been blurred out
+or become much slower over here.
+And we saw in Part One that this phenomenon
+is known as intersymbol interference.
+And that can limit the rate at which we can transmit information.
+So we have to be very careful when we design that low pass filter.
+In any event, now that we know how to take the digital data
+and translate it up to that frequency spectrum
+that we're allowed to transmit in, we need to figure out
+how to bring that back down.
+And that process is called demodulation.
+Demodulation consists of two steps.
+The first one is mixing, and the second step is low pass filtering.
+In the mixing step, what we do is we take the received signal
+and multiply it by the carrier, which is the cosinusoidal carrier.
+I show you the spectrum of the received signal
+on the top and the spectrum of the carrier on the middle.
+And what happens when we multiply those two signals is
+I get a copy of the original spectrum translated up
+to f_0 and another copy translated down to minus f_0.
+And what you can see is that there's a component there at the baseband which
+constructively combines in order to get a copy of the original signal
+that we transmitted.
+However, there are two additional components up at 2f_0 and minus 2f_0.
+But the second step, the low pass filtering,
+can be used to get rid of that.
+So now that we understand the demodulation process,
+we can use that to recover the original data that we originally
+transmitted using BPSK.
+So when we did the BPSK, we took a signal
+and we modulated the carrier by that binary signal, which
+resulted in two different waveforms, one like this for a 1 and the other one
+like this for a 0.
+We can recover the original waveform by just taking this and doing
+the demodulation process, multiplying by the cosine, and then low pass
+filtering, giving that yellow waveform over there.
+Now, in order to recover the original digital data, what we have to do
+is essentially the process that we did in Part One.
+We have to look at the yellow waveform,
+subsample it at points which are shown in red,
+and then compare the value of the signal at those points to the threshold
+to recover the original digital data, in this case 101101.
+Even though we can transmit digital data using BPSK,
+we're not making the most efficient use of the spectrum, because of the fact
+that when we do the modulation process, the amount of spectrum that we're using
+doubles.
+In order to address that problem, we introduce the idea of IQ modulation,
+or In-phase Quadrature modulation.
+In this kind of architecture, what we do is we have two signals
+now, M_i and M_q, which are different.
+And I call this one here the in-phase component
+and this one the quadrature component.
+And what I do is I take these and I modulate them
+by carriers with exactly the same frequency, f_0.
+But they're displaced in phase by 90 degrees.
+And so we call those two signals being in phase quadrature.
+Now, it turns out that when I modulate this by a frequency f_0,
+I'm going to shift these two signals, which
+I assume have the same bandwidth, up into the same frequency range
+so they still occupy the frequency range that I've been allocated.
+But now I can transmit those two things together at the same time
+over that frequency range.
+And once I get to the receiver, I can recover the two components just
+by modulating by the cosine component, which
+will give me the in-phase component, and by the sine carrier, which
+will give me the quadrature component, as shown on the right-hand side.
+We can use that in-phase quadrature modulation scheme
+to transmit digital data by creating the modulating signals using
+the exact same technique that we used for binary phase shift keying.
+The resulting system that we get is called quadrature phase shift keying.
+So what we're going to do is we're going to take now two bitstreams,
+create two modulating signals by holding the waveforms constant over the bit
+time at different values depending on whether the bit is 0 or 1,
+modulate these two signals by the in-phase and quadrature carriers
+at the same frequency.
+That's going to translate them up into the same frequency range.
+Then I'm going to be able to transmit them over the channel
+to the other side, where I can recover the in-phase and quadrature
+components by modulating by the cosine signal and the sine signal.
+Noise might be introduced during that transmission process.
+In addition, I shouldn't transmit these ones,
+but I should do low pass filtering in order
+to restrict the bandwidth to avoid leaking into other people's spectrum.
+And so the waveform that I'm going to get on the other side
+is not going to be exactly the same as one that I get on this side.
+And so that has a potential of introducing bit errors.
+And so to visualize that effect, we introduce the concept
+of the constellation diagram.
+The constellation diagram for this particular situation
+is shown on the bottom here.
+And the way we constructed that was we took the received waveform
+and sampled it at the places we are going to make the bit decisions
+and plotted those measured data at the sample
+points for both in-phase and quadrature components on a two-dimensional plane.
+And by overlaying all of these plots, we get many, many different points
+or stars within our constellation.
+And the spread of the points in each region
+here gives us an idea of the effect of noise and intersymbol interference.
+And what we'd like to see is those clusters at each of those four
+different regions be as concentrated as possible,
+so that we get reliable transmission.
+In summary, we've seen that we can share the wireless communication
+channel by using the fact that there's a wide range of different frequencies
+that we can transmit over.
+Governments divide that frequency spectrum up into different regions
+and allocate that to different users or different applications.
+And given a particular region of frequency that we're allowed to use,
+we can take the signals that we have and translate them
+into those frequencies using modulation, translating them back down
+after reception using demodulation.
+And we can make sure that we can efficiently
+use the spectrum by using the technique of in-phase quadrature
+modulation that we talked about.
+And finally, we get a digital transmission system that we understand
+now, which is quadrature phase shift keying,
+which is quite comparable to a lot of the techniques that are being used
+in the state-of-the-art communication systems.

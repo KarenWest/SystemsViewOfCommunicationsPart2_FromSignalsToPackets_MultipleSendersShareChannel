@@ -1,0 +1,199 @@
+Time frequency analysis is one of the key ideas
+behind the analysis of complex signals like music and speech,
+and it's one of the key ideas underlying MP3 encoding.
+So if you recall, these are the key steps of MP3 coding,
+and time-frequency analysis really fits into this block
+here where short time frequency analysis is one of the building
+blocks of time frequency analysis.
+So to understand this a little bit more, let's take a look
+at the motivation for time frequency analysis.
+And so the idea here is that complex sounds like music or speech,
+over short time periods, they can be well described
+by the sum of a few frequency components.
+And so then, those kinds of short segments of speech and music
+are very well suited for the kind of Fourier analysis
+that we talked about before.
+But in the long term, it turns out that that kind of description, the Fourier
+analysis can be done, but it doesn't result
+in only a few important frequency components.
+And so what time frequency analysis does is
+it tries to show how the short term frequency components change
+over time as the sound changes.
+And so one very intuitive way of doing time frequency analysis
+is doing something which is called the spectrogram.
+And the spectrogram starts out with a short term frequency analysis.
+So to understand that, let's take a look at a sound waveform.
+This waveform you can see here is a plot of the amplitude
+of a waveform versus time.
+As you can see, this waveform is varying quite quickly.
+That's why it's quite solid.
+But in any event, it doesn't look like a sine wave.
+Now, if we look at short periods of that waveform,
+it turns out that that does have a fairly sinusoidal characteristic.
+And so in order to look at short periods of the waveform, what we first do is we
+divide this waveform into frames.
+And so those frames are about 20 to 50 milliseconds.
+And then what we can do is we can look at just that part of the waveform
+inside that particular frame.
+And so in this case here, we have about 35, or let's say 40
+frames in this waveform.
+We can look at frame number 5.
+And if we plot just the waveform inside there,
+we see it has a highly sinusoidal appearance.
+This is actually only the first 32 samples
+of that frame, which we're showing you here.
+But you can see it has a highly sinusoidal appearance.
+And so if we do the kind of Fourier analysis
+that we talked about before on the waveform inside that frame, what we'll
+get is something that looks like this.
+It has a single peak at a certain frequency
+corresponding to the frequency at which this waveform is going up and down
+and not that much else.
+And so you can see that for this short waveform here,
+short period of the waveform here, we can
+get a nice representation that only depends on,
+in this case, one frequency component.
+We can also look at another frame.
+Let's say we look at frame number 10 over there.
+And we can see that it also has a kind of sinusoidal appearance.
+But there are two things that are different about it.
+Number one, if I look at the magnitude of this one versus the magnitude
+of the one over there, you can see that the magnitude of the one on the right
+is much smaller.
+If I look at how quickly it's varying, you
+can also see that the one on the right hand side is varying a little bit
+slower than this one over here, suggesting
+that its frequency should be lower.
+And so if I do the Fourier analysis of the frame number 10, what I'll see
+is that it looks different than the Fourier analysis of frame number 5.
+What I can see is that the size of the peak is lower
+and the position of the peak has shifted a little bit lower
+toward lower frequencies because of the fact that it's changing slower.
+And so what we can see then is that for short periods,
+the waveform is well described by a few,
+or in this case, a single sine wave. But the amplitude and the location
+of that sine wave change over time.
+What the spectrogram is, is it's a way of visualizing
+the changes in the short term spectrum over time,
+and that will actually tell us a lot about the kind waveform
+that we're seeing.
+This image shows you the spectrogram of the time waveform
+that we just looked at on the previous slide.
+The spectrogram is an image where horizontally, I'm showing you time,
+or more specifically, what frame we're looking at.
+And vertically, we're looking at frequency.
+It's an image where the blue regions correspond to frequencies in time that
+have low energy.
+So in particular, if I look at a particular region of time
+and I notice that it's blue across this whole vertical swath here.
+I know that at that time, there's not much energy in any frequencies.
+And so that would correspond to a period of silence.
+On the other hand, if I look at a period of time
+here where I notice that there might be a red region here,
+then I know that there's a loud sound in that region.
+So you can see already from this understanding
+that we have in the waveform two parts, one
+which is a sound here followed by silence
+and then another sound over here.
+We can also understand something about the sounds
+by looking at a particular time and looking at its vertical cross section.
+That corresponds to the short term spectrum that we talked about before.
+So in particular, if we look at frame number 5 what we can see
+is that if we look across frequency here,
+we get that spectrum as shown over there where we get the large peak here
+at around 2500.
+If we then look at frame 10, what we can see
+is that we get another peak now at a lower frequency, about 2000,
+and it's also shorter.
+In this case here, it would be a little bit less intense red.
+We can also look at let's say this region over here around frame 30,
+and we can see that it has a much more complex frequency spectrum.
+It has a lot of components which are of relatively large magnitude.
+And so from this, we can kind of try to guess what this sound might be.
+It's going to be a pure tone that's going down in frequency
+and getting quieter.
+Then there'll be a silent period, and then there's
+going to be some kind of complex sound that is fairly short.
+And so let's take a listen to what that sounds like.
+[AUDIO PLAYBACK]
+[BEEPING]
+So you could hear that decaying frequency, the silent period, and then
+the sudden sound at the end, which is quite complex.
+It might be an egg crashing on the floor.
+So the spectrogram can be used to visualize
+a wide range of different kinds of signals.
+So it's particularly interesting to look at speech waveforms.
+So here I show you two spectrograms corresponding to different words.
+In this case here, we have the spectrogram of the word "she".
+And so if we listen to that.
+She.
+What you can see is that it starts out with this "shhh", right.
+Or the "shhh", that corresponds to this period over here.
+And so a relatively long "shhh", and high frequency and quite spread out.
+Then the person said "eee", and that's quite periodic.
+And so what we can see is we have this kind of large frequency
+components over here, and when the person said "eee",
+you could hear a little bit that their pitch was going down,
+and you can kind of see that with these downward curving lines over here.
+So if I look at this spectrogram and I look at that spectrogram over there,
+you can see that they're quite similar.
+So that then suggests that the two words that are being said are similar.
+Probably the latter part of the word, the second part of the word,
+is the same. So it's probably something "eee", something like that.
+But it's not "she" because it doesn't look the same here.
+It's much shorter.
+So it's a very short, something very short, followed by "eee".
+So you might guess what that might be.
+In fact, what it is is this.
+T.
+So T. "T" is the T sound.
+It's a very short sound, so you can see that
+at the beginning of that compared to this one over here,
+much longer compared to the shorter T over there.
+We can also look at other waveforms besides speech spectrograms.
+So here, I show you two spectrograms.
+One of these corresponds to a train whistle.
+The other one corresponds to bird chirps.
+And so you might look at this and you might have a guess already, right.
+For example, the one on the right hand side looks a lot more regular.
+So you might think that that would be a little bit more artificial,
+and so that might be the train whistle.
+But from this, we can already guess a little bit
+about what the sound is going to be like.
+You know that here, you're going to get 1, 2, 3, 4, 5, 6, 7, 8, eight short sounds.
+So if this really is the bird chirp, you're going to hear eight chirps.
+And then with each short chirp, you're going to hear a decaying frequency.
+So let's take a look at what that is.
+[BIRDS CHIRPING]
+So you heard the different chirps over there.
+The one over there, you can see probably only two sounds relatively extended
+over time
+and has a very strong periodic structure.
+So it's going to be like kind of more like a musical note played constantly
+for two bursts.
+[AUDIO PLAYBACK]
+[TRAIN WHISTLE]
+[END PLAYBACK]
+So what you can see from this is that the spectrogram gives you
+a lot of different kinds of information.
+And in fact, it turns out that if you have a more complex speech
+sound, for example, something like this where the person is saying
+Bayes' theorem. You can visualize the changes
+in the sound using the spectrogram.
+It turns out that for speech, if I have a word like Bayes' or theorem,
+that can be broken down into different subunits called phonemes.
+So the phonemes there would be things like "b", "ey", "z".
+So those are individual sounds, and those kinds of phonemes are reused.
+So for example, "b" in Bayes is the same as "b" in boy.
+So those kind of phonemes are reused.
+And it turns out that they have a very characteristic, the phonemes have
+a varying characteristic spectral appearance.
+So here, you can see this here, it corresponds
+to "ey". This corresponds to "ih", the "th" and a "er," right. "ey z th ih er".
+And so these things are all four different sounds,
+and you can say they all have four vastly different spectral characteristics
+that you can see within the speech waveform.
+And so it turns out that this is actually the way
+that we actually do speech recognition, by taking short periods of waveform,
+looking at the spectral content and then trying to figure out what kind
+of phonemes they correspond to.

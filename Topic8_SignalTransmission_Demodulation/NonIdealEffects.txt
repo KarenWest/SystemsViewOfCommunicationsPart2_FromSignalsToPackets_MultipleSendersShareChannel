@@ -1,0 +1,149 @@
+Let's take a look at some non-ideal effects
+that might occur in practical receivers that we actually use in our daily life.
+So remember our original analysis, our ideal analysis,
+we assume that we had a signal m of t that we
+wanted to transmit at some carrier frequency, f_0.
+So we modulate that, by multiplying by a cosine at that frequency.
+That gives us two frequency components in the complex exponential domain,
+one at f_0 and the other one at minus f_0.
+We then transmit that over the air, and other people
+could be transmitting the same time.
+But we receive a signal here, and then we recover the original signal
+through demodulation process.
+Remember that was a two-step process, where we first mix it back down
+to baseband, which is obtained by multiplying by a carrier frequency
+cosine 2pi f_0 t.
+That gives us d of t.
+But that introduces some additional frequency components
+at 2 f_0 and minus 2 f_0, which we remove with the low pass
+filter shown in orange there.
+So I show you the amplitude response of the low pass filter there,
+that essentially wipes out those two frequency
+components around 2 f_0 and minus 2 f_0,
+leaving only Y(f), which is the signal that is very similar to the modulated signal.
+It's just scaled by a magnitude of 1/2, assuming that the transmitted signal is
+received with unit gain.
+So what's the key assumption in this analysis?
+Well, the key assumption is that the cosinusoidal signal
+that we used in the modulation was exactly the same
+as the cosinusoidal signal used in the demodulation during that mixing step.
+In particular, we assume that they had exactly the same frequency,
+and they had exactly the same phase.
+It turns out that we also assume that they had exactly the same amplitude,
+but even if there's a mismatch in the amplitude, that's not
+going to affect the result that much.
+It's really just going to modulate the amplitude of the signal up and down,
+but not really mess up any of the other things, the frequency mixing
+that we've talked about before.
+So then the key question that we want to answer now
+is, what if it is not true that the frequency is exactly the same,
+and/or the phase is not exactly the same?
+So we're going to take a look at these two questions individually.
+So let's first take a look at the question, what
+happens if the modulating frequency here, that's used for sending,
+is not this same as the one that's used for demodulating.
+So here on the top, I show you the spectrum of the transmitted signal
+that comes out of the modulator.
+So I've assumed we have an original signal or an original message,
+that has a spectrum, that as a triangular shape,
+and I've modulated up by f_0 for transmission.
+Now when I transmit that signal, I'm going to receive it,
+and the receiver is going to be different than the transmitter, right?
+So for example, the transmitter might be the base station,
+but the receiver might be your mobile phone.
+And so those are two different oscillators that I'm using,
+and so those might not be exactly matched.
+So here I assume that, during the demodulation process
+I'm mixing with the frequency f_1, which is slightly different than f_0.
+Here I've assumed that f_1 is slightly bigger than f_0,
+so you can see that on the positive side,
+it's slightly shifted over to the right there.
+So what happens when I demodulate with this signal that I show over here?
+Well, I'm going to get again a copy of this spectrum here,
+but now shifted over to f_1.
+So if I plot that one here, you can see that I'm
+going to get the sum and difference components here,
+f_0 plus f_1, and f_1 minus f_0.
+And now because f_1 and f_0 are not the same, this is no longer sitting exactly
+around 0, right?
+You can see it's slightly off_set.
+When I multiply the complex exponential at minus f_1,
+I get a similar shift, but in the opposite direction,
+as shown in yellow over here.
+And so now, you can see I get a slight shift down here in baseband
+to the left hand direction over here.
+And so these things don't exactly line up together.
+Of course they're still going to add, right?
+But when I add those two things together,
+you can see that what I'm going to get is not this original triangular
+spectrum that I had, but something that's
+slightly distorted or corrupted, right?
+So the baseband signal is now corrupted,
+because of the fact that this frequency here, that was used in the modulator,
+is not the same one that's used in the demodulator.
+OK, so you could see that summation there,
+as orange is no longer triangular.
+So, that means that any small deviation between the modulator
+and the demodulator is going to introduce some kind of corruption
+degradation of the signal.
+So we need to really make sure that those two things are matched,
+and so a lot of the work, especially in the circuit design,
+is really to make sure that those two things are matched.
+What about a shift in phase?
+So here I show you the modulated signal spectrum again, right?
+And now what I'm going to do is, I'm going to assume that when we go and we
+demodulate the signal, as shown on the bottom diagram on the right hand side,
+we're going to not demodulate with a cosine signal,
+we're going modulate with a sine signal, with exactly the same frequency f_0,
+but a sine wave.
+And so, remember that a cosine and a sine
+are shifted in phase by 90 degrees.
+They have pretty much the same shape, it's
+just shifted in phase by 90 degrees.
+If I look at this in the complex exponential domain,
+we saw before that the sine can be expressed
+as the difference between two frequency components, one at e
+to the j 2pi f_0 times t, right?
+Which is this one over here.
+And this one over here.
+So when I take the difference, I have a positive frequency component
+and a negative frequency component.
+I also have to divide by j, because what's going to happen
+is I'm going to get a complex number when I take that difference,
+and I have to make that thing real by dividing by j.
+In any event, I can do the same kind of pictorial analysis that I did before.
+When I multiply by the green frequency component, what I'm going to get
+is a shift over of that triangular pair of spectra over to be centered around f_0.
+And now because f_0 is matched in the modulator and the demodulator,
+I get the peak here exactly centered at 0,
+so there's no frequency mismatch here.
+But now when I've multiplied by the negative frequency component over here,
+what I'm going to get is a shift over to minus f_0, but also a change in sign,
+right?
+So I'm going to get this thing flipping over like this.
+And when I add these two things together,
+you can see that they're going to exactly cancel.
+So what that means then is the baseband signal will actually disappear.
+So the effect of a phase shift is quite catastrophic. If I don't exactly
+match the phase, if I have a 90 degree phase shift, then instead of getting,
+let's say, the original signal multiplied by 1/2,
+I actually get nothing.
+And so, this means that it's very important
+that we have what's called coherent modulation and demodulation.
+So we've just seen that when the transmitter and receiver
+local oscillators are 90 degrees off_set in phase,
+the demodulated signal destructively adds at baseband,
+and suddenly we receive no signal.
+And remember, a phase shift is really just a time off_set, right?
+So the phase actually of the signal, the phase difference
+between the transmitter and receiver, actually can be changing quite rapidly.
+So we need to synchronize the local phase
+oscillators creating the carrier cosines at the transmitter and the receiver.
+So the phases must be the same at the transmitter and the receiver.
+So they either have to both be cosines or both be sines.
+And so this is known as coherent modulation and demodulation.
+But it turns out that even though this can
+be quite bad, I could lose the signal.
+It turns out that we can actually play around with this
+and actually use something which is called IQ or in-phase quadrature
+modulation to actually double the transmission capability of our channel.

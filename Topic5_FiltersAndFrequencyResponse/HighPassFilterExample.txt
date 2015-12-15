@@ -1,0 +1,76 @@
+Let's take a look at the relationship between the input
+and the output of a high pass filter.
+So as we recall, we have different types of filters
+that differ depending upon their amplitude response.
+And we'll be looking at the high pass filter whose amplitude
+response is shown on the bottom there.
+And the idea of a high pass filter is that it's
+going to pass all frequencies above a certain cutoff frequency f_co
+and block everything below that.
+And in the audio domain, this would correspond
+to emphasizing the treble components of the music.
+So remember that when we look at the relationship between the input
+and the output of the filter, in order to predict that,
+we go through several steps.
+We take the Fourier series first to find the amplitude spectrum
+of the original signal.
+Then we multiply that amplitude spectrum by the frequency response
+of the filter, that corresponds to scaling and shifting those cosines.
+And then we obtain the resulting amplitude spectrum,
+which is the amplitude spectrum of the output,
+and then we can then reconstruct the output
+by summing those components together.
+And remember that this part and this part is the same for all filters.
+So the only difference is the relationship
+between this point and this point here, which
+is affected by the shape of the frequency response
+that we can see over here.
+And so for this one here, the high pass filter
+is blocking all of these low frequency components up to k is equal to 48,
+and so that's because the amplitude response is 0.
+And so the only thing that passes is the frequency components
+where the amplitude response is 1, and those are shown over there.
+So we only have these two very, very high frequency components
+that are in the resulting output.
+And so you can see that the output is here oscillating very quickly
+corresponding to those two frequency components around 52
+and 60 oscillations over the entire waveform of 256 samples.
+And what we can see is that these kinds of very slowly varying
+components, these long and flat parts at minus 1 and plus 1
+have completely disappeared.
+So now the signal is just sitting here oscillating purely around 0,
+but we can see these transitions from low to high and high to low
+in the output.
+So you can see there is a transition from low to high and high to low.
+So those are preserved.
+So the slowly varying components are removed by the high pass filter,
+but the quickly varying components are passed through.
+And then we can look at what happens when we take that cut off frequency
+and lower it down.
+And when we lower it down, what happens is
+that we start to add in more of these lower frequencies
+that start passing through the filter.
+And we can see that the output changes.
+And if we compare the output here with the previous filter’s output,
+with the higher cutoff frequency, we can see that the changes are much slower.
+And we can see that actually these kind of slower varying components, here
+the flat part here, and the flat part here, are starting to pass through.
+You can see here in the original one, it just made this quick transition
+and then went back, right back down to 0 almost right away.
+But now you can see after the quick transition,
+it stays high for a longer time before settling back down around 0.
+We can further lower the cutoff frequency.
+And when we do that, all the way down to here, what we have is
+the output contains all the frequency components of the original input,
+except for this single low frequency component down here at around 4.
+And so that means that this single frequency component is going
+to oscillate up and down four times.
+And we can see that actually that component is missing here.
+So you can imagine that if we took a cosinusoidal signal
+signal of the right phase and added it to this one here.
+So if we had an oscillation like this and added on to that,
+that cosinusoidal oscillation would cancel out this portion over here
+and flatten out the signal so we would get the original signal.
+In other words, by it removing this low frequency component
+by the high pass filter, we've got this transition back toward 0.
+Although, we still have these rapid transitions as we can see here.

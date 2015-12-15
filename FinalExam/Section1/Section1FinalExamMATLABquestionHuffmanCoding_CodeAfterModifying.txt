@@ -1,0 +1,99 @@
+% read the text file (1 byte for each character)
+fid = fopen('G4jHRdGpVaY.txt');
+text_code = fread(fid,inf,'uchar');
+fclose(fid);
+
+% % % % Revise the following code % % % %
+% run-length encode
+%run_length_code = runlength_encode(text_code);
+% convert the binary array into an decimal array of runs
+%runs = bin2decArray(run_length_code);
+%disp(run_length_code);
+%disp(runs);
+% huffman code        
+% compute the probability of the run lengths .
+%rlen_list = [1 25 50 75 100 125 150 175 200 225 255];
+%rlen_list_numValues = [0 0 0 0 0 0 0 0 0 0 0];
+runs = [];
+len_runs = length(text_code);
+rlen_list = [1:125];
+
+runlenListLen = length(rlen_list);
+disp(len_runs);
+%disp(rlen_list);
+%disp(runlenListLen);
+[binCounts] = histc(text_code, rlen_list);
+%disp(binCounts);
+lenBinCounts = length(binCounts);
+disp(lenBinCounts);
+prob = [];
+nonZeroProb = [];
+indicesForProbs = [];
+countNonZeroProbs = 1;
+for i = 1:lenBinCounts
+    prob(i) = binCounts(i)/len_runs;
+    if (prob(i) > 0.0)
+        %disp(prob(i));
+        nonZeroProb(countNonZeroProbs) = prob(i);
+        indicesForProbs(countNonZeroProbs) = i;
+        countNonZeroProbs = countNonZeroProbs + 1;
+    end
+end
+%sortNonZeroProbs = sort(nonZeroProb,'descend');
+disp(nonZeroProb);
+disp(indicesForProbs);
+figure
+bar(rlen_list,binCounts,'histc')
+%listOfNumsThoughtOutOfRange = [];
+%for textCodeIndex = 1:len_runs,
+%    histBinNum = 1;
+%    while (histBinNum <= runlenListLen)
+%        if (histBinNum == 1)
+%            lowRange = 0;
+%            highRange = rlen_list(histBinNum);        
+%        elseif (histBinNum ~= runlenListLen) 
+%            lowRange = rlen_list(histBinNum);
+%            highRange = rlen_list(histBinNum + 1);
+%        elseif (histBinNum == runlenListLen)
+%            lowRange = rlen_list(histBinNum);
+%            highRange = rlen_list(histBinNum) + 1;
+%        end
+%        binCounts = histc(text_code(textCodeIndex)
+        %if ((text_code(textCodeIndex) >= lowRange) & (text_code(textCodeIndex) < highRange)) 
+        %    rlen_list_numValues(histBinNum) = rlen_list_numValues(histBinNum) + 1;
+        %end
+%        histBinNum = histBinNum + 1;
+%    end
+%end    
+%disp(rlen_list);
+%disp(rlen_list_numValues);
+%disp(binCounts);
+%figure(1);
+%hist = histogram(binCounts,rlen_list,'Normalization','probability','Visible','off');
+% show the probability
+%prob = hist.Values
+%disp(prob);
+%show the probability using the function bar
+%figure(1); 
+%bar(prob,rlen_list); 
+%xlabel('text code num bins'); 
+%ylabel('Probability');
+%set(gca,'XTickLabel',{'1','25','50','75','100','125','150','175','200','225','>225'});
+%title('Histogram of the text code numbers to see the most common numbers');
+%count = 1;
+%for i = 81:121,
+    %dict{count} = [dec2bin(text_code(i))];
+    %dict{count} = [double(num2str(text_code(i)))];
+    %count = count + 1;
+%end
+%dict{count} = [0];
+%for i = 1:length(dict),
+%    disp(dict{i});
+%end
+%dict={text_code(81:121),[0]};
+%trycode = [81:121];
+%disp(trycode);
+dict = {[101],[11110],[1101],[10001],[11100],[11101],[11111],[11000],[11001],[1001],[10000],[0]};
+code=[text_code(32),text_code(97),text_code(101),text_code(104),text_code(105),text_code(110),text_code(111), text_code(114), text_code(115),text_code(116), text_code(108)];
+
+% % % % Do not change the code below % % % %

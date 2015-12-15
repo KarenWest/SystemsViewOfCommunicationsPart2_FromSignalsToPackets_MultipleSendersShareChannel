@@ -1,0 +1,57 @@
+% load a speech signal
+[x,Fs] = audioread('test.wav');
+
+% define the frame length
+frame_length = 256; 
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+%% function get_frame_power: compute power of each frame
+
+% calculate the total number of full frames of length frame_length
+num_frames = fix(length(x)/frame_length); 
+
+% % % % Revise the following code  % % % %  
+num = num_frames * frame_length;
+y_framed = [];
+lowIndex = 1;
+for frameNum = 1:num_frames,
+    highIndex = frame_length * frameNum;
+    addY = x(lowIndex:highIndex);
+    y_framed = [y_framed addY];
+    lowIndex = highIndex + 1;
+end
+
+%power of a signal is the sum of squares of its samples divided by the signal length
+frame_power = [];
+%disp(y_framed);
+for frameNum = 1:num_frames,
+    value = y_framed(frameNum);
+    sqrYFrame = value.^2;
+    sumSqrYFrame = sum(sqrYFrame);
+    frameNumPower = sumSqrYFrame / frame_length;
+    frame_power = [frame_power frameNumPower];
+end
+
+%frame_power = zeros(1,num_frames);
+% % % % Do not change the code below % % % % 
+
+% get frame with maximum power 
+[mxpow,fnum] = max(frame_power);              
+frame = y_framed(:,fnum);
+
+% generate plots
+figure(1);
+plot_speech_power(x,frame_power,frame_length);
+
+% plot the frame fnum
+figure(2);
+plot(0:(frame_length-1),frame);
+ax = axis;
+axis([0 frame_length-1 ax(3:4)]);
+grid
+title(['Frame ' num2str(fnum) ' waveform']);
+
+% put Figure 1 on top on edX
+figure(1);
+
+      

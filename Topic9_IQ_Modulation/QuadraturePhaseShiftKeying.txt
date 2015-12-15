@@ -1,0 +1,95 @@
+In this video we're going to talk about Quadrature Phase Shift Keying, which
+is a way of transmitting digital data while making more efficient use
+of the spectrum than we saw with BPSK.
+And essentially, the idea is to combine the ideas of BPSK
+with the I/Q modulation that we just talked
+about to get digital I/Q modulation.
+So here I show you, in the center here, I show you the I/Q modulation
+that we just talked about, and what I'm going
+to do is simply send two signals, m_i and m_q, which
+are encodings of digital data.
+For example, here it might be 1, 0, 1, 1, 1, and so on.
+And I'm going to do that by taking each one bit
+and holding the signal constant plus A for a certain amount of time, the bit
+time, and each 0 bit, and holding the signal constant at minus A for the bit
+time.
+And then creating that waveform like we did in Part One,
+modulating it by either the cosine or the sine,
+depending on whether I'm looking at the in-phase or quadrature component,
+then transmitting those two things at the same time.
+In other words, adding them together and transmitting them over,
+and I can just do the demodulation.
+And the only thing I've done here is I've
+added to the output of low pass filter, where
+I'm going to recover the original signal back,
+I need to get the original bitstream back,
+so I'm just going to subsample at the points here shown in red.
+And when I do that subsampling, I'm going
+to compare each of the sample points with the threshold here,
+let's say in the middle, and I'm going to get 1, 0, 1, 1, 1, and so on.
+So this digital modulation scheme, then, is a fairly straightforward combination
+of the ideas of BPSK with in-phase quadrature modulation.
+And so we call this quadrature phase shift keying.
+And the question you might ask is well, why
+do you call this quadrature phase shift keying,
+because it seems like what you're really doing is amplitude modulation, right?
+You take the signal here, you multiply it by the cosinusoidal carrier,
+and so you're just changing the amplitude of that cosinusoidal carrier.
+So to answer that question, what we're going to do
+is we're going to look at the four different signals we might
+send within a particular bit period.
+So remember, the modulating signals hold the amplitude constant for one bit
+period.
+And so if we look within that bit period,
+and we look at what's being transmitted, we're going to, remember,
+modulate the signal, we call the modulated signal x,
+and we're going to combine the in phase and quadrature
+components by summing them and transmitting them at the same time
+here.
+So there are different possible combinations
+because in-phase and the quadrature components
+can either have a bit value of 1 or 0, right?
+So there's four possible combinations.
+And in each of those four possible combinations,
+I'm going to send a different waveform during that bit time.
+So for example, if I look at the case here when the in-phase bit is 0
+and the quadrature bit is 0, remember I'm
+going to multiply the carrier in that case by minus A. In this case
+I assume A is equal to 1.
+So I just get minus cosine 2 pi f_0 t, and minus sine 2 pi f_0 t.
+And so what I'm doing here is I'm adding a cosine
+and assign that have exactly the same frequency.
+And so turns out that what I get with that summation
+is exactly just a cosine with exactly the frequency f_0,
+but there's a phase shift and a change in the amplitude.
+And that's shown over here on this side over here.
+Because I've combined these two things together, (They each have amplitude 1.),
+and I combine them.
+They're kind of orthogonal, or 90 degrees, with respect to each other.
+When I take that total amplitude, I'm going to get square root of 2.
+And then to see the phase shift, you can look at this
+and imagine I'm talking about the complex plane
+where the cosine corresponds to the real part,
+the sine corresponds to the imaginary part, and so here, I get minus 1,
+minus 1.
+And so if I look at the phase of this one here, relative the origin,
+you can see that I go through a negative phase shift of minus 3 pi over 4.
+And so for all the other combinations, I get very similar analysis.
+For example, let's look at this one here, 1, 0.
+In this case here, I modulate the cosine by plus 1, the sine by minus 1,
+that corresponds to this place over here.
+And now you can look at this and you can see the phase shift here
+is minus pi over 4, as shown over here.
+So you can go through all of the other combinations in a similar way,
+and what you can notice here is that I'm sending
+for each of these four different combinations
+a cosine signal that has the same amplitude.
+And so if I examine it in this way, the amplitude is not changing.
+The only thing that's changing is the phase.
+And you can see, for those four different signals,
+there are four different values of the phase,
+and they are all equally spaced, right?
+So I go around 1/4 of a turn each time from one phase value to the other,
+and so that's why I call this quadrature phase shift keying, because I've
+taken the entire phase space, 360 degrees,
+and broken it into four different values.

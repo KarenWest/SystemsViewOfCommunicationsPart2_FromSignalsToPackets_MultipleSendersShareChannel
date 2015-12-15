@@ -1,0 +1,124 @@
+Masking is one of the key perceptual phenomena
+that MP3 encoding uses in order to determine what kind of information
+it can throw away without you noticing it.
+So if you recall, the key steps in MP3 encoding are shown here.
+We take our original input, we break it up into short time segments,
+and for each time segment or frame, we do a frequency analysis.
+And we pass the results of the frequency analysis
+into the Psycho Acoustic Model.
+And so this is where the effect of masking is taken into account.
+So the Psycho Acoustic Model is a model of the way humans perceive sound.
+So to understand what's included in the Psycho Acoustic Model,
+we have to understand the idea of the auditory threshold.
+So the auditory threshold looks at the perception of pure tones.
+So if I just hear a single tone in the absence of anything else,
+the question the auditory threshold answers is,
+how loud does that sound have to be in order for you to hear it?
+So the auditory threshold is plotted in yellow, shown over here.
+And what you can see is that for different frequencies,
+the auditory threshold is different.
+So for frequencies over here, let's say around 1000,
+it turns out that the sound which is plotted across this axis
+here, where this corresponds to loud sounds and this corresponds to quiet
+sounds. The sound doesn't have to be that loud before you can hear it,
+before it crosses above the auditory threshold.
+If the sound is below that point, you can't hear it.
+On the other hand, if I look at low frequencies,
+it turns out that we are much less sensitive to low frequencies.
+In other words, that low frequency sound has
+to be much louder before it crosses above the threshold in order for me
+to hear it.
+And so if I know this, then my MP3 encoder can say,
+well, I've done a frequency analysis.
+I know what the frequency content of the signal
+is. I know how loud the signals are.
+And in this case, if the sound is relatively quiet, maybe what I can do
+is I can throw it away because even if I included it
+in the reconstructed waveform at the output of the decompression stage,
+you wouldn't be other hear it anyways.
+Of course, throwing something away is a very severe kind of thing.
+So we're not going to do that.
+But the general idea is still about the same.
+We're going to throw away something about those frequency components
+that are, in this region here, relatively low frequency.
+Now, masking is another phenomena that allows
+us to further determine what kind of frequency information we need to keep.
+And the idea of masking is that, for the original auditory threshold,
+we are just looking at pure tones.
+But now masking tells us about the interaction
+between two different tones.
+And so the idea of masking is suppose I have a more complex waveform,
+but there's one tone inside there which is relatively dominant.
+So for example, if I'm looking at music signals,
+then you know the pitch of the musical instrument
+is going to be a relatively dominant sound inside there.
+And so what that dominant tone does is it masks nearby tones.
+Right?
+It makes nearby tones harder to hear.
+And the way we can express that is by talking about the original pure tone
+threshold, in yellow here, being raised up to this masking
+threshold by the dominant tone.
+So as the dominant tone becomes louder, what happens is it
+pulls the threshold up as shown in this green line here.
+And now what that means is that if I originally had a tone,
+let's say that was at this location here,
+that I could hear if it was by itself. If I
+have this dominant tone next to it, the dominant tone raises the threshold up
+to this point here.
+So I can't hear this tone anymore.
+So something that was originally perceptible
+is now no longer perceptible because of the presence of that dominant tone.
+And so if I know that that's not perceptible,
+then perhaps I can throw away some information about the tones that
+would be, let's say, inside this region over here.
+While keeping, of course, the dominant tone
+which would be the most important component.
+Now, this might be surprising to you, and it's really
+an effect due to some kind of nonlinear interaction between tones.
+Let's try to take a look at that and see if we can actually
+hear the effects of masking.
+What I show you here is the spectrum of a sound
+that has three frequency components.
+It has one large frequency component here
+at f_a, which is about 300 Hertz and two smaller frequency
+components at f_b and f_c.
+Now, suppose I wanted to try to compress this sound
+by throwing away a frequency component.
+Obviously I wouldn't want to throw away this big one over here,
+because it's the most important one.
+So I would have the choice of throwing away either of these two frequency
+components over there.
+What I want in the end is that, whichever one I throw away,
+the sound that I get is going to be as close to this sound as possible.
+So let's first take a listen to this one sound here.
+And then we can think about well, would I
+want to copy the sound, or approximate that sound by this sound here,
+or this sound here?
+In this sound here, I've said, well f_c here
+has a smaller magnitude than f_b, 0.15 versus 0.2,
+so that one's going to be less important.
+So I'm going to throw that one away.
+In this one down here what I've said is that, well, I
+know because I have a masking threshold here.
+It’s going to… The presence of this tone
+here at f_a is going to make f_b a little bit less perceptible.
+So maybe I can throw f_b away.
+So let's listen to these two sounds and see which one of these
+is closer to this one here.
+In order to do that comparison what I'm going to do is I'm
+going to first play Sound 1 followed by Sound 2.
+Now, I'm going to play Sound 1 followed by Sound 3.
+Let's take a listen to that again.
+So I think, or hope, most of you agree this sound is perceptually more
+similar to this sound over here.
+And so that dramatically shows you the effect of masking,
+that something that, from a pure magnitude perspective,
+I might think this is more important.
+But in fact f_c is more important.
+So in summary then, the idea of masking is that if I have a loud dominant tone,
+then frequencies near that dominant tone are less perceptible,
+because the dominant tone raises the threshold
+through… the threshold for hearing through a process called masking.
+And so if I can do a frequency analysis and identify these dominant tones,
+then I know that for frequencies around that dominant tone,
+maybe I can throw away more information about those tones.

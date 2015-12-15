@@ -1,0 +1,347 @@
+In this video, we're going to be examining
+how we can make more efficient use of the wireless spectrum
+that we've been allocated.
+The technique that we're going to use to do this
+is called I/Q or in-phase quadrature modulation.
+To understand the problem that we're going to address,
+let's look at the amplitude modulation scenario that we've been examining.
+So remember, we take a message, and here I
+show you the frequency spectrum of that message.
+We're going to modulate it by a sinusoid or cosinusoidal carrier,
+and that's going to shift the spectrum up
+to the range around the carrier frequency f_0.
+Now, if we look at the positive frequencies which
+the spectrum occupies, we can see here that it occupies a range of BW
+over here, but when we modulate it up to around f_0,
+we get twice the bandwidth, right?
+We get twice the region of spectrum that is,
+or twice the width of spectrum, that is being occupied by the signal.
+And remember that occurs because of the fact
+that when we do the modulation using complex exponentials,
+we also have to consider the negative frequencies that
+get shifted up into positive frequencies by that modulation process.
+And so this is inefficient use of the bandwidth
+that we've been given because what we're transmitting
+is a signal that only requires this much bandwidth,
+or this much space in the spectrum, but now we're
+using twice as much space in the spectrum to transmit it.
+And so the question is, how can we better use
+the space that we've been given?
+We're only using about half of what we've been given.
+And so the technique that we're going to study to do this
+is called I/Q modulation, or in-phase quadrature modulation.
+And so for in-phase quadrature modulation, what we're going to do
+is we're going to actually transmit two signals.
+I'm going to call those m_i and m_q, right, for in-phase and quadrature.
+And we're going to transmit those two signals using the same carrier
+frequency but with two different phases.
+So let's assume first that the two signals that we want to transmit
+have the same bandwidth BW.
+We're going to take the first one, m_i, and modulate it
+by a cosine carrier with frequency f_0, right,
+and we're going to call this the in-phase component, which we sometimes
+denote by I. We're going to take the other one
+and modulate it by a sine wave carrier with exactly the same frequency.
+Now, why do we call this in-phase quadrature modulation?
+It's because of the fact that the sine wave has a phase shift
+of 90 degrees relative to the cosine.
+And if we look at entire range of possible phase shifts,
+it goes from 0 to 360, one period.
+And so 90 is 1/4, right?
+So 1/4, and so we talk about those two signals as being in quadrature,
+where "quad" refers to 4 or 1/4.
+So in this case here, what's going to happen
+is that when I modulate up by the sine or the cosine up to around f_0,
+I'm still going to get that doubling of bandwidth, right?
+So it's still going to occupy 2 times BW.
+But what's going to happen is I'm going to be
+able to transmit those two signals at exactly
+the same time over the same bandwidth and recover them
+without the two signals interfering, even though they overlap in frequency.
+And so this, then, allows us to make more efficient use of the bandwith
+that we've been allocated.
+To understand this, we need to take a slightly more nuanced view
+of the modulation process that we've been talking about.
+So here I show you the spectra of the three signals
+that we look at when we're talking about modulation.
+We talk about the signal that we're transmitting,
+m_i, the cosinusoidal or the sinusoidal carrier,
+which I'm going to abbreviate here by either C or S on the other side.
+And then finally, the modulated signal, or the product of these two
+signals over here.
+And I show you the frequency spectrum over here.
+And remember, when we're dealing with complex exponentials, those weighting
+factors that determine the frequency spectrum, the weighting factors of each
+of the complex exponentials in the sum, is itself a complex number.
+So we can look at, then, the real part of that complex number
+and the imaginary part of that complex number, right?
+So when I show you the spectrum here, I'll
+show you two spectra, one corresponding to the real part of the coefficient
+and the other one to the imaginary part of the Fourier coefficient.
+And I can do that for all of these signals that I show you here.
+So now let's just focus on this one here,
+modulation by the cosinusoidal carrier.
+And so I'm going to assume that the spectrum of the signal that we
+want to send is purely real.
+That's not necessary.
+It just makes the analysis a little bit easier.
+So when I take the cosinusoidal carrier and I look at its Fourier spectrum,
+I know that those two coefficients are purely real, right?
+When I look at the cosine alone-- remember
+those had magnitude 1/2 here to make the diagrams a little bit easier-- I'm
+going to multiply that cosinusoidal carrier by 2, right,
+so that the magnitude of these two coefficients are 1.
+But they're purely real, and so there's no imaginary component over there.
+And so when I do the modulation, it’s exactly what we saw before.
+I'm going to get a copy of the spectrum over at f_0 and another one
+over at minus f_0.
+Now, when I modulate by the sine, I'm going
+to assume that I have the quadrature component, right?
+It occupies the same bandwidth.
+So you can look at this one here and the one over there,
+and you can see they have exactly the same width.
+I show them with a different shape just to show that they're different signals.
+Now I'm going to modulate by a sine wave.
+And remember, the sine wave has exactly the same frequency,
+but because of that 90-degree phase shift what happens
+is that those coefficients are imaginary, right?
+Remember, I have to take the difference of the two complex exponentials at f_0
+and then divide by j, right?
+So when I divide by j, that makes those coefficients imaginary.
+And so the spectrum, then, looks like that.
+There's one at plus j at minus f_0 and another one
+with the magnitude minus j at f_0.
+And so what's going to happen, then, is I'm going to do the modulation process.
+And so when I multiply that real value spectrum on the top
+by the signal with imaginary spectrum that
+has only imaginary components in the middle, what I'm going to get
+is a shift over in the product to the imaginary side,
+as you can see over here.
+And I'm going to also modulate or multiply by plus 1 and minus 1,
+depending on the sign of these two arrows.
+So we can also study the demodulation process that occurs at the receiver,
+right?
+So remember the first part of that demodulation process is the mixing.
+So here are the two signals that I just generated by modulation.
+I'm going to show you the real part and the imaginary part.
+Now this is the carrier signal that I'm going
+to use in the mixing for the demodulation
+to shift part of the signal back down to the baseband,
+and this will be the mixed signal here.
+So we should expect to see a component down here at the baseband.
+And so when I do this one here, this is very similar to the kind of things
+that we looked at before.
+I'm going to get a copy over here at f_0 and minus f_0.
+There's going to be an overlap at the origin here in the baseband.
+And so I'm going to get the original signal here
+that I transmitted if I do the low-pass filtering step.
+When we do the analysis for the quadrature component, which
+was modulated by the sine wave, we're going to get something very similar
+with just a slight change.
+So let's take a look at that.
+That's what's shown on the right-hand side of the screen over here.
+On the top, again, I show you the original modulated signal
+that we want to demodulate down to the baseband.
+And what I show you in the middle is going
+to be the spectrum of the sinusoidal carrier
+that we're using for the mixing process.
+And so because the spectra there are purely imaginary,
+when I do the multiplication I'm going to get imaginary times imaginary, or j
+times j.
+And that's going to give me a real number, right-- j times j is minus 1--
+but a change in sign.
+And so what you're to see, then, when I do the modulation is I'm still
+going to get that shift over to plus f_0 and minus f_0,
+but the spectrum's going to shift over to the real side,
+and there's also going to be a flip in sign.
+So if we consider modulating by the component at plus f_0,
+you can see that has a negative amplitude, right?
+It's minus j.
+And so you might expect to see a flip in the orientation of these two peaks
+here.
+So you might expect this one to flip down and this one to flip up.
+But because I'm going to shift over to the real part
+and I get that change in sign, that's not going to happen.
+So you're going to see the spectrum just comes over to the real part
+but has the same kind of orientation as we had originally.
+When I do the modulation by the component at minus f_0,
+I'm going to get that flip, or that change in sign.
+So the positive part's going to be flipped up
+and the negative part's going to be flipped down, as you can see there,
+and it's going to be shifted over.
+And so what that does is it ensures that at baseband I
+still get that constructive combination of the two signals.
+So I can recover the signal at baseband.
+But if I compare this signal over here and that signal over there,
+there's a slight difference, right?
+If I look at the region here around minus 2f_0 and plus 2f_0,
+you can see that these two components here
+are positive, whereas in the sine wave modulation case
+the two components are negative.
+In the end, though, that doesn't really matter
+because I'm going to apply the low-pass filter to get rid of those components,
+and so I only care about what's happening at baseband.
+And you can see that the process that happened at baseband
+is exactly the same.
+So now we have enough to understand what happens with I/Q modulation.
+And so here I show you the block diagram of I/Q modulation.
+Remember, we have two signals that we want to send, m_i and m_q.
+We're going to send them over.
+Hopefully we can recover them.
+The recovered signal I'm going to call y_i and y_q.
+Hopefully m_i is the same as y_i and y_q is the same as m_q.
+Now what I'm going to do is I'm going to take m_i, modulate it by the cosine,
+m_q, modulate it by the sine.
+And then when I transmit them together, essentially
+what that corresponds to is adding those two signals together.
+I'm going to get that added combination, and I'm
+going to do the demodulation by the cosine and the sine.
+And to understand how the two things get transferred over
+without interfering with each other in this process,
+we're just going to take a look at each of the paths from m_i to y_i, m_q to y_q.
+And then I'm also going to look to see what
+happens-- how much of the signal from m_i goes to y_q and m_q goes to y_i.
+So let's look at this top path from m_i to y_i.
+That just turns out be coherent demodulation, right?
+I take my spectrum here.
+I modulate it by the cosine.
+I get the two peaks that get transmitted over.
+When I demodulate by exactly the same cosine,
+this peak will switch over, or shift up, to f_0.
+and minus f_0. I’ll get that constructive combination
+at the baseband, which I eliminate with the low-pass filter.
+And so I look at the original signal that I transmitted over here
+and what's inside the bandwidth of the low-pass filter over here,
+and those two things are exactly the same.
+So I can recover the original signal that I sent
+if that's all that I sent over here.
+Suppose that I only send the quadrature component.
+Very similar analysis happens.
+We actually saw this already in the previous slides.
+I get the spectrum here.
+It gets modulated.
+It becomes purely imaginary, so I denote that by j and minus j over here.
+But when I demodulate by the sinusoidal component there,
+you can see that within the baseband frequency here and over here,
+which is passed by the low-pass filter, the two components
+are exactly the same.
+So I can recover the original signal.
+But when I send m_i, for example, I'm also
+going to see something down at y_q, right?
+Because if I send m_i alone, it's going to go through here,
+and it's going to get modulated by the cosine here, as well as the sine.
+So let's take a look at what happens from m_i to y_q.
+Now, that's the example that we talked about previously, right?
+What I'm doing is I'm demodulating or mixing by a signal that's
+90 degrees out of phase.
+And what we saw before is that that's going
+to result in a component at the baseband where the components interfere
+destructively, right?
+They combine destructively, and so they disappear.
+The baseband component disappears.
+And so we can see that here.
+The modulation gives us the two frequency components
+at f_0 and minus f_0.
+Now when I demodulate it, I get a flip in sign over here.
+And so the component at baseband corresponding to this shift over here
+will be negative.
+This one over here will be positive.
+And so I get the positive and the negative over here.
+But then they'll interfere destructively over here,
+and I won't get anything inside the bandwidth of the low-pass filter.
+I do get something outside the bandwidth of the low-pass filter,
+but that's going to be eliminated.
+So I won't see anything, even though I'm transmitting something here.
+I won't see anything at the output y_q.
+Very similar analysis holds for m_q to y_i.
+The only difference is that the spectra look slightly different here
+because I modulate by the sine wave.
+The spectrum becomes imaginary.
+I get a positive and a negative amplitude component over here.
+But when I combine those two together, I get the signal
+that you can see over there.
+So then combining everything, then, what you can see
+is that for I/Q communication we have a relatively complex picture.
+But individually, we have already seen all
+of the kind of things that happened.
+And so bear with this picture a little bit.
+We have the two signals, m_i and m_q.
+These are the in-phase and quadrature components.
+And what we hope to see on the other side when we transmit,
+or when we recover the signal, is that in the baseband at y_i
+we get the original signal, which we can see here.
+Nothing in the quadrature component over here,
+or the imaginary part of the spectrum, from the quadrature component
+because even though there is something that gets sent over,
+inside the baseband there's nothing.
+And these get eliminated by the low-pass filter.
+And then the same thing for the bottom.
+What I had over here was that the quadrature component was sent over.
+You can see it's recovered in the real part of the baseband of y_q.
+And there is some leakage from m_i into y_q,
+but that occurs at higher frequencies that
+are eliminated by the low-pass filter.
+Now, one of the questions you might have is,
+well, we saw before with the regular amplitude,
+the single-amplitude modulation, that there
+was a problem with the 90-degree phase shift.
+If we had a 90-degree phase shift, then all of sudden our signals disappeared.
+And so the question is, well, what happens
+if I have a 90-degree phase shift, in this case, with I/Q communication,
+right?
+And so what I'm going to do is I'm going to look
+at the modulating signal over here.
+I'm going to look at the mixer over here,
+and I'm going to introduce a 90-degree phase shift from this guy to this guy.
+So I'm going to get a sine where I get a cosine and a cosine where I get a sine.
+So you can see that over here.
+So I get a 90-degree phase shift.
+And because of the 90-degree phase shift, when I go from sine,
+I get minus cosine over there.
+Now, if I do the analysis of this one here, what you can see
+is that if I, for example, look at the path from m_i
+to y_i, before I wanted to see this one in the real part
+of the spectrum in the baseband, right?
+But what happens is that I get these two peaks here.
+But when I demodulate, one of them flips upside down over here,
+and the other one remains unchanged except shifted by minus f_0.
+So when I combine this one with this one,
+again I get that destructive interference,
+and so that signal is going to disappear.
+Also, because this is imaginary, the sine,
+it's going to shift over to the imaginary component over here.
+So what's going to happen is that when I go from here to here,
+it's going to end up in the imaginary part, and it's going to disappear.
+So that is what we saw before.
+But what you can see is that if I look at the other component, right,
+if I go from here and I look at what happens over here,
+you can see that here I'm modulating by a cosine.
+In this path I'm modulating by a cosine.
+It's just flipped in sign.
+And so what's going to happen is I am going to see in that case something
+at the baseband.
+It's just going to be flipped in sign.
+But that flip in sign doesn't really change the signal substantially, right?
+I just have to multiply by minus 1 to get the original signal back.
+And so what happens with the quadrature component is before what we saw
+is that we saw it on the y_q, but now it doesn't show up in y_q.
+It actually shows up in y_i.
+So in conclusion, then, what happens with the 90-degree phase shift
+is that the I and Q channels get swapped at the receiver, right?
+So whatever came in at the transmitter at I actually comes out at Q,
+and whatever came in at Q comes out at I.
+But the key point here is that nothing is lost.
+No information is lost.
+It just got rearranged a little bit.
+And so you can also ask the question, well,
+what happens if I don't have exactly a 90-degree phase shift?
+What's going to happen in that case?
+And in that case, what you're going to have is
+you're going to have a combination of the original case,
+with 0 phase shift and 90-degree phase shift, right?
+And so you can expect that at the, let's say, in-phase output,
+you're going to then get a mixture of both
+the in-phase and quadrature components.
+But it turns out if I look at those and I
+know what the phase shift is, I can actually still
+recover the original data given the known phase shift.

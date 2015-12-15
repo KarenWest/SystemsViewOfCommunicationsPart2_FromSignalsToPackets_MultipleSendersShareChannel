@@ -1,0 +1,157 @@
+Filtering is used to remove those unwanted frequency components that were
+introduced during the mixing process.
+So if you recall, we've taken the demodulation process
+and broken up into two steps.
+The first one being mixing, and at the output of the mixer d of t,
+we're going to get those unwanted frequency
+components that we're going to remove using the low pass filtering stage.
+So let's take a look at mixing in a slightly more complicated scenario,
+where we're actually transmitting two signals at the same time.
+So we're transmitting our desired signal, that triangular signal,
+at frequency f_0 or modulated up to frequency f_0.
+And then at the same time, somebody else perhaps
+is transmitting a signal at f_1, that square signal.
+And so the received signal, x of t, is going to have this spectrum.
+It consists of those two signals,
+both modulated up to higher frequencies, but non-overlapping.
+And so, in order to recover the signal, with the first step we're going to do,
+of course, is the mixing process, where we
+multiply by the cosinusoidal carrier, which
+remember has two complex exponentials.
+And so if I modulate by the green exponential, what
+I'm going to get is this spectrum here, shifted over to be centered around f_0.
+When I modulate by the complex exponential at minus f_0,
+I'm going to get the same thing, just shifted down to minus f_0.
+And then you can see that I got an overlap at the origin,
+or around baseband.
+And so those two frequency components are
+going to combine together, so I'm going to get my original signal,
+that triangular signal, at baseband, right?
+Scaled in magnitude by 0.5.
+But I'm also going to have all of this extra stuff, which
+is introduced by the original signal itself
+during the mixing process, also due to the fact that I'm mixing signals
+that are outside of the original signal, or
+the ones that were introduced by other users, in particular the one at f_1.
+And so I want to get rid of all those, if I
+want to get my original signal there in the baseband.
+And so in order to do that, what I do is I'll take this signal up here,
+and I will do filtering.
+So here's my signal that I get at the output of the mixer, right?
+So that's D of f, or in the frequency domain, D of f.
+And remember what I can do is I can apply a low pass filter to that.
+And what the low pass filter does, is it takes the amplitude response, which
+I've denoted here by H of f, and multiplies
+that amplitude response times all the frequency components over here.
+Now, since in this case here the amplitude response
+is it 1, inside the bandwidth that I'm interested in here,
+inside this region here of 2 bandwidth.
+Then what I get is I get the original signal down
+at the output of the low pass filter, I'm going to call that y,
+and everything else is going to be multiplied by 0,
+and that's going to wipe out all those undesired frequency components.
+So I'm going to use a low pass filter to eliminate all those frequency
+components that I don't want to see.
+And so in order for this to work, what I need to do
+is I need to choose the filter bandwidth, or this region where
+the filter has magnitude 1.
+I want to choose that so it matches the bandwidth of the original signal
+that I'm trying to transmit.
+So just a few words then about the filter bandwidth, right?
+So the filter bandwidth then is the length
+the positive frequencies over which the amplitude response, H of f,
+remains relatively constant, right?
+And so for an ideal low pass filter like the one
+I show you over there, what it does is it
+passes all frequencies between a cutoff frequency minus f_c0 and plus f_c0.
+Since I'm only interested in the positive frequencies,
+it goes from 0 to f_c0, the cutoff frequency
+or the bandwidth of this filter is f_c0.
+It blocks all frequencies above f_c0, and also in the complex exponential domain,
+it also blocks all complex exponentials below minus f_c0.
+Now of course, what I can have is I can have filters that are not ideal, right?
+In fact, I will necessarily have a filter that is not ideal,
+and so it won't have this very sudden cutoff, where
+it's 1 over a certain region, then drops immediately to 0.
+So a more realistic kind of amplitude response,
+or magnitude of the amplitude response, is
+going to be some like when I show you on the right hand side there.
+It has a more gradual cutoff than what I showed you.
+And so then the question is, well now this is not
+constant over an entire frequency band, it's not constant at 1,
+but it's always dropping off from let's say a peak magnitude of one at zero,
+but then it starts to drop down symmetrically on both sides.
+And so the question is, in this case here how do I define the bandwidth?
+Well in this case here, what we do is we use
+a common measure of the band, which we call the 3dB cutoff frequency.
+And this is the cutoff frequency, or the frequency
+at which the squared amplitude of the response drops to about half,
+or exactly to half its value at f equals 0.
+So if I compare the squared magnitude here,
+versus the squared magnitude at 0, where does that drop to 1/2?
+If I simply solve this equation, I move the H(0) over to the other side,
+and take the square root.
+I know that the magnitude at the 3dB cutoff frequency
+is going to be 1 over square root of 2 times the magnitude at the origin.
+And so, 1 over square root 2 is about 0.707.
+The reason I call this the 3dB cutoff frequency,
+is because that power ratio from the origin to the 3dB cutoff frequency
+power I get by taking the square, remember,
+is going to be expressed in db, using the expression down there,
+10 times log to the base 10 of 1/2.
+And if I do that calculation, I'll get minus 3 or minus 3dB.
+So that's why I call this the minus 3dB cutoff frequency.
+So given all that we've discussed, we actually
+have all the building blocks, or most of the key building blocks
+that are used in the receivers used in your mobile phone.
+So in your mobile phone, most modern mobile phones
+use something like this, which is called the direct conversion receiver,
+also sometimes called the homodyne receiver.
+And the key building blocks that we've seen in this set of lectures
+in this topic is the mixing stage here, where
+we take a signal that was received by the antenna,
+and we multiply it by a signal, a cosinusoidal signal,
+which we generate by something which we call the voltage controlled oscillator.
+That voltage controlled oscillator allows
+us to adjust the frequency of the cosine that we're multiplying by,
+so that we can select perhaps slightly different frequencies that we want
+to mix down to the baseband, right?
+And then the channel select filter is essentially implementing the low pass
+filter that gets rid of all those unwanted frequency components,
+either that already exists in the signal already
+or that are introduced during that mixing process over there.
+And there are some other blocks that are also used inside this thing
+to get a whole complete picture of what the direct conversion receiver looks like.
+So the original signal from the antenna goes through a radio frequency band
+pass filter.
+This is really to kind of select out the kind of key frequencies of interest.
+For example, if we're interested in CDMA,
+we would only be interested in frequencies around the two gigahertz range.
+Now typically what happens, is that when we receive that signal at our antenna,
+it's quite weak, right?
+You might be very, very far from the base
+station that's transmitting the signal, and so we need to boost up that signal.
+Now when we boost up that signal, we want
+to make sure that we introduce as little noise as possible,
+and so that's really the role of the low noise amplifier.
+It tries to boost up a weak signal, so that the subsequent stages, which
+also introduce the noise of their own, don't add too much noise
+that overwhelm the signal.
+So this boosts up the signal, and then we
+go into our mixing in low pass filtering stage that we talked about before.
+And once we got the low pass output for the low pass filter,
+we essentially have the message that was originally
+transmitted at the modulator, that we want to then
+use, for example, to convert into a voice signal in a mobile phone,
+or whatever.
+And so all of these steps here have been taking place in the analog domain,
+and what we're going to do at the output of the channel select filter then,
+is going to convert back into the digital domain.
+We're going to sample, quantize to bits.
+And then do further processing using a digital signal processor,
+for example, the kind of signal processing
+that we talked about in Part 1
+of this course. And so that really shows you then
+that through this analysis, we've really understood
+mainly the key important points that are embedded inside the kind of receivers
+that you have inside your mobile phone.

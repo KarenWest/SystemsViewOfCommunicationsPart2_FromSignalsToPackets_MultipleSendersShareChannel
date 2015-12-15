@@ -1,0 +1,71 @@
+﻿%% code
+% initalization
+Fs=1e6;               %sampling frequency
+Fc=100e3;             %carrier frequency for messages
+Fcutoff = 50e3;       %cutoff frequency of low pass filter 
+SPB=30;               % samples per bit     
+Ts=1/Fs;              % sample period
+
+NMSG = 4; % number of messages
+
+textmsg = cell(NMSG,1);
+% read the text file (1 byte for each character)
+textmsg{1} = sprintf('%s\n%s\n%s',...
+    'It was the best of times, it was the worst of times.',...
+    'It was the age of wisdom, it was the age of foolishness.',...
+    'It was the epoch of belief.');
+textmsg{2} = sprintf('%s\n%s\n%s',...    
+    'It was the season of Light, it was the season of Darkness.',...
+    'It was the spring of hope, it was the winter of despair.',...
+    'It was the epoch of incredulity.');
+textmsg{3} = sprintf('%s\n%s\n%s',...    
+    'We barely remember who or what came before this precious moment',...
+    'We are choosing to be here right now',...
+    'Hold on, stay inside... (Tool, Parabola)');
+textmsg{4} = sprintf('%s\n%s\n%s',... 
+    'Bosco Cappuccio, Ha un declivio verde, Come una dolce, Poltrona',...
+    'Appisolarmi la, Solo, In un caffe remoto, Con una luce fievole,',... 
+    'Come questa, Di questa luna.');
+
+% convert text messages to waveforms
+for c=1:NMSG,
+    %Create a bitstream from the input text message
+    bs = text2bitseq(textmsg{c}); 
+    % frame the bitstream and add the training sequence
+    wave = format_bitseq(bs,SPB);  
+    if c == 1,
+        N = length(wave);
+        signal = zeros(NMSG,N); % signal
+    end
+    signal(c,:) = wave;
+end
+
+% Create waveform to transmit using 16 QAM
+tx_wave = zeros(1,N);   % initialize transmit waveform
+t = Ts * [0:(N-1)];     % create vector of time indices
+
+% % % % Revise the following  % % % % 
+tx_wave = tx_QPSK(textmsg{1}, textmsg{3}, Fs, Fc, SPB, Fcutoff);
+% % % % Do not change the code below % % %
+
+
+% Channel
+rx_wave = txrx(tx_wave,1,'ideal'); 
+
+% receiver
+msg = rx_16_QAM(rx_wave,Fs,Fc,Fcutoff,SPB);
+
+for c=1:NMSG
+    % compare the messages
+    disp(['Original Message ' num2str(c) ' :']);
+    disp(textmsg{c});
+    disp(['Recovered Message ' num2str(c) ' :']);
+    % filter non-printing characters
+    filtmsg = char(32*ones(size(msg{c})));
+    ind = find(((msg{c}>31) & (msg{c}<127)) | (msg{c} > 8) &(msg{c}<11));
+    filtmsg(ind) = msg{c}(ind);
+    disp(filtmsg);
+    disp(['Number of Bit Errors: '  num2str(sum(textmsg{c}~=msg{c}(1:length(textmsg{c})))) ]);
+    disp(' ')
+end
+      

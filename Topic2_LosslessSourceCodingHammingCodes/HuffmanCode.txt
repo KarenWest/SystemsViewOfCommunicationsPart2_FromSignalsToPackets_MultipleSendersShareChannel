@@ -1,0 +1,174 @@
+So we know how to evaluate different codes using the average code length.
+And we know the best that we can do.
+But how can we actually construct codes?
+Up till now, all we've been doing is being given codes
+or guessing strategies, and evaluating them.
+The Huffman code allows us to actually construct a good code.
+Let's take a look at the Huffman coding algorithm.
+And what you can see is that it's an iterative or a repetitive procedure.
+So you're going to repeat a number of steps, over and over.
+And essentially the idea is that you're going to remove
+symbols and group them together.
+You're going to remove symbols with the lowest probability. Group
+them together.
+And every time you do that, you're going to create a node in your decoding tree.
+And then you're going to kind of put a combined node
+back into the set of possible symbols that you want to encode and then repeat
+the process.
+So probably the easiest way is just for us to go through a specific example.
+So let's take a look at an example here.
+We have an initial set of symbols.
+We're going to assume we have the same symbols that we had before.
+Let's say yellow, blue, green, and red.
+The probabilities here are a little bit different.
+So, in this case here, we still prefer blue and then yellow and then green,
+but the probabilities are slightly different.
+Rather than being 1/4, here, we have 1/3, and smaller probabilities
+for green and red.
+So we exhibit here a stronger preference for yellow than we did previously.
+And we're going to start with an empty decoding tree.
+And so what we want to do, then, is we want to say, well,
+given these symbols with these probabilities,
+how can I come up with a set of binary codes
+that will encode this with a low average code length?
+So, in the first step, what we're going to do
+is we're going to take a look at our symbols, here.
+And we're going to remove the two symbols that
+have the lowest probability.
+So, in this case here, if I look across here 1/3, 1/2, 1/12 and 1/12
+the two ones that have the lowest probabilities are red and green.
+So I'm going to pull those out.
+I'm left with these ones, here.
+And I'm going to put in a new, combined symbol here,
+where the probability of the combined symbol
+is the combination of the probabilities of red and green.
+So I'm going to call the combined symbol "G?,"
+and I'm going to add the probabilities for red and green, 1/12 plus 1/12
+to get 1/6.
+So I get a new set of symbols here.
+I only have three symbols here.
+And now that I've combined those two, I'm
+going to create a node in my decoding tree, shown over there,
+where I'm going to say the subnodes below
+that one are going to be green and red.
+Now, what I'm going to do is I'm going to repeat this,
+now using this set of symbols, here.
+So I take this symbol set that I had before.
+I put it up here.
+And I remove the two symbols, again, with the lowest probability.
+Now, in this case here, if I look at this one, yellow and G?
+have the lowest probabilities.
+So I remove that, leaving B. And then I add a new symbol to S.
+I'm going to call that "Y?".
+And I'm going to combine 1/3 plus 1/6 to get 1/2 as the probability of that.
+And for this new combination here, I'm going to combine those two.
+I'm going to have to add a new node here Y?
+to my decoding tree where the two children
+of that node, or the subnodes underneath that,
+are going to be the two things I combined.
+So the G?, the thing we had before, and Y.
+Then what I'm going to do is I'm going to repeat the step a final time,
+remove the symbols with the lowest probability.
+There's only two left here.
+I'm left with the empty set here.
+And then I add a new symbol inside here.
+I'm going to call that "B?"
+And I'm going to put subnodes to that one, the two
+things I've combined, B and Y?.
+And so now what you can see is that I have built a decoding tree.
+And my process is done because I no longer have any more symbols.
+I can't take two symbols out because I only have one symbol left.
+And so now I have the decoding tree.
+Then the question is, well, what is the corresponding encoding
+of the different outcomes B, Y, R, and G?.
+I can do that by simply looking at the decoding tree that you see over there
+and following it down for each of the symbols.
+So if I go from the top node to B, I just have to answer 1, for that.
+So I just get 1, there.
+If I go for Y, I have to go 0 1.
+Right?
+So that's shown there.
+To get green, I have to go 0 0 1 and red 0 0 0.
+And so now, if I want to actually encode something,
+let's say, this sequence of symbols here GRYBGBY. What I would do
+is I would just take the first symbol G
+and look up the possible encoding of that.
+So I would get 0 0 1.
+Then I take the next symbol R, add 0 0 0.
+Then I would take the next symbol Y, which is encoded with 0 1.
+Then B, which is encoded with 1.
+Then 0 0 1 for G. And then 1 for B and 0 1 for Y.
+So, going from the thing that I want to encode to a bit stream, in this case,
+is fairly easy.
+But you might be wondering. What about the decoding?
+Because aren't things more difficult now?
+Because before, we were dealing with fixed-length codes.
+So I used to know that, for example, I had 8 bits corresponding to an ASCII
+character, and I would just repeat every 8 bits.
+But now, because of the fact that the codes are variable length,
+how can I actually do the decoding?
+It turns out that doing the decoding is actually relatively simple.
+All I have to do is look at that tree there and follow the tree down,
+starting at the beginning of the bit stream,
+and always at the top of the tree.
+So for example, suppose I want to decode the thing that I had just
+encoded before.
+What I'll do is I'll start at the beginning of the bit sequence,
+and I'll start at the top of the tree.
+And I'll just follow it down.
+So, starting from the top, I have 0.
+So I'm going to go to this node here.
+Then I get 0.
+I go to this node here.
+And then finally I get a 1.
+So I get to this point, here G. And now I can't go any further.
+So now I know I've got the symbol G and I'm
+going to go back to the top of the tree again.
+So I go back to the top of the tree and follow it down.
+So I get 0 0 0.
+And then, at that point here, I get R. So after the third 0, I've decoded R.
+Now, I go back to the top of the tree again and follow it down.
+So I get 0 and then 1.
+So that means I should get a Y. I go back to the top of the tree.
+I follow down 1, to the B. And then I go to the top again.
+0 0 1 for G, and then 1 for B, and then 0 1 for Y,
+and I've done the decoding.
+So the decoding is fairly simple.
+I just have to follow the tree down.
+And once I get to one of the leaf nodes, I go back to the start
+and keep on looking at the bits.
+How good is this code?
+Well, let's take a look at the average code length.
+So here's the tree that we see, over here.
+I've labeled each of the nodes there with the probability
+that that symbol occurs.
+Remember, B occurs with probability 1/2, Y with 1/3, and so on.
+And to compute the average code length, what I have to do
+is I just have to look at the length of each code
+and multiply it by its probability.
+So B has a length 1 and occurs with probability 1/2, Y has length 2
+and occurs with probability 1/3. And R and G both have length 3
+and occur with probability 1/12.
+And if I put all these together and I calculate it, I get 1.667 about.
+Is this a good code?
+Well the question is, what's the best I can do?
+Well remember, the best you can do is the entropy.
+And remember, the entropy only depends on the probabilities.
+So it only depends on those p_k's, 1/2 and 1/3.
+So if I put the probabilities into the equation, as shown here,
+and I calculate that, I get 1.626.
+So as expected, because this is the best
+you can do, you can't do any better than that. Obviously,
+the code here is bigger than the optimum,
+but it's not that much bigger, right?
+1.626 versus 1.667.
+In fact, if I just want to encode symbols one at a time,
+this is really the best I can do.
+But then you can ask, well, I mean, can't you
+get any closer to this optimum?
+And it turns out that yes, you can.
+But, in that case, what you'll have to do
+is not try to encode just one symbol at a time
+but try combining more and more symbols together.
+What you'll have is more symbols, more code words.
+But in the end, you'll be able to get a more efficient code.

@@ -1,0 +1,83 @@
+We'll be introducing the idea that we can analyze signals
+as the sum of a bunch of more elementary signals
+at different frequencies, where those elementary signals are sine waves.
+So let's take a look at the sine wave in more detail,
+starting with continuous time.
+So here I show you two different sine waves or sinusoids.
+One is the cosine wave.
+The other one is the sine wave, seen over there.
+And what we can see in these signals is that, number one, they're repetitive.
+So after a certain period T, T tilde, we are going to have exactly the same
+signal.
+We're going to use the tilde sign, here, to indicate that we're talking
+about continuous time quantities.
+If we compare the cosine wave and sine wave,
+we can see that they're very similar.
+The only difference really being that the cosine wave starts at 1,
+whereas the sine wave starts at 0.
+But they follow the same repetitive structure.
+When we're talking about that repetitive structure,
+we can talk about the period or how long
+does it take until the signals repeat, or we can talk about the frequency.
+The frequency is just the number of times
+that the signal repeats within one second.
+And we measure that in Hertz.
+And of course, there's a relationship between the period and the frequency,
+as shown over there.
+What we can see is that the frequency is just the inverse of the period.
+We can also talk about the frequency in radians per second.
+And we obtain that, as shown down below, by taking 2 pi times the frequency.
+Even though we have sines and cosines, it turns out
+that we only need to deal with one.
+We're going to choose the cosine and obtain
+the sine by introducing a phase shift phi, as shown on the equation
+on top of the graphs, there.
+What the phase shift phi does is it introduces a delay.
+So if I set phi equal to 0, what I get is the original cosine,
+as shown in the middle here, where I've plotted only one period.
+Now, introducing nonzero values of phi will introduce
+a delay, as shown over here.
+And that delay is related to the phase shift phi
+by this equation, as shown right here.
+And I can derive this equation simply by doing some algebraic manipulation
+on the equation shown on the top.
+So I've taken that equation on the top there and replicated it down here.
+And what you can see is that all I'm going to do is take this 2 pi f
+and factor it out.
+So when I factor it out, I have to divide through by 2 pi f.
+And the plus phi here, I've just replaced by minus minus,
+so there's no change there.
+And I'm just going to rename the quantity inside here "d."
+So I get cosine 2 pi f times the quantity t minus d.
+And so this looks just like cosine 2 pi f t.
+The only difference is I've replaced t by t minus d.
+And remember that, whenever I replace t by t
+minus d, that's equivalent to introducing a delay in the signal
+by d seconds.
+And so what you can see here is that a negative phase
+shift is going to introduce a positive delay, as shown on the top two graphs.
+And if I have a positive phase shift, then I'll introduce an advance.
+In other words, the peak at 1 will occur before 0.
+I can obtain the sinusoidal signal that starts at 0
+and eventually reaches 1 at pi over 2 by simply introducing a phase shift
+of minus pi over 2, as shown over here.
+And you can see that that signal looks exactly like the sine wave.
+So what we've seen then, is that we really only need to deal with cosines.
+And then we can get sines by introducing a phase shift.
+And if we just add one more parameter, then we
+get the general form for a sinusoidal signal.
+The new parameter we're going to introduce is called "A,"
+and it's the amplitude.
+And that determines the size of the sine wave.
+If we're talking about music, what you can think about
+is as A determining the volume or the loudness of that particular note.
+And so then the cosinusoidal signals then,
+are going to be described by three different parameters.
+The amplitude A determining the size. The frequency f
+determining how quickly the signal goes up and down.
+And remember that the period is related to the frequency
+by the inverse relationship.
+And then finally the phase phi, which introduces that
+delay that we just talked about.
+And so this is the general form of the cosinusoidal signal
+that we'll be using, moving forward.

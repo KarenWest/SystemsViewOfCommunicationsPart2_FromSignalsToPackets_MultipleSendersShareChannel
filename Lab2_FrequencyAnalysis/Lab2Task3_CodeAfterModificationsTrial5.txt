@@ -1,0 +1,133 @@
+% load a speech signal
+[x,Fs] = audioread('test.wav');
+
+% define the frame length
+frame_length = 256; 
+      
+% compute power of each frame
+frame_power = get_frame_power(x,frame_length);
+% plot original waveform and power in each frame
+figure(1);
+plot_speech_power(x,frame_power,frame_length);
+% find index of frame with maximum power (fnum)
+[mxpow,fnum] = max(frame_power);
+
+% initialize variables
+nsig = 4;
+k = 0:(frame_length/2);
+
+% list of two frames to plot spectra for
+ % % % % Revise the following code  % % % %
+frame_power_nextmxpow = [];
+for frameNum = 1:length(frame_power),
+    if (frame_power(frameNum) ~= mxpow),
+        frame_power_nextmxpow = [frame_power_nextmxpow frame_power(frameNum)];
+    else
+        frame_power_nextmxpow = [frame_power_nextmxpow 0.0000];
+    end
+end
+[mxpow2,fnum2] = max(frame_power_nextmxpow);
+nf = [fnum fnum2];    
+% % % % Do not change the code below % % % %
+ 
+figure(2);
+for i=1:2,
+    % extract frame
+    frame = extract_frame(x,frame_length,nf(i));
+    
+    % compute the Fourier Series amplitude and the phase
+    [A,phi] = fseries(frame);
+    
+    % % % % Revise the following code  % % % %
+    % find indices of most significant frequency components
+    [mxa,fnumamax] = max(A);
+    A_getNextMaxa = [];
+    for frameNum = 1:length(A),
+        if (A(frameNum) ~= mxa),
+            A_getNexmaxa = [A_getNextMaxa A(frameNum)];
+        else
+            A_getNextMaxa = [A_getNextMaxa 0.0000];
+        end
+    end
+    [mxa2,fnumamax2] = max(A_getNextMaxa);
+    A_getNextMaxa = [];
+    for frameNum = 1:length(A),
+        if (A(frameNum) ~= mxa2),
+            A_getNexmaxa = [A_getNextMaxa A(frameNum)];
+        else
+            A_getNextMaxa = [A_getNextMaxa 0.0000];
+        end
+    end
+    [mxa3,fnumamax3] = max(A_getNextMaxa);
+    A_getNextMaxa = [];
+    for frameNum = 1:length(A),
+        if (A(frameNum) ~= mxa3),
+            A_getNexmaxa = [A_getNextMaxa A(frameNum)];
+        else
+            A_getNextMaxa = [A_getNextMaxa 0.0000];
+        end
+    end
+    [mxa4,fnumamax4] = max(A_getNextMaxa);
+    %disp(A);
+    %disp(mxa);
+    %disp(fnumamax);
+    %disp(mxa2);
+    %disp(fnumamax2);
+    %disp(mxa3);
+    %disp(fnumamax3);
+    %disp(mxa4);
+    %disp(fnumamax4);
+    %ind = [];
+    ind = [fnumamax, fnumamax2,fnumamax3, fnumamax4];
+    disp(ind);
+    Amaxes = [A(fnumamax), A(fnumamax2), A(fnumamax3), A(fnumamax4)];
+    AmaxesSorted = sort(Amaxes, 1,'descend');
+    disp(AmaxesSorted);
+    %for amaxIndex = 1:4,
+        %if (AmaxesSorted(amaxIndex) == A(fnumamax)),
+            %ind = [ind fnumamax];
+        %end
+        %if (AmaxesSorted(amaxIndex) == A(fnumamax2)),
+            %ind = [ind fnumamax2];
+        %end
+        %if (AmaxesSorted(amaxIndex) == A(fnumamax3)),
+            %ind = [ind fnumamax3];
+        %end
+        %if (AmaxesSorted(amaxIndex) == A(fnumamax4)),
+            %ind = [ind fnumamax4];
+        %end
+    %end
+    %ind = [1:nsig]*floor(frame_length/(2*(nsig)));
+    
+    % % % % Do not change the code below % % % %
+    
+    % extract frequency, amplitude and phase of most significant
+    % components
+    ksig = k(ind);
+    Asig = A(ind);
+    phisig = phi(ind);
+
+    % generate plots
+    % plot the waveform of the frame
+    subplot(2,2,i)
+    plot(0:(frame_length-1),frame);
+    ax = axis;
+    axis([0 frame_length-1 ax(3:4)]);
+    grid
+    title(['Frame ' num2str(nf(i)) ' waveform']);
+    xlabel('sample'); ylabel('signal')
+    
+    % plot the amplitude spectrum of the frame
+    subplot(2,2,2+i)
+    plot(k,A); hold on;
+    plot(ksig,Asig,'rx','LineWidth',2,'MarkerSize',8); hold off;
+    title('amplitude spectrum');
+    ax = axis;
+    axis([0 frame_length/2 ax(3:4)]);
+    hold on;
+    grid;
+    xlabel('k'); ylabel('amplitude')
+end
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% show the figures in the right order on Edx
+figure(1);

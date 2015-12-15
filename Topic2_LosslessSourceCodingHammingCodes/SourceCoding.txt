@@ -1,0 +1,75 @@
+In this topic, we'll be talking about source coding.
+To understand source coding and where it fits into a communication system,
+let's look at the communication system that we studied in part 1.
+Remember that we're going to take some sent information,
+and we're going to transmit over a channel,
+and the problem is that the channel may introduce some bit errors due to noise,
+and we've already looked at one type of coding,
+which is called channel coding, also known as error correcting coding.
+And remember, the idea behind channel coding
+is that we are going to introduce redundancy into the bit stream,
+so that we could find and possibly correct errors.
+And so the only problem with that is that if I have a certain number of bits
+here, when I introduce that redundancy, I get more bits that I need to send.
+The question might be then, can I reduce the number of bits that I need to send?
+And that's really the role of what we call source coding.
+And so source coding is also known as compression, or data compression.
+And so what we'll do with source coding is
+we'll take the sent information and compress it, hopefully resulting
+in fewer bits than I needed before.
+Now, I'm going to add bits again for the error correcting code,
+send it over the channel, correct any possible errors,
+then I'm going to decompress the results in order
+to get the received information shown here.
+Now, the reason we call these things channel coding and source coding
+is because channel coding, what we're doing there
+depends on the property of the channel.
+For example, how many bit errors are being introduced
+would determine what kind of code I would need to use.
+When we're looking at source coding, what we're really doing
+is then looking at the properties of the source.
+What can we exploit about the source?
+And then try to figure out what's the best kind of compression algorithm
+or coding algorithm for that.
+So source coding actually has many, many different applications
+other than communication systems.
+So when I take an input and I compress it,
+I might not be transmitting it. I might be storing it on my phone. For example,
+all of us do this, perhaps on a daily basis, when we're using MP3 files,
+and so on, or we're watching videos that are stored on our computer,
+or something like that.
+In that case, normally the information is already compressed by somebody
+and given to us in this compressed format,
+and all we're doing on a daily basis is really
+doing the other side, decompression.
+So in an encoding stage, what happens is we take some kind of input,
+and we convert it into a bit stream, using hopefully
+as few bits as possible.
+And so we use this regularly.
+For example, for text documents, usually Microsoft Office
+includes some kind of compression algorithms inside their storage
+formats. Images, for example: JPEG, video: MPEG, and things like that.
+And then the decoding step, what happens is that the bit stream is converted
+back into some kind of output that you look at,
+and hopefully that is, if not identical, at least very similar to the input.
+Usually when talking about source coding we distinguish
+between two different types of source coding, one which is lossless
+and the other one which is lossy.
+So in the lossless data compression, the output that we get
+is exactly the same as the input.
+So this is often used for data that we create digitally.
+For example, things like bit streams, documents, emails, data sets,
+and things like that.
+Things where it's very important that we don't lose any information.
+For example, if you send a Word document over the internet,
+you don't want somebody to open it up and it's not
+exactly what you wanted to say.
+For lossy data compression, on the other hand,
+the output is close or similar to the input, but not exactly the same.
+And so this is usually good for data streams where we are not necessarily
+interested in exact reproduction.
+And so for example, for things like music and video, our eyes and our ears
+are not sensitive to certain things, and so perhaps we
+can tolerate some differences between the original input and what we hear.
+And so examples of this kind of lossy data compression are MP3, MPEG, WMV,
+so all these kinds of things that we usually use for video and audio.

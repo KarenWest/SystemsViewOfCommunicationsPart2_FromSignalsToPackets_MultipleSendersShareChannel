@@ -1,0 +1,196 @@
+In order to understand the discrete Fourier transform,
+we need to understand the complex exponential.
+The exponential function is defined by a power series.
+So if I take the terms 1, x, x squared divided by 2 factorial,
+x cubed divided by 3 factorial, and so on.
+In general x to the n divided by n factorial,
+and I add those all together.
+If I let n go to infinity, then I get the exponential function e to the x.
+Now x is normally thought of as being real,
+but because we can add and multiply complex numbers,
+we can actually stick x being a complex number in there,
+and get what's called the complex exponential.
+Now to understand the complex exponential,
+let's just start by reviewing quickly the real valued exponential.
+And I'll be looking at the real valued exponential as a function of time,
+so I'll say x of t is equal to c times e to the at.
+And if I plot t on the horizontal axis over here,
+and then if I look at the yellow curve over here, then what I see
+is that the exponential function goes up quite quickly after t is bigger than 0.
+At t is equal to 0, I get c times e to the 0, which is 1, so I just get c.
+Now if I change the sign of a, right?
+If I make a negative, then I get something that decays exponentially,
+rather than increasing exponentially.
+If I change a, what will happen is that the rate of increase will increase,
+as you see over here.
+So the slope here increases that we see over there.
+And the value c is just a scaling factor, right?
+So if I take c and I make it bigger or smaller,
+that's just going to make that curve bigger or smaller proportionally.
+And if I change the sign of c, all that happens
+is that the yellow curve flips over to the other side,
+and instead of going up exponentially, it will go down exponentially.
+The exponential actually has some nice properties, especially when
+I multiply them together.
+So if I take two exponentials, e to the at, and e to the bt,
+and I multiply them together, then all I have to do is add the exponents.
+So I just get at plus bt, or more simply a plus b times t.
+If I take the division of two exponentials, right?
+So e to the at divided by e to the bt, then
+all I have to do is subtract bt from at, and so I get e to the quantity
+a minus b times t.
+As a special case of that, if I replace a with 0,
+then I just get e to the 0, which is 1.
+And so I get 1 divided by e to the bt, is just e to the minus bt.
+If I take the power of an exponential, so e to the at, to the nth power,
+then all I have to do is multiply n times whatever is in the exponent,
+so in that case it would be n times a times t.
+Now Euler's identity allows us to look at the complex exponential
+in the simplest case where the argument is purely imaginary.
+So right here I have a purely imaginary argument,
+so I'm going to call it e to the j 2pi ft,
+and so that's another function of time.
+And so if I just take e to the j 2pi ft and I just take j to the 2pi ft,
+and substitute it into that power series for the exponential,
+I'll get what's shown here, right?
+So this was x, and x squared divided by 2 factorial,
+x cubed divided by 3 factorial, where x is just this thing inside here.
+Now, remember that j is the square root of minus 1, right?
+So if I square j, right?
+I'll just get minus 1.
+And in fact, for every even power, what I'll get is another real number, right?
+So if I just take all the even powers of this power series, then what I'll get
+is a real number here, which starts out with 1
+and then is a minus 2 pi ft quantity squared divided by 2 factorial.
+On the next one, I'll have j to the fourth, which will
+be minus 1 times minus 1, or plus 1.
+So I'll get a plus 2 pi ft quantity to the fourth divided by 4 factorial,
+and so on.
+For all the odd powers, it turns out that those remain imaginary, right?
+So here's an odd power, the first power, so that I'll just get j times 2pi ft.
+And then when I take the cubic, what I'll get is I'll get a change in sign,
+it will still be imaginary.
+But I'll get j times minus 1 because j cubed is just j times j squared
+and j squared is minus 1.
+So we're got a minus 1 times the real part of what's shown over there.
+So 2pi ft quantity cubed divided by 3 factorial.
+And the next one we'll flip in sign similarly to this one here,
+so I get plus the quantity 2pi ft to the fifth power divided by 5 factorial,
+and so on.
+So if I look at this power series here, what
+you can see is that this power series here is actually the power series
+or Taylor series expansion of the cosine function, so I get cosine of 2pi ft.
+And what's shown over there, multiplying j,
+is actually the Taylor series expansion of sine.
+So I get this equation here relating the complex exponential
+to trigonometric functions cosine and sine.
+And so what this tells us then is, if I put an imaginary input
+into the exponential function, what I'll get is a complex number output,
+and we can look at that complex number in the complex plane.
+So here I show you e to the j pi ft.
+And remember it's a complex number with real part cosine 2pi ft
+and imaginary part sine 2pi ft.
+I can think about its polar representation,
+so remember that breaks it down into the distance from the origin, which
+since cosine squared plus sine squared is equal to 1 is just always 1.
+And an angle here, where the angle is just
+given by the arc tangent of the imaginary part divided
+by the real part, and since sine divided by cosine is tangent,
+then the arctangent and the tangent just cancel, and so I just get 2pi ft.
+So the angle here would just be 2pi ft.
+And if I think about what happens when t increases, what's going to happen
+is just this angle is going to increase, right?
+So the distance from the origin is always going to be 1,
+but the angle will increase, and so what you can see here
+is what I'm going to get is a rotation of the complex exponential
+around the origin, where it's always going
+to be a unit distance from the origin.
+So it's going to trace out a circle, we call that circle the unit circle,
+and you can see that that's going to repeat, right?
+And so that's going to repeat with a period which is given by 1 over f.
+So f is the frequency with which the complex exponential
+is rotating around the origin.
+The larger the value of f, the faster that rotation is going to be.
+Now when I'm looking at the complex exponential,
+I can also talk about its complex conjugate.
+So remember when we take the complex conjugate,
+what we're going to do is just going to flip the sign of the imaginary part,
+so I get minus sine 2pi ft.
+And the only thing that's going to happen there is it's
+just going to change the angle to be minus 2pi ft,
+the magnitude won't change.
+And so what that tells me then is that the complex conjugate of e
+to the j 2pi ft is obtained just by taking
+the exponent and flipping its sign.
+Now what this suggests then is that can also have a negative frequency, right?
+So I could have minus f.
+And so what happens when I have a negative frequency?
+Remember that when we had the positive frequency, f, what happens
+is that the angle here is 2pi ft, and that's
+just going to rotate in this counterclockwise direction
+around the origin.
+But if f is negative, all that happens is that this thing flips over
+to the other side, and now when t increases,
+it's actually going to rotate in the opposite direction, right?
+So instead of rotating counterclockwise, it's
+going to rotate clockwise around that origin.
+So we can think about this kind of like a wheel, right?
+If I have a wheel rotating around an axis, it can either rotate ,
+clockwise which would correspond to a negative frequency,
+or in the opposite direction, which would correspond to a positive
+frequency.
+And in some sense then, the speed that that wheel is rotating
+is determined by the magnitude of f.
+And the sign of f then determines the direction
+of the rotation of that wheel.
+Now, we've seen that the complex exponential
+can be expressed as the sum of a cosine plus j times the sine.
+We can actually take the complex exponential
+and go back and get the cosine function. There’s two ways to do that.
+One is, we can simply just say if I want the cosine function here,
+and I have the complex exponential e to the j 2pi ft,
+I can just drop down here and take its real part.
+And so if we can imagine this, one way you can think about this
+is, I can have a light shining down from the top here.
+And as this dot here rotates around the origin, that
+dot is going to cast a shadow, and as this dot rotates around here,
+the shadow is going to be moving back and forth over here,
+if the light is coming down like this.
+And so that's just taking the real part.
+But there's another way you can do that as well.
+What we can do is think about adding e to the j 2pi ft,
+with its complex conjugate, right?
+So I'll show you the complex conjugate there.
+And if I add this one to this one, I remember that's just
+done by normal vector addition.
+So if I do that, what you can see is that the imaginary part will cancel,
+I go up and down by the same amount, and so I'll just move out all the way
+to 2 times cosine 2pi ft.
+And so if I just want to get cosine of 2pi ft, I just take that
+and I divide by a half.
+So there's two ways to take a complex exponential
+and go and obtain a cosine function.
+One of them is just by taking the real part,
+and the other one is taking the complex exponential,
+adding it to its complex conjugate, and dividing by 2.
+There are other useful formulas for the complex exponential.
+For example, in addition to the cosine, I can also get the sine.
+A similar operation occurs, but instead of adding the complex conjugate,
+I subtract the complex conjugate.
+And then because that sine term, remember in Euler's identity
+is imaginary, I have to cancel out that imaginary component
+by dividing by 1 over 2j.
+I can also look at a phase shift, right?
+So if I take cosine of 2pi ft.
+plus theta, if I just replace 2pi ft plus theta
+into that expression over there, the exponential, and take the real part,
+then what you can see is that, because if I multiply two exponentials
+together, I'm just adding the exponents if I have the sum of two exponents that
+corresponds to a multiplication.
+And I can also express that as the sum of the complex exponential
+inside that expression, plus its complex conjugate,
+so I have to change the sign of both j 2pi ft and also j theta.
+But again, I add those two things together and then divide by 2.
+So I can get an arbitrary phase shift as well,
+by considering a complex exponential and simply
+just rotating it by an amount theta.

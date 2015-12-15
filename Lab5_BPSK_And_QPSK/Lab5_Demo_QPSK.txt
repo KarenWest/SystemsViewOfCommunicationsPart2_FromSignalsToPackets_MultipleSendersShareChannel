@@ -1,0 +1,92 @@
+In a previous example, we have seen how we
+can implement BPSK modulation, where we used one modulated waveform to carry
+one bit information.
+The next question is, can we do a little bit better
+to transmit two bits information by one modulated waveform.
+If there are two bits information, we will have four possible combinations,
+namely 11, 01, 00, and 10.
+In order to carry four possible combinations, we will need four phases.
+For instance, we can use the four phases, π/4, 3π/4,
+5π/4 and 7π/4, to carry the four possible combinations.
+And because there are four signal points,
+we call it QPSK, quadrature phase shift keying.
+Then, what will the constellation map for QPSK modulation look like?
+For that purpose, let's look at the modulated waveform.
+where the θ, here will take value from one
+of the four possible phases.
+With the help of trigonometric identities,
+we can express the modulated signal in another form.
+After some mathematical manipulation, we can rewrite the modulated waveform
+as a sum of two terms.
+If we treat cos(2πft) as the basis function for one signal dimension,
+then sin(2πft) will represent the basis function
+for another signal dimension.
+And the two terms here, Acos(θ) and Asin(θ)
+will represent the coordinates of the signal points
+on the two signal dimensions.
+In fact, for QPSK modulation, we call them the I Channel and Q Channel,
+respectively.
+This tells us that, in the constellation map for QPSK modulation,
+there will be two signal dimensions, which are represented by cos(2πft),
+and sin(2πft).
+Now, let's identify the position of the four signal
+points on the constellation map.
+For that purpose, we need to determine the coordinates of the four signal
+points, and the corresponding bit sequence.
+For example, for the case θ=π/4,
+the two coordinates will be 11 and the corresponding bit sequence will be 11.
+For the case θ=3π/4, the two coordinates will be -1,1,
+and the binary sequence represented by this signal point will be 01.
+Similarly, when θ=5π/4, the two coordinates will be -1,-1,
+and the binary sequence represented by this signal point will be 00.
+For the case θ=7π/4, the two coordinates will be 1, -1,
+and the corresponding binary sequence is 10.
+Now, if we look at the signals on the two channels,
+I channel and Q channel, respectively, we
+can tell that, in fact, those are two BPSK signals.
+Basically, this tells us we can achieve QPSK modulation,
+by first performing BPSK modulation on the I and Q channels,
+respectively, and then sum them together.
+In the following, we will use a MATLAB program to see
+how we can achieve QPSK modulation.
+First, we define the sampling frequency, the carrier frequency,
+and the parameter samples per bit.
+The two messages we want to transmit, on the I and Q channels,
+are two text messages, hello, world.
+We do the same thing on both I and Q channels.
+That is, we first convert the text message to bit sequence,
+and then we form the frame structure on both channels.
+Then, on the I channel, we will generate the waveform from the bit sequence.
+And then ask the waveform to go through a low-pass filter,
+with cutoff frequency 25 kHz.
+Then, we use the output of the low-pass filter
+to modulate the carrier signal, cos(2πft).
+The operation on the Q channel is similar,
+where we first generate the waveform.
+Ask the waveform to go through the low-pass filter,
+and then use the output of the low-pass filter to modulate the carrier signal.
+The only difference here is, the carrier signal
+we use is no longer the cos function, but the sin function.
+Finally, we sum the two signals on the I and Q channels
+together to achieve QPSK modulation.
+Now, let's look at the three signals.
+The I Channel signal, the Q Channel signal, and also the QPSK
+signal in time domain.
+Here is the result. So basically, the two signals, on the I and Q Channels,
+are two BPSK signals.
+And the QPSK signal is basically the summation of the two BPSK signals.
+Next, let's look at the three signals in the frequency domain.
+For that purpose, we perform FFT operation
+on the I Channel signal, Q Channel signal, and the QPSK signal,
+respectively.
+Here is the result. So basically, we can tell
+that both the I Channel and the Q Channel signals
+will occupy the same spectrum.
+And as a result, when we sum them together, to achieve the QPSK signal,
+the QPSK signal will also occupy the same bandwidth.
+Now, we have a problem.
+Since the I Channel and the Q Channel will occupy the same spectrum.
+How can we differentiate them at the receiver side,
+and recover the original message?
+In the lab exercise, you will design the QPSK receiver
+and recover the original messages.

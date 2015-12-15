@@ -1,0 +1,85 @@
+Let's analyze the mixing process, assuming that our signals are cosines.
+So if you remember, we're breaking demodulation up into two steps.
+The first one being mixing, which we're talking
+about now, which is just multiplication of the received
+signal by a cosinusoidal signal, and then low pass filtering.
+So to understand mixing, we've already seen this through modulation,
+and so, let's recap what we know about modulation.
+So remember, when we're modulating a signal from baseband
+up into a higher frequency, what we do is, we take our signal which
+is that baseband, let's say, signal f_s, and we multiply it by our carrier
+at another frequency, f_0.
+And so in the Fourier domain, what we know
+is we have a single frequency component here at f_s,
+we modulate it by a signal that has a single-frequency component here f_0.
+And we were able to use a trigonometric identity
+to show that, when we do that product, we get two frequency components,
+one at the difference frequency, f_0 minus f_s, and the other one at the sum
+frequency, f_0 plus f_s, as I show you on the right-hand side over there.
+Now, a very similar process occurs when we're
+doing mixing of the received signal in order
+to get a signal back down at baseband.
+So here, I show you the modulator, and then the first part of the demodulator
+on the other side there, which is the mixing step.
+And so to understand the mixing step, let's just take
+a look at what happens to the signals.
+So the output of the mixer, I'm going to denote by dt,
+and that's just the product of the received signal, x of t,
+times that cosinusoidal carrier.
+Now, I know from the modulation step that the received signal, x of t,
+is simply m of t times cosine 2 pi f_0 t.
+So I'm going to take this equation here, put it on the top,
+and we're going to take a look at this.
+All I'm going to do at this stage here is just
+take the parentheses here, the square brackets, and move them
+so that they surround the cosines.
+So I really haven't changed anything here.
+I'm going to move this one up to the top now,
+and we're going to take a look at this one.
+If you look at this one more carefully, what
+you can see is, just like in the modulation case,
+we have the product of two cosines.
+So we can use that same trigonometric identity
+to break that into two cosines, one at the difference frequency,
+f_0 minus f_0 in this case, and the other one at the sum frequency, f_0 plus f_0.
+Now, I'm going to take this one up to the top
+here and take a closer look at this.
+If I look at this one a little bit more carefully, I see f_0 minus f_0 is 0,
+right?
+So I'm getting cosine of 0, which I know is 1,
+and so all I'm going to get there is exactly 1/2,
+and then f_0 plus f_0 is just 2 f_0.
+So these cosinusoidal components here are just one
+at 0 frequency, and the other one at 2 times that carrier frequency, f 0.
+So take this line and move this one up here.
+And what I'm going to do now is just multiply through by m of t.
+And so I'll get 1/2 of m of t, plus 1/2 of m of t times that cosine term,
+move it up again.
+And now what you can see is that I have a scaled version
+of the original message here.
+So remember, our original message was m(t), right,
+which went through the modulator, and then
+now is being mixed back down to the baseband frequency.
+So I have a scaled version, scaled by 1/2 here,
+plus I have this extra term here, which depends on the original message,
+but is introduced by that mixing process.
+So to get a more concrete idea of how this works,
+let's take a look at a particular example,
+where I'm going to assume that the signal that we want to send, m of t,
+is a cosinusoidal signal at a frequency in the baseband, f_s.
+So there's a single frequency component that we want send.
+We modulate that by the carrier at f_0.
+So we get those two frequency components around f_0.
+And then when we do the mixing process in the demodulator, what we get
+is from our previous result, this expression here,
+where I've replaced m of t by that cosine term at f_s,
+and I get 1/2 that cosine term there.
+And then when I multiply mt times the cosine of 2 f_0, since m of t
+is a cosine signal, I get the difference frequency, 2 f_0 minus f_s,
+and the sum frequency, 2 f_0 plus f_s.
+And I show you the spectrum on the right-hand side over there.
+And so now, what we can see is that we originally sent a frequency component,
+f_s.
+We see that message in the output of the mixer right there,
+but, unfortunately, we also have these extra terms that we see over here
+that we need to remove.

@@ -1,0 +1,79 @@
+Let's look at the frequency domain representation of my voice again.
+Here, I have another question.
+Will your voice have similar spectrum?
+Definitely, the answer is yes.
+Otherwise, it will be difficult for us to communicate.
+If that is true, then can two people talk at the same time
+without interfering each other?
+Unfortunately, the answer is no.
+Then, why can hundreds of people talk simultaneously on their phone
+without interfering each other?
+The answer is what we call frequency division multiplexing.
+Now, let's look at one example how frequency division multiplexing
+can help to transmit two voice signals simultaneously.
+Imagine, we have two voice signals here.
+They have similar spectrum.
+So if we transmit them at the same time, they will interfere with each other.
+Then what we can do is, at transmitter one,
+we can select carrier signal with carrier frequency f_1.
+Then after modulation, the spectrum of the first signal
+will be moved to the position of carrier frequency f_1.
+Similarly, at transmitter two, we can select another carrier frequency f_2.
+After modulation, the spectrum of the second signal
+will be moved to the position of carrier frequency f2.
+If those two carrier frequencies are properly designed,
+then the two spectrums of the two signals after modulation
+will not have significant overlap.
+Then, if we transmit them simultaneously,
+the receiver can easily separate the two spectrums
+and to recover the original message.
+In the following, we will use two Matlab programs
+to see how frequency division multiplexing can help us to transmit
+two voice signals at the same time.
+So we first define the sampling frequency,
+and also we get two speech signals from two files
+named speech1.wave and speech2.wave.
+If we perform the Fast Fourier Transform,
+we can look at the two speech signals in the frequency domain.
+Here is the result. So we can observe that the two speech signals
+occupy a relatively wide bandwidth.
+Next, we will ask the two speech signals to go through a low pass filter
+with cutoff frequency 4k hertz.
+Here is the spectrum of the two speech signals after going
+through the low pass filter.
+We can see the spectrum of the two speech signals
+are now limited to the bandwidth less than 4k hertz.
+Next, if we use the two output signals from the low pass filter
+to modulate two carrier signals, with frequency 10k and the 20k hertz,
+we will be able to get modulated signal.
+If we look at the two modulated signals in the frequency domain,
+we will you see that now the spectrum of the original message signal
+is moved to the position of the two carrier frequencies, 10k
+and 20k hertz.
+Given the bandwidth of the speech signals is less than 4k hertz,
+and the two carrier frequencies have a difference of 10k hertz.
+We know that the two spectrums will not have significant overlap.
+That means, even if we transmit them together at the same time,
+the two spectrums will not overlap with each other.
+And at the receiver side, it will be easy for us
+to separate the two speech signals and recover the original message.
+In the previous example, we have seen how frequency division multiplexing
+can help us to transmit two speech signals at the same time.
+The key is to properly design the low pass filter
+and also the carrier frequencies.
+In this program, we will see how important the low pass filter is.
+So the program is almost the same as the previous one,
+the only difference is we removed the low pass filter part.
+So first, we get a two speech signals from the two files.
+And if we perform the FFT operation, we can observe their frequency domain
+representation.
+Obviously, the two signals have a relatively wide bandwidth.
+Instead of asking them to go through the low pass filter,
+here, we directly use the two speech signals to modulate two carrier signals,
+with frequency 10k and 20k hertz.
+Here is the spectrum of the resulting modulated signal.
+So now, the two spectrums have significant overlap.
+If we transmit them together at the same time,
+we can see that there are significant overlap between the two spectrum,
+and it will be impossible for the receiver
+to separate the two speech signals and recover the original message.

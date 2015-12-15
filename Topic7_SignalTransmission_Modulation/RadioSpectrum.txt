@@ -1,0 +1,91 @@
+Now that we understand about the frequency domain
+and the frequency analysis signals, we can
+start talking about how we can share a particular communication channel.
+In particular, we'll be talking about wireless communications systems
+where signals travel over the air using radio waves.
+And so that leads us to the idea of the radio spectrum.
+So radio waves are basically electromagnetic waves,
+and they can have different frequencies.
+So I show you different sinusoidal frequencies,
+there are low frequencies and high frequencies.
+And the radio spectrum really spans all frequencies from 0 hertz
+all the way up to infinity.
+Now, these radio waves travel over the air,
+and it turns out that air is a common medium.
+Everyone shares the same air.
+For example, if I'm talking, we can't have
+two people talking at the same time in the same room,
+because there's going to be some interference.
+So what we need to have is some way of sharing a channel.
+And that process of sharing a channel is called multiplexing.
+For example, when I'm teaching, typically, the way
+that we share a channel-- which might be a classroom--
+is we divide the classroom into different lecture periods,
+and then I teach at a certain period of time, during my class time.
+And then after that, another professor might come in and teach then.
+And so that process of sharing that classroom channel
+is known as time division multiplexing.
+And of course, it would be very confusing to students
+if two professors came in and tried to teach a class of exactly the same time.
+But there are other ways of sharing a channel.
+In particular, what we're going to be talking about
+is talking about frequency division multiplexing.
+What we're going to be able to do is we're
+going to actually allocate to every user a different band of frequencies
+in which they can communicate.
+So they'll be able to communicate at the same time,
+but they won't interfere with each other because they'll be
+using different bands of frequencies.
+So when I divide the radio spectrum up into different frequency bands
+that different users can use, you can imagine that the radio spectrum
+could become very, very crowded.
+So what I show you here is the division of the radio spectrum from 3 kilohertz
+to 300 gigahertz, where each row here corresponds
+to a different band of frequencies, for example, the first one from 3 kilohertz
+to 300 kilohertz. That shows you the way in which the spectrum is divided.
+And so the details are not that important.
+You can see different colors corresponding to different uses
+and things like that, but what you can see
+is that everything is all crowded it's all divided up.
+It doesn't look like there's much space.
+And so how do we determine how to divide that radio spectrum up?
+Well, it turns out that that's the job of the government.
+The government in some sense owns all the radio spectrum,
+and it regulates it.
+Every country has their own regulating agency.
+For example, in Hong Kong it's called the Office
+of the Communications Authority.
+Of course, different governments also have
+to communicate with each other about how they're dividing the radio spectrum up.
+And so our office in Hong Kong deals with an international organization,
+the International Telecommunications Union,
+which is headquartered in Geneva under the United Nations.
+And that's a way that different governments
+can coordinate their efforts in regulating the spectrum.
+When it comes down to actually dividing the spectrum up, what you need to do
+is first get a license from your government
+in order to use a particular region of the spectrum.
+And since there's a lot of demand for that spectrum,
+usually, what the government will do is it will sell parts of the spectrum
+through an auction.
+And this auction is meant to be more fair, because you have free market
+mechanisms at play.
+And these auctions can be quite lucrative.
+You can see here several results of different auctions
+auctioning off different parts of the spectrum here,
+and the numbers you're getting are in the billions of Hong Kong dollars.
+And so Hong Kong has divided this spectrum up
+among different mobile phone operators.
+So for example, we have operators like Three, SmarTone, CSL, PCCW,
+and you can see that each one of these mobile phone operators
+has their own certain bands of frequencies.
+And so for example, if we're talking about 3G communication, for example,
+here, here, you can see over there and there.
+You can see that all of these telecommunication service providers
+offer 3G services.
+They all offer them in around the same frequency band, around 2 gigahertz
+or something like that, but slightly different.
+So because they're all operating around the same frequency band,
+it means that you can easily switch between operators
+with the same hardware, but it makes sure
+that the different operators don't interfere with each other.

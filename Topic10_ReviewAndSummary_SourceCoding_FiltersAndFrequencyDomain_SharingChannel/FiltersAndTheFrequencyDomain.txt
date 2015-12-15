@@ -1,0 +1,150 @@
+Let's review what we learned about filters and the frequency domain
+analysis of signals.
+So when we talk about a filter, we started
+by talking about this water filter here where
+we have the idea that we might want to take dirty water here and filter it
+so that it comes out cleaner on the other end of the filter.
+And so, when we talk about the operation of this filter,
+we have the idea that the input to the filter here, the dirty water,
+consists of different components.
+Those components might be water, which we want to drink,
+but also some impurities, which we don't want to drink.
+And those impurities might have different sizes
+and we know that, for example, water filters typically
+operate by filtering out very, very large particles or relatively
+large particles so that only the water passes through.
+Ideally what we would want is only the water passing through this filter
+but, in fact, what happens is that a small amount of the smaller
+particles or let's say a relatively large amount of the small particles
+pass through but a very, very small percentage of the very, very
+large particles pass through. So this water here is cleaner
+than this water is over here.
+And so these numbers here, 100%, 90%, 10%, describing
+how much of each component passes through the filter,
+characterize the operation of the filter.
+And if I know those numbers, then I can get
+a determination of how good that filter, or how well that filter, is
+filtering the water.
+Now, we can take this idea and actually apply it to the communication channel
+that we discussed in Part One.
+We're going to take the input signal and we're going to get an output signal
+and somehow the input signal and the output signal
+are related to each other.
+And the way that they're related to each other
+is that the input signal has components, just like this one has components,
+and some of those components pass through the channel largely unchanged
+and other of the components are blocked or don't pass through that channel.
+And so then the key question then that we
+had is if we're going to take this interpretation of a filter
+as blocking some components and passing other components,
+what are those components inside the input signal?
+And the answer we gave to that was given by Fourier Analysis
+and we saw two types of Fourier Analysis: the Fourier
+Series and the Fourier Transform.
+And what the Fourier Series expansion did is it took a signal, x of n,
+any signal, any sampled data signal containing N points,
+capital N points, and it expressed it as a sum of N divided
+by 2 plus 1 cosinusoidal components.
+The cosinusoidal components had different frequencies
+but for any signal with N samples, those frequencies were all the same.
+They all had that stereotypical form, f_k is equal to k divided by N,
+where k runs from 0 to N divided by 2.
+That was what we call the normalized frequency.
+So there were N divided by 2 plus 1 normalized frequencies.
+But, of course, because signals differ, what
+happens is that the values of A_k and phi_k in that equation
+differ from signal to signal.
+The values of A_k turn out to be a little bit more important
+than the values of phi_k because they determine
+the size of those cosinusoidal components, or how much of that
+frequency component is contained within the signal.
+The phase shifts phi introduce shifts in the cosinusoidal components, shifts
+in time due to those phase delays.
+The Fourier Transform is an alternative decomposition of the signal.
+It also uses this idea of frequency but it decomposes the signal
+into a sum of scaled complex exponentials
+where now, the scaling factors can be themselves complex numbers.
+And so because the scaling factor can be a complex number,
+it has both a magnitude and a phase just like we required here
+in the Fourier Series, a magnitude A sub k, and a phase.
+And so it turns out that these two things are equivalent.
+So if I know, for example, the Fourier series,
+I can find the Fourier Transform and vice versa.
+Given this one I can find the A_k’s and phi_k’s.
+And so this Fourier Analysis then allows us to decompose a signal
+or take the signal and decompose it into the sum of signals
+at different frequencies, and we characterize the signal
+by how much of each frequency does it have inside.
+And so the measurement of how much of each frequency
+it has inside, or the characterization of that, is called the Amplitude Spectrum.
+And so I show you here a signal. It has only three frequency components.
+It has a DC offset, or a constant offset,
+at 1 around which the signal is oscillating.
+It has a slow oscillation, once over the entire range of 256 samples,
+and another one that oscillates up and down 10 times.
+And the slow variation is relatively larger.
+And we can see that in the Amplitude Spectrum here.
+We can see a component here at 0 corresponding to the constant
+offset and then a component at 1 corresponding
+to that slow variation and another component at 10 corresponding
+to the fast variation that goes up and down 10 times.
+We can also characterize this using the sum of complex exponentials
+and there what we can see is that, instead
+of only using positive frequencies, we also have to use negative frequencies.
+But there is a certain symmetry about the Fourier Transform
+when we're dealing with real valued signals
+such that, if I look at the amplitude, the amplitude of the positive 1
+frequency component is going to be exactly
+the same as the amplitude of the minus 1 frequency component and, in fact,
+it's going to be half that of the Fourier Series expansion, A_1.
+So this gives us a way of characterizing a signal
+in terms of what kind of frequency components does it contain?
+Once we know what kind of frequency components are contained in the input,
+then we can talk about what happens when I send it
+through a channel or, in general, any LTI or linear time invariant system.
+And what we saw was that if I take a single frequency component,
+that would be a single cosine, and I pass that through any linear time
+invariant system, what's going to come out of the output
+is going to be that same component, right?
+So the component is going to come in and it's going to go out.
+It’s going to be the same component, but it's going to be slightly modified.
+What's going to happen is, it's going to have the same frequency
+but it's going to be shifted in phase by an amount, phi, or theta in this case,
+and it's going to be scaled in magnitude by an amount, S.
+And so those scaling factors and phase shifts
+are going to be frequency dependent.
+Now in understanding the operation of this linear time invariant system
+it turns out that the most critical thing
+to understand is really, usually, the amplitude response
+or, how does that scaling factor vary with frequency.
+Because the scaling factor tells you how much of that component gets through.
+So going back to the original water filter example
+that we talked about at the beginning, we
+have these numbers characterizing the performance of the filter.
+It's saying 100% of the water gets through but only 1%
+of the large particles get through.
+And so there what we're saying is that the different components
+are filtered in different amounts depending upon their size.
+What a linear time invariant system does is it does the same kind of filtering,
+except for instead of filtering by size, it filters by frequency.
+So those numbers, instead of describing what
+happens to different sizes of particles, the numbers
+tell you what happens to different frequency components.
+And we talked about different kinds of filters, the lowpass filter,
+the bandpass filter, and the highpass filter,
+that differ according to what kind of frequencies pass through the filter.
+For the lowpass filter it's mainly low frequencies, which are slowly
+varying changes, that pass through.
+And we saw that the communication channel
+that we talked about in Part One of the class
+was an example of a lowpass filter.
+So in summary then, when we're talking about filters
+it's very natural to talk about a decomposition of the signal
+into different frequency components.
+We also use that idea when we are talking about lossy source encoding.
+And the idea then is that any signal can be decomposed
+into a sum of different frequency components
+and they just contain the same frequency components, just in different amounts.
+And what a filter can do is adjust or modify
+the amount of the frequency content of that signal when
+it passes through that filter.

@@ -1,0 +1,32 @@
+﻿% read the text file (1 byte for each character)
+fid = fopen('G4jHRdGpVaY.txt');
+text_code = fread(fid,inf,'uchar');
+fclose(fid);
+
+% % % % Revise the following code % % % %
+dict={[0]};
+code=[];
+% % % % Do not change the code below % % % %
+
+% Encode
+huffman = huffman_encode_text(text_code, dict, code);
+%Decode
+msg_rec = huffman_decode_text(huffman, dict, code);
+
+% Check 
+display(['Size of ASCII encoding: ' num2str(length(text_code)*8)]);
+display(['Size of Huffman encoding: ' num2str(length(huffman))]);
+
+if length(text_code)==length(msg_rec)
+    nerr = sum(text_code~=msg_rec);
+    if nerr ==0
+        display('The sent and the received messages are the same.');
+    else
+        display(['The are ' nerr ' incorrect bytes in the received message.']);
+    end
+else
+    display('The sent and the received messages have different size.');
+end
+
+
+      

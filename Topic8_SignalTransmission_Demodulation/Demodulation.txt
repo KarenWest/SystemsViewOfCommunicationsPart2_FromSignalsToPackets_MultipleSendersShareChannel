@@ -1,0 +1,48 @@
+Demodulation refers to the process of taking
+a signal which is modulated from baseband
+up into a higher frequency range for transmission, and then taking that one
+back down into the baseband so that we can recover the original signal.
+So as a review, let's talk a little bit about modulation.
+Remember, we might have two different messages that we want to transmit.
+If we transmit these together, because their frequency content
+overlaps, they would interfere.
+So we want to do is, we want to switch those into a higher frequency
+range, where they don't overlap.
+So we might modulate this one at a certain frequency,
+f_0, which would put it into that frequency range,
+and then modulate this one down here by another frequency, f_1, which is higher,
+which would allow it not to interfere when
+both are transmitted at the same time.
+Now, once we transmit that over the air, we receive a signal,
+then the question is, how do we take this signal that we receive
+and recover the original signal, either message 1 or message 0.
+In this case here, I show you recovering message 0.
+And so, just intuitively, just by looking
+at this picture, what we can see is that one thing we need to do
+is take this thing and shift it back down into the original baseband.
+And also, we have this extra signal over here that we need to get rid of.
+So there's really two steps we need to do in demodulation process.
+Now, it turns out that one of those processes
+is actually very similar to the process of modulation.
+So if you recall, for modulation, what we did is we took our original signal
+and we want to move it up into a higher frequency band.
+And we did that by multiplying by that cosinusoidal carrier.
+Now since, in demodulation, we want to shift back down,
+that's another shift operation.
+It turns out that we can do that in exactly the same way.
+We just take the received signal, which I denote by X here,
+and then shift it back down by multiplying by another cosine.
+In fact, we multiply by a cosine with exactly the same frequency
+as we used in the modulation.
+That will do the shift, and then we have to remove the signals,
+and we do that through a process which is called low pass filtering.
+So in conclusion, then, when we're looking
+at demodulation, what we're going to do is,
+we're going to split this into two steps.
+The first step is multiplying by a cosinusoidal carrier.
+We're going to call that step mixing, because we're
+mixing two signals together by multiplying them.
+And then, the second step, we're going to do low pass filtering,
+which is going to remove some unwanted signals,
+not only that exist already in the signal,
+but that are actually introduced by the mixing process.

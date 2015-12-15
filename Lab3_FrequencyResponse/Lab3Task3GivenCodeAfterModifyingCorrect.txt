@@ -1,0 +1,68 @@
+% Exponential factor controlling step response of channel
+ach = 0.93;
+% Exponential factor controlling the equalizer. This is the
+% equalizer's estimate of the a of the channel.  Ideally, this
+% should equal ach, but in practice, there is often mismatch.
+aeq = 0.98;
+
+nsamp = 1200;
+n=0:(nsamp-1);
+
+flist = logspace(-3,-1);
+h_rx = zeros(1,length(flist));
+h_eq_rx = zeros(1,length(flist));
+h_eq_tx = zeros(1,length(flist));
+  
+for i=1:length(flist)
+    % % % % Revise the following code   % % % %  
+        
+    % normalized frequency of the signal (cycles/sample)
+    freq = flist(i);
+    
+    % create a sinusoidal function with frequency freq and nsamp samples
+    tx_wave = cos(2*pi*freq*n);
+    
+    % send the signal through the channel
+    rx_wave = txrx(tx_wave,ach,'pureexp');
+    
+    % remove the transient and get the peak to peak value
+    % skip first 200 samples, 0-199, to remove transient effects
+    % estimate maximum and minimum amplitude of received waveform
+    tx_mx = max(rx_wave(200:end));
+    tx_mn = abs(min(rx_wave(200:end)));
+
+    h_tx(i)= tx_mx + tx_mn;
+
+    rx_mx = max(rx_wave(200:end));
+    rx_mn = abs(min(rx_wave(200:end)));
+
+    h_rx(i)= rx_mx + rx_mn;
+
+    eq_rx = equalizer_lab3(rx_wave,aeq) 
+    eq_rx_mx = max(eq_rx(200:end));
+    eq_rx_mn = abs(min(eq_rx(200:end)));
+
+    h_eq_rx(i)= eq_rx_mx + eq_rx_mn;
+   
+    eq_tx = equalizer_lab3(tx_wave,aeq) 
+    eq_tx_mx = max(eq_tx(200:end));
+    eq_tx_mn = abs(min(eq_tx(200:end)));
+
+    h_eq_tx(i)= eq_tx_mx + eq_tx_mn;
+        
+	% % % % Do not change the code below   % % % %  
+    
+end
+figure(1);
+% Divide the peak to peak amplitude of the output by 
+% the peak to peak amplitude of the input (2)
+loglog(flist,h_rx/2,'b'); 
+hold on;
+loglog(flist,h_eq_rx/2,'r'); 
+loglog(flist,h_eq_tx/2,'g'); hold off;
+grid
+legend('output','equalized output','equalized input');
+xlabel('Normalized Frequency');
+ylabel('Amplitude');
+title('Frequency responses');
+      

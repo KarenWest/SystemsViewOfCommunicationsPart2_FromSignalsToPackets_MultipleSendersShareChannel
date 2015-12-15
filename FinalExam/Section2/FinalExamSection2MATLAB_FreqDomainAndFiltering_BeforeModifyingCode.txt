@@ -1,0 +1,21 @@
+﻿%% code
+nsamp = 2000;
+n=0:(nsamp-1);
+flist = linspace(0,0.1,100);
+h_rx = zeros(1,length(flist));
+
+% % % % Revise the following code % % % %
+tx_wave = zeros(1,nsamp);
+% send the signal through the channel
+rx_wave = channel_f2_2015(tx_wave);
+% % % % Do not change the code below % % % %
+
+figure(1);
+% Divide peak to peak amplitude of the output by the
+% peak to peak amplitude of the input (2)
+plot(flist,h_rx/2,'b');
+grid
+xlabel('Frequency');
+ylabel('Amplitude');
+title('Frequency response of the channel');
+      

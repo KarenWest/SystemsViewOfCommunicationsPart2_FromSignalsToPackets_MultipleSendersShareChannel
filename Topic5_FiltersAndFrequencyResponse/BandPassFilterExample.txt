@@ -1,0 +1,61 @@
+Let's take a look at an example of the relationship between the input
+and output of a band pass filter.
+So recall we have different types of filters.
+These differ depending upon the shape of their amplitude response.
+We'll be looking at the band pass filter, the one shown in the middle
+here.
+The idea of a band pass filter is that it passes frequencies
+within a certain band, and that band is determined by two frequencies,
+f_l, the low frequency cutoff, all frequencies below
+f_l are not passed by the filter and the high frequency cutoff f_h.
+All frequencies above the high frequency cutoff are not passed either.
+So to understand the relationship between the input and the output,
+remember what we do is we take the original input,
+and we can take the Fourier series representation.
+And we're looking at here the amplitude spectrum,
+and when the signal goes through the filter,
+the cosine waves are scaled and shifted, and in the amplitude domain,
+this corresponds to multiplying the amplitude spectrum by the frequency
+response or the amplitude response of the filter shown here.
+And so when we do that, what we get is we get this amplitude spectrum
+down here, which is the amplitude spectrum of the output.
+And then to recover the original output, what we do
+is we sum those frequency components, and we get the signal down here.
+Let's remember for all filters, this operation and this operation
+are the same, and the only thing that differs
+is the relationship between the input spectrum and the output spectrum.
+So now we can see for this band pass filter,
+it's passing this range of frequencies which
+are the high frequencies in the signal so, in fact,
+this filter is also similar to a high pass filter.
+And so, consistent with that, we can see very, very quick oscillations
+inside here, and we can see that the kind of low or slow transition
+or the slow regions here plus 1 and minus 1 are not being passed.
+What we can do is keep the relationship between the low frequency cutoff
+and the high frequency cutoff the same, and move the region or the band
+where this band pass filter is operating through and move it down.
+So when we do that, now instead of passing these high frequencies here--
+these three high frequencies-- we pass these three middle frequencies here.
+And so now you can see two things.
+Number one, you can see that the signal is varying much slower than we saw over
+here, but we also see that these transitions
+from low to high and high to low are not as reflected as well here.
+So if we look at this one here, we have a low to high
+and a high to low transition here, but if we
+compare that with the previous signal, what we can see
+there is that transition is much larger.
+But the high frequency signal tends to drop down closer to 0
+faster than this one over here.
+We can then look at taking that band that the band pass filter is passing
+and move it further down.
+And when we do that, we can see that, again, the oscillations
+become much slower, but we can also see that these transitions become slower
+as well, if we compare this one, for example, with this one.
+But at the same time, what's happening is
+that we're getting more and more of these slowly varying
+components, so you can see at this point here the signal was high close to 1,
+and you can see after this transition, although it's slow,
+it does stay up close to 1 longer than it did before.
+And so if we compare then the band pass filter at these different frequency
+bands, we can see the difference in how that's
+reflected in the differences in the frequency contents of the signal.

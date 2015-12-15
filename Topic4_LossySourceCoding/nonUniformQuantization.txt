@@ -1,0 +1,124 @@
+So let's talk about the nonuniform quantization step in the MP3 coding.
+So if we recall, the key steps in MP3 coding
+is we start with our PCM encoded input.
+We do the short-term frequency analysis. And then from that short-term frequency
+analysis, we can identify dominant tones.
+And we can put those into the psycho acoustic model
+to determine which kind of frequencies are going
+to be more perceptible than others.
+So remember that because of the auditory threshold and the masking threshold,
+some sounds we're not going to be able to hear.
+And so that suggests that maybe we can throw those sounds away,
+but throwing things away is a quite radical kind of thing to do.
+So rather than just either keeping something or throwing something away,
+what MP3 encoding does is it does something which
+is called nonuniform quantization.
+And so, this is really where the loss of information happens.
+When we do the short-term frequency analysis,
+it turns out that at this point here, we can always
+recover the original waveform exactly just by kind
+of backing up through this thing here.
+And so when we go from here through the nonuniform quantization step,
+that's where we actually lose the information.
+And beyond that point, we can't recover the original waveform exactly.
+And so, the way the nonuniform quantization works
+is, of course, it's based upon quantization.
+And so the idea behind quantization, again,
+is that if I have a waveform, something like this, shown in yellow, then
+because I have a certain number of bits, then
+I can only encode a certain number of values.
+So if I have 3 bits, I can encode 8 levels, like I've shown here.
+If I have more bits, 4 bits, I can have 16 levels.
+And so in between each one of these levels
+here, I could add an additional level between these guys over here.
+And so when I do the quantization, what I do is I take the yellow waveform
+and I map it to the closest level, as you can see over here and here.
+And so by mapping it to this closest level here, I introduce some error.
+That's shown in this orange bar over here which I call quantization error.
+And that quantization error is going to lead to changes in the signal
+because the red thing is not the same thing as the yellow thing.
+And so, ideally, I'd like that quantization error
+to be as small as possible.
+And the way I can reduce that quantization error
+is increasing the number of bits, which would
+take this difference between this level and this level and make it smaller.
+So if I added an extra bit, it would make it smaller by a half.
+Another bit would make it smaller by a quarter, and so on.
+So usually when we're talking about quantization,
+we have this idea of resolution.
+How much resolution or how finely can I measure the signal.
+And so there's two ways of measuring this resolution when
+we talk about this conversion.
+It's either in terms of the number of bits.
+Right, so in this case here, I would have 3 bits.
+Or I can talk about the difference between the levels here.
+So what I could do is I could take the entire range of the signal
+here, from this point to this one here, which would be called R,
+and I find the actual difference between these levels
+by dividing by the number of levels.
+So the number of bands here is actually 2n minus 1.
+So that would be the resolution.
+And so typically, for closer reconstruction
+of the signal, what we want to have is either resolution
+that's finer in terms of more bits.
+Right, so if I look at the number of bits, more is better.
+Or a smaller difference between the levels
+or a smaller difference between the levels.
+So those would both result in better resolution.
+So we know now what quantization is.
+What do we mean by nonuniform quantization?
+Well, if we go back to the idea of masking,
+we know that in the presence of a dominant tone,
+frequencies around the dominant tone over here
+are not going to be able to be heard.
+And so that suggests maybe what you might want to do
+is just throw frequencies below that away and encode frequencies above that.
+But that is not necessarily a good idea for several reasons.
+Number one, different people's masking thresholds might be different.
+Right?
+So you don't know necessarily what you want to throw away.
+But it suggests that because you're less sensitive in this region over here,
+maybe what I can do is I can not throw the information away altogether,
+but what I could do is take the frequency component here and quantize
+its amplitude with a different resolution.
+So in regions over here, because I'm less
+sensitive to changes in the amplitude, I might use a lower resolution,
+a fewer number of bits.
+Whereas down over here, if I have a sound,
+I might use a higher resolution, a more number of bits,
+so I get a better reconstruction over here.
+And so, what MP3 does is it does an analysis of the signal using
+the psycho acoustic model in order to determine where the dominant tones are.
+And then it dynamically allocates the quantization, or the resolution
+of the quantization, depending on what the content of the signal
+is, and also depending on its model or understanding of the way
+that you're going to perceive those differences.
+And so that's where this idea that knowledge about how we perceive
+tells us what information to throw away in the quantization step.
+Then in the final step, what happens is that we do Huffman coding.
+And so Huffman coding is that lossless encoding, right,
+so it turns out that the output of the Huffman coder
+will have enough information to fully reconstruct its input.
+And that Huffman encoder, remember, was based on the idea
+that certain codes are going to be more frequent than others, right?
+So for example, certain outputs of the quantizer
+are going to be more frequent than others,
+and so I should use fewer bits to encode those.
+So then in summary then, the way MP3 encoding works
+is it takes the original input, which was sampled at a regular sampling rate
+and quantized at a uniformly high resolution.
+It breaks the waveform up into these short time segments,
+and does a frequency analysis of each short-term time segment.
+On those short-term time segments, it turns out
+that there's probably going to be only a few frequency components that
+are really important.
+We can analyze those and their effect on your perception of other frequency
+components near those kind of dominant frequency components,
+and use that to dynamically determine how much to quantize
+the different frequency components.
+And then pass it through a lossless encoding stage.
+And finally, what we're going to get is an end
+to end compression, where the input here is going to be 10 times bigger
+than the output that we get over there.
+And so that's what really enables us to store many, many audio files, or music
+files, on things like our mobile phone without using too much memory.

@@ -1,0 +1,99 @@
+Hello, everyone.
+Welcome to the lab demo for Lab 4.
+In Lab 2, we introduced the time frequency analysis for signals.
+And here is the example for the frequency analysis of my voice.
+Now, I have one question for you to think about.
+Can my voice be heard 2 kilometers away or even outside this classroom?
+Unfortunately, the answer is no, because that propagation ability of my voice
+is not as strong.
+It cannot go through the walls or the ceiling of this classroom.
+Then, why can I talk with my friend in New York
+through a communication system?
+This basically tells us that a communication system
+has a much stronger ability to transmit signals.
+And the answer here lies in the term modulation.
+The idea of modulation is similar to the situation that I cannot reach New York
+by myself, but instead I need to take an airplane.
+During this process, the airplane is the carrier, which
+carries me from Hong Kong to New York.
+Modulation happens in a similar way.
+So basically, we will have a carrier signal to carry the message
+from one location to the other.
+Imagine, I have a voice signal to be transmitted.
+Unfortunately, by itself, the voice signal cannot reach the destination.
+So what we can do is we can perform modulation
+by multiplying the message signal with a carrier
+signal, which has a higher frequency.
+After that, we can obtain what we call the modulated signal.
+If we look closely, we can observe that the amplitude of the carrier signal
+now will would change in the same way as the message signal.
+This is also why we call it amplitude modulation.
+During this process, we can regard the message signal as the passenger,
+the carrier signal as the airplane, and the modulated
+signal as the loaded airplane.
+So when the modulated signal reaches the receiver side,
+we can perform demodulation by multiplying the modulated signal
+with the same carrier signal again.
+After going through the low pass filter, we
+can recover the original message signal.
+This is similar to the process when the airplane reaches New York,
+I can get off the plane and recover myself.
+Then how come the modulated signal has a stronger ability
+to reach a further distance?
+The reason lies in the frequency domain.
+Now, let's look at the process of modulation
+and the demodulation in the frequency domain.
+Imagine, I have a voice signal, which has a spectrum around the DC region.
+By itself, it cannot reach the destination.
+However, after performing modulation the spectrum of the message
+signal we will be moved to two positions, the carrier frequency
+negative fc and positive fc.
+Then, why the modulated signal has a stronger ability
+to reach a further distance?
+We can tell from the spectrum here.
+So basically, the modulated signal now has a spectrum
+as a higher frequency different from the original message, which
+has its spectrum around the DC region.
+And the receiver side, the modulated signal
+will be multiplied with the same carrier signal again.
+If that happens, the spectrum of the modulated signal
+will moved to two positions, negative fc and fc.
+Interestingly, the original message will occur again at its original position.
+If we ask the signal to go through a low pass filter,
+we can recover the original message.
+In this program, we'll see how modulation and demodulation
+happen in both time and frequency domains.
+So we first define the sampling frequency to be 1k hertz.
+During a modulation process, we need to multiply the message signal
+with the carrier signal.
+Here, we define the message signal to be a cosine function with frequency 1
+hertz and amplitude 1.
+Create a breakpoint here. We can observe the time domain representation
+of the message signal, which is a cosine function.
+After performing the fast Fourier transform,
+we can observe the frequency domain representation of the message signal.
+Obviously, the message signal has 2 spikes at frequency 1 hertz.
+Modulation is performed by multiplying the message signal
+with the carrier signal.
+Here, we define a carrier signal to be the cosine function with frequency 10 hertz
+and amplitude 1.
+By multiplying the message signal x with the carrier signal y,
+we can obtain the modulated signal m.
+We can see the time domain representation of the modulated signal
+here.
+So obviously, the amplitude of the carrier signal
+now will change according to the message signal.
+That's also why we call it amplitude modulation.
+If we perform the fast Fourier transform on the modulated signal,
+we can observe its frequency domain representation.
+So now, the spectrum of the original message
+is moved to two positions, negative 10 hertz and positive 10 hertz.
+At the receiver side, demodulation is performed
+by multiplying the modulated signal with the same carrier signal,
+And c is the demodulated signal.
+We can observe its time domain representation here.
+And if we performe the FFT operation, we
+can see its frequency domain representation.
+Interestingly, the original message now occurs again at its original position.
+If we ask the signal to go through a low pass filter,
+we can recover the original message.

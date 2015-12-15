@@ -1,0 +1,37 @@
+﻿%% code
+nsamp = 2000;
+n=0:(nsamp-1);
+flist = linspace(0,0.1,100);
+h_rx = zeros(1,length(flist));
+
+% % % % Revise the following code % % % %
+for i=1:length(flist)
+    % normalized frequency of the signal (cycles/sample)
+    freq = flist(i);
+        
+    % create a sinosuidal function with frequency freq and nsamp samples
+    tx_wave = cos(2*pi*freq*n);
+
+    % send the signal through the channel
+    rx_wave = channel_f2_2015(tx_wave);
+    
+    % remove the transient and get the peak to peak value
+    % skip first 200 samples, 0-199, to remove transient effects
+    % estimate maximum and minimum amplitude of received waveform
+    mx = max(rx_wave(200:end));
+    mn = abs(min(rx_wave(200:end)));
+
+    h_rx(i)= mx + mn;
+end
+
+% % % % Do not change the code below % % % %
+
+figure(1);
+% Divide peak to peak amplitude of the output by the
+% peak to peak amplitude of the input (2)
+plot(flist,h_rx/2,'b');
+grid
+xlabel('Frequency');
+ylabel('Amplitude');
+title('Frequency response of the channel');
+      

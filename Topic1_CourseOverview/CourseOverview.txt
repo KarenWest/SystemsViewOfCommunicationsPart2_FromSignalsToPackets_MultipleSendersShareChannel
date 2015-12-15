@@ -1,0 +1,182 @@
+Hello, and welcome to our course, A System View of Communications
+from Signals to Packets, Part 2.
+In this overview, I'll talk about the course in general, and in particular
+how this course, or this part of the course, fits in
+and what we'll be covering in this part of the course.
+So very generally, this course overall discusses how
+do we transmit information wirelessly.
+For example, when we're sending a text message
+or making a call to our friends via our mobile phones.
+And so it turns out that this process, although relatively
+simple to handle in our daily life, involves many, many steps.
+And so what we've done in this course is divided that problem into three parts.
+In Part 1, what we talked about was how do we transmit from a single sender
+to a single receiver.
+In this case, we consider the link that's
+shown in the upper left-hand corner of your screen here,
+where we assume we have a single user using a cell phone to communicate
+with what's called the base station, which
+is the first link in the chain of connecting your call to somebody else.
+There we examine the problems of how do we
+encode the information that we want to send,
+and how do we ensure correct synchronization.
+In Part 2, what we talk about is how do we share that channel.
+So typically what we have is not just one person talking to the base station,
+but the base station serves a wide geographical area in which
+there may be many users in that region.
+And so the question then is how do multiple people all share
+access over the air using radio waves.
+And finally, in Part 3, what we talk about is if we want to complete a call,
+we might need to make a connection from let's say this person over
+here or let's say the person over there on the right-hand side of the screen
+all the way to the person over here.
+And so because they're talking to different base stations,
+the base stations have to hand the message to the correct base station
+to complete the call, and so the question is how is that done.
+In this part, we'll be talking about the problem of sharing a channel.
+How are we going to address this problem?
+Well, we're going to have to build up some tools.
+And so in order to kick that off, we're going
+to start with going back to the communication system
+that we talked about in Part 1, which I'll show you schematically here.
+And we're going to add something to this.
+What we're going to add is something which is called source coding.
+Another name for source coding is compression or decompression,
+and you may have used this in your daily life,
+for example, when you're dealing with MP3 or you're zipping files for storage
+on your computer.
+And so the key idea of source coding is you want to take some information here
+that's stored as bits or some other form and compress it
+so that it takes up fewer bits than it did originally.
+On the other end, the decompression process takes those fewer bits
+and tries to reconstruct the original information over here.
+And we call this source coding because an effective method of doing this
+relies on a proper understanding of the information source here.
+You have to understand what are the properties of that source,
+if you're going to be able to do information compression or data
+compression properly.
+We'll talk about two types of source coding, lossless and lossy.
+In lossless encoding, no information is lost during the compression process.
+So when I do the decompression, I recover the original file
+without any changes.
+And so we typically do this for digital data that we've created,
+for example, a Word file or something like that,
+where I want to make sure that what I see, and what I give to you
+are exactly the same.
+The key concept that we're going to exploit in this case
+here is the idea of entropy.
+Entropy is a concept that is capturing
+the idea of what is the complexity of that source,
+and how hard is that to encode.
+And we're going to have to use that in order
+to understand what are the limitations of the lossless encoding algorithm
+that we'll use, which is called Huffman coding.
+When we talk about lossy compression, what we have is
+that we do the compression, and when we uncompress the data,
+the output that we get is not going to be exactly
+the same as the original input data.
+We typically use this, for example, for situations
+like we're doing audio or video compression.
+You might use this on a daily basis in your phone
+when you're listening to an MP3 file.
+The key concept here is that we need to get a good model of the way
+that you perceive sounds so that we can throw away information or lose
+information which is not going to be perceptible to you.
+And it turns out that in order to model that correctly,
+we're going to use concepts which are called the frequency domain
+analysis of systems signals, and we're going
+to discuss those in topics 3 and 6.
+So lossless compression in topic 2, lossy compression in topic 4,
+but we're going to have to introduce the idea of the frequency domain
+before we go into that.
+Once we have this concept of the frequency domain
+we'll be able to understand the idea of what we call a filter.
+Now, we're going to start this discussion out
+by talking about a very mundane example of a filter, this water filter shown
+here.
+Some of us may have this in our house if the water supply that we're
+getting into our house is dirty. Typically
+what you want is you want to have the water supply here which might contain
+impurity shown in red, and after you go through the filter,
+hopefully you have pure water coming out,
+or at least most of the impurities, especially the large impurities
+have been filtered out.
+It turns out that when we look at the channel we looked at in Part 1,
+we can also interpret the channel as being a filter.
+And so in order to understand the channel as a filter,
+we have to understand, well, for the input signal,
+can we break it down into different components like we've done here.
+For example, for the dirty water, we break it down
+into components, like water, small particles, bigger particles,
+and the biggest particles.
+So if we can break down our input signal into a sum of components,
+and that will be the concept that we'll discuss in the frequency domain
+analysis of signals, then we can talk about how each of those components
+passes through the filter, just like we do here.
+For example, you might say a 100% of the water goes through,
+but maybe only 1% of the large particles go through.
+And we can do a similar kind of thing when
+we talk about frequencies in the signal going through that channel
+or going through the filter.
+And the filter is going to be a key method
+that we use to understand the system, and also a technology
+that we're going to have to use when we talk about sharing a channel.
+So the process of sharing a channel in the wireless communication domain
+is known as multiplexing.
+And there are many different kinds of multiplexing, some of which
+I show here.
+And so the key concept behind multiplexing
+is that you need to have a way of taking a common channel
+and dividing it up so that different people can use it without interference.
+So for example, these two, space-division and time-division.
+If you're taking classes at the university,
+you may have been using these kinds of things already.
+For example, if I have an entire university, that's a shared campus,
+but I have to hold different classes in that campus at the same time.
+What I typically do is I divide the campus up into different classrooms
+where each of the classes can take place in different classrooms
+without interfering with each other.
+In the university setting, I also have to share
+that classroom with other professors or other students for different classes,
+and typically I do that by time-division multiplexing, or time-division sharing.
+I take that classroom, which is maybe available for 24 hours,
+and I break it up into smaller chunks, classroom periods of about an hour
+or an hour and a half, and then during that one hour and a half,
+only one person can use it, but we can share that over the 24 hours
+by assigning different people into different class times.
+There are other techniques.
+For example, modern communications systems often
+use code-division multiplexing, but what we'll concentrate on in this course
+is frequency-division multiplexing.
+And we'll cover this concept in three topics.
+In the first topic what we'll do is we'll
+talk about the problem of modulation.
+And so when we talk about dividing a channel up into different frequencies,
+we're going to rely heavily on our concept
+that we talked about before, the frequency domain analysis of signals,
+and we're going to allocate everybody a different portion of the frequency,
+what we call the frequency spectrum.
+And what we need to do is make sure that people can take their signals
+and put it into that portion of the spectrum,
+and that process is called modulation.
+Once they've put it into that portion of the spectrum,
+they need to transmit it and then get it out of that portion of the spectrum,
+and that process is called demodulation.
+Now, one of the key concepts that we'll have to deal with
+is the idea that we want to make use of the spectrum or the space
+that we're allocated as efficiently as possible.
+We don't want to have any wasted space.
+And so in order to do that transmission effectively
+when we're talking about frequency division multiplexing, what we'll do
+is finally talk about the idea of IQ modulation,
+or in-phase quadrature modulation.
+And in particular, we'll talk about how we can use that kind of technique
+to transmit digital data, and we'll talk about quadrature phase shift keying,
+or QPSK.
+And so overall that will be the Part 2 of the course,
+and we'll go from these basic tools about understanding
+the properties of the source and how can we
+characterize the properties of the source
+all the way to an understanding of how we
+can use that knowledge to share a communication
+channel among multiple users.

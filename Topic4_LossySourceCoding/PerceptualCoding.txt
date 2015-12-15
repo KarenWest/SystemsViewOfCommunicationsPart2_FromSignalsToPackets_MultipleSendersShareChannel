@@ -1,0 +1,152 @@
+Let's talk about perceptual coding, which is another type of source coding,
+or a compression.
+The difference between perceptual coding and something like the Huffman code
+that we talked about before, is that perceptual coding
+is a type of lossy coding, whereas Huffman coding is
+a type of lossless coding.
+And so what we mean by lossy coding is that, when we take the input
+and compress it for storage transmission or other applications,
+when we decompress, we get an output which is close or similar to the input,
+but not exactly the same, like it is in lossless compression.
+This is often used for data streams that we look at or listen to as humans.
+So, for example, things like audio files, we use the MP3 compression. Pictures,
+we use JPEG. Movies, we use MPEG.
+And the way that we obtain this compression
+is we obtain it by throwing away information.
+And so the key question in compression algorithms that are lossy
+is, how do we determine what kind of information to throw away?
+So to try to motivate this, let's look at the standard encoding
+for audio files that is used by your CD-ROM,
+and things like that, which is uncompressed.
+And that standard coding is something which
+is known as pulse code modulation.
+And so, for pulse code modulation, this is
+very similar to the idea of sampling that we talked about before.
+It just adds a further quantization step.
+So if I have a waveform that I want to encode,
+as shown in yellow here, what I can do is I
+can sample it in regular intervals in time, at the sampling frequency.
+And then at every sample, I have to represent that
+by a finite number of bits.
+Here, I show the case for 3 bits.
+And so I can represent, at most, eight different levels with 3 bits.
+And so because the signal at the sampling point
+does not occur at one of the levels, we have to match it to the closest level.
+And that matching process is called quantization.
+And that introduces some difference between the red signal
+and the yellow signal.
+Now, ideally, we'd like this quantization error
+to be as small as possible, or these two things
+to be as close together as possible.
+And that means that we need more levels.
+And for that we need more bits.
+But in any event, if we have the 3 bits that we show here,
+then we can convert this waveform, the yellow waveform, into a bit stream
+by doing this sampling and quantization process.
+And the resulting bit stream we would get
+is just obtained by taking the samples and listing the bits corresponding
+to the level in order.
+So we would get 100, 100, 101, 110, 111, and so on.
+Now, if we have this kind of bit stream, this
+is what we would call uncompressed.
+The question is, if we want to do compression, what kind of information
+do we remove?
+Well, there are two obvious ways that you
+might think about removing information, but these turn out not to be very good.
+One of the most obvious ways would be to reduce the resolution, right?
+Typically, for CD-ROM, we have about 16 bits per sample.
+But you can imagine cutting that to something like 8.
+That would give us about a factor of 2, or exactly a factor of 2,
+reduction in the file size.
+So a factor of 2 in compression.
+However, it would introduce noticeable distortion, because what would happen
+is that the levels that we see here
+when they correspond to 16 bits,
+they would be very small.
+But when I throw away 8 bits, what would happen is at these levels,
+the difference between these levels would increase by 256 times.
+And so that would increase the error that we see in the quantization.
+The other way we can think about throwing away information
+is to reduce the sampling rate.
+And so, for example, for CD-ROMs, typically you
+use a sampling rate around 44 kilohertz.
+So we could halve that to 22 kilohertz.
+That would again lead to a compression ratio about two times.
+What that corresponds to in this picture here is taking, not every sample here,
+but taking every other sample.
+And so when we skip a sample, you can see that what's going to happen
+is that we're going to get a much more less information about the waveform
+because essentially what we're doing is we're missing high or fast changes.
+So that corresponds to throwing away high frequency information.
+And so in a music file, that would correspond
+to less detail when you have very, very quick changes,
+like a cymbal crash, or something like that.
+And so it turns out that these types of ways of throwing away information
+lead to very, very noticeable or perceptible changes in the music
+waveform that you hear, but you don't get that big of a reduction in the bit
+rate. Just about a factor of 2.
+And so perceptual coding tries to address this
+by saying that well, I don't really care about the original bit stream
+and trying to manipulate that original bit stream.
+What I really care about is, when I do the decompression and the person
+hears the thing, even though it's not exactly the same,
+can he notice the difference?
+Does it lead to any perceivable difference?
+And so what perceptual coding does is it tries
+to identify what information it can throw away without you noticing.
+And so because this depends clearly upon the way that you perceive
+sounds, videos, and pictures, it depends critically
+upon models of human perception.
+And so, moving forward, we're going to talk about the MP3 standard.
+The MP3 standard is actually part of the MPEG standard.
+So the MPEG standard is actually for movies, right?
+So MPEG stands for Moving Pictures Experts Group.
+And this group was set up to standardize formats for video compression
+by this organization called ISO, the International Standards
+Organization, which you might have seen in other contexts.
+They're very active in setting up standards
+that are used across many companies to ensure interoperability.
+So MP3 is actually only for audio.
+So it actually stands for only the audio part of the motion picture
+compression standard.
+So that's MPEG audio layer III.
+In contrast to the more naive ways of throwing away information that we just
+talked about, which only achieved a factor of 2,
+it turns out that MP3 achieves about a factor of 10 to 1 compression ratio
+as normally used.
+And so this is really what has enabled a lot of applications
+like bit streaming and compact audio storage,
+so we can carry around many, many music files in our phone.
+And so the question, then, is how does MP3 do this?
+And so the key steps in MP3 coding are shown here.
+We take our input, which is typically encoded as PCM.
+In that case, what we have is 16 bits per channel.
+We have two channels, because it's stereo, and 44.1 kilohertz sampling
+rate.
+So if I multiply all these three numbers together, what I get
+is a 1.41 megabit per second bit rate.
+Now, in the end, what I want is an output that 's much compressed.
+And so what MP3 results in are bit rates typically
+on the order of 128 kilobits per second.
+So that's about 10 times smaller than this.
+Actually, more than 10 times smaller than this 1.41 megabits per second.
+And that's adjustable. You can adjust that
+depending upon how much distortion you're
+willing to tolerate for being able to store more files.
+But anyways, typically, people use about 128 kilobits per second.
+And the way that it does that, it throws away information and it
+uses four different key steps.
+One of them we've talked about before, the one
+that you see all the way on the right-hand side there,
+a Huffman coding.
+That's a kind of lossless compression.
+So we've already seen that.
+So the three that we haven't seen are short-time Fourier frequency analysis,
+the psycho acoustic model, and this is really where we integrate information
+about the way we perceive sounds into the compression algorithm.
+And then finally, we do Non-Uniform Quantization.
+So that's where we really throw away some kind of information.
+The key difference between MP3 quantization and the PCM quantization
+that we just talked about, is that the PCM quantization is uniform.
+Every sample is quantized at the same bit resolution.
+But for MP3, we use non-uniform quantization.

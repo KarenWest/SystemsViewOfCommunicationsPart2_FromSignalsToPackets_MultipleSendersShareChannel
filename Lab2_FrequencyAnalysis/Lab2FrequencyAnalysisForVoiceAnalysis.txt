@@ -1,0 +1,50 @@
+In this program, I will show you how to perform time frequency
+analysis on my voice signal.
+For that purpose, we will first record my voice by using some audio device
+with the help of this MATLAB program.
+So here, we first set up some parameters for recording my voice.
+T = 2 indicates that we will record my voice for two seconds.
+Then we define the sampling frequency, the number
+of bits to represent one sample, and also N channels = 1
+will indicate that we only record the voice on one channel.
+The function "audiorecorder" will create an audio recorder object.
+And also, we add a buffer of 0.15 seconds
+to remove the transient response.
+What follows is a "while loop", where the program
+will keep asking me to record my voice until I'm
+satisfied with the recorded samples.
+There are two functions we need to pay attention to.
+The first one is recordblocking, which will capture my voice,
+and the function Play will play the recorded audio back.
+After we successfully recorded my voice, the voice signal
+will be saved to one file called test.wav.
+After that, we will perform the Fast Fourier Transform on the time domain
+signal to obtain its frequency domain representation.
+You have learned the details about Fast Fourier Transform in the lecture,
+and also you will do it again in the lab exercise.
+So, I will skip the details here.
+After that, we will show the voice signal
+in both time and frequency domains.
+Now, let's run the program.
+So the program asks me to hit Enter to start recording.
+So I hit Enter.
+Hello.
+I said something and if I hit Enter again, I can hear it back.
+Hello.
+Am I satisfied with the voice?
+Maybe not.
+So I input 0.
+The program asks me to record my voice again.
+Hello.
+Let's hear it back.
+Hello.
+This time it's better, so I accept it.
+And after that, we can show the voice signal
+in both the time and frequency domains.
+The time domain representation of my voice
+shows how my voice will change as time goes by,
+while the frequency domain representation of my voice
+tells me some interesting phenomena.
+At least, we can tell that my voice energy is not
+evenly distributed over the spectrum.
+This can be very useful when designing a communications system.

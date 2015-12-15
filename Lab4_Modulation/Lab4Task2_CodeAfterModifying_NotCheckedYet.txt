@@ -1,0 +1,86 @@
+% load the signal x and the sample frequency Fs
+[x,Fs] = audioread('lab04_speech1.wav');
+x=x';
+
+% get the sample time and the duration of the signal 
+Ts = 1/Fs; %  sample period
+Tmax= (length(x)-1)*Ts; 
+t=0:Ts:Tmax;
+
+% % % % % % % %
+% Transmitter %
+% % % % % % % % 
+tx_wave = modulate(x, Fs); 
+
+% % % % % % 
+% Channel %
+% % % % % %  
+rx_wave = txrx(tx_wave,1,'ideal');
+
+
+% % % % % % %
+% Receiver  %
+% % % % % % % 
+
+% % % % Revise the following code  % % % % 
+% cut-off frequency for the lowpass filter
+disp(Fs);
+freq_cutoff = Fs/2;     
+% mix waveform with carrier
+% create a sinosuidal function mixer wave with frequency same as carrier_freq and t times spaced by Ts time intervals up to Tmax
+% Carrier frequency observed in subplot 2 by running initial code given - mixer frequency in Hz is same as carrier
+freq_mixer =35e3;
+
+ymix = cos (2 * pi * freq_mixer * t);
+
+xd = rx_wave.*ymix; %mixed signal 
+% apply lowpass filtering
+%   The third input argument is the cut-off frequency.
+%   Be sure to set it properly above !!! 
+rx=lowpass(xd,Fs,freq_cutoff);
+
+% % % % Do not change the code below % % % %
+
+
+% Plot the amplitude spectra
+figure(1);
+subplot(4,1,1);
+plotAmplitudeSpectrum(x,Fs,'Amplitude Spectrum of Message');
+subplot(4,1,2);
+plotAmplitudeSpectrum(tx_wave,Fs,'Amplitude Spectrum of Modulated Message');
+subplot(4,1,3);
+plotAmplitudeSpectrum(xd,Fs,'Amplide Spectrum after Mixing');
+subplot(4,1,4);
+plotAmplitudeSpectrum(rx,Fs,'Amplitude Spectrum after Low Pass Filtering');
+
+% Plot time waveforms
+figure(2); 
+% The received signal is half as big, so we double it to compare
+% with the originally transmitted signal
+rxa = 2*rx;
+
+figure(2); 
+subplot(2,1,1)
+plot(t,rxa,'r'); hold on;
+plot(t,x,'--b'); hold off;
+legend('Original message','Recovered message');
+xlabel('Time(sec)')
+ylabel('Amplitude')
+nmse = sum((x-rxa).^2)/sum((x).^2);
+title(['Original and recovered message waveforms: nmse = ' num2str(nmse)]);
+subplot(2,1,2)
+zoom_start =200000;
+zoom_stop =210001;
+ind = zoom_start:zoom_stop;
+plot(t(ind),rxa(ind),'r'); hold on;
+plot(t(ind),x(ind),'--b'); hold off;
+legend('Original message','Recovered message');
+xlabel('Time(sec)')
+ylabel('Amplitude')
+title(['Original and recovered messages (zoom in view)']);
+axis([t(zoom_start) t(zoom_stop) -0.4 0.4]);
+grid;
+
+% figure 1 on top
+figure(1);      
+      

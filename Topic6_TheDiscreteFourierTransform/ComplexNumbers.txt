@@ -1,0 +1,60 @@
+In order to understand the discrete Fourier transform,
+we're going to have to understand something about complex numbers.
+So if we define j to be the square root of minus 1,
+we call that an imaginary number, then we can define a complex number
+to be the sum of a real number, a, and an imaginary number, jb, where b is just
+a real number scaling j.
+And so we call a the real part of that complex number, z,
+and b to be the imaginary part of z.
+We can represent that number in what we call the complex plane, which
+is a two-dimensional plane, where the horizontal axis corresponds
+to the real part of z, and the vertical axis
+corresponds to the imaginary part of z.
+And so the complex number then is just a point at a comma b.
+We can also talk about the complex conjugate of a complex number z,
+just by taking the imaginary part and flipping the sign, as we show here.
+There's several properties of complex numbers.
+For example, we can add and multiply two complex numbers.
+It turns out that it's relatively easy to understand addition,
+in terms of vector addition.
+So if we have two complex numbers, z_1 and z_2,
+those are points or vectors in the complex plane
+at a_1, b_1 and a_2, b_2.
+We can add those two things together just by simple vector addition,
+as we show here to get the sum.
+Now multiplication, we can do by the formula shown on the bottom.
+That looks a little bit complicated, but essentially what it is
+is simply just the binomial expansion of those two binomials there.
+But we can get a more pictorial representation of multiplication
+if we think about complex numbers, using what we call a polar representation.
+So with a polar representation, what we do is
+we represent that complex number, which is a point in the complex plane,
+in terms of its distance from the origin.
+We'll call that the magnitude of z.
+And we can obtain that just by taking a² plus b²
+squared and then square root.
+And then we also talk about the angle of the vector from the x-axis
+or the real axis, as we show there.
+And we can obtain that by taking the arc tangent of b divided by a.
+Now given the magnitude and the angle, we can also go back to a and b,
+just by taking the magnitude times the cosine, or the sine of that angle.
+We can also understand the complex conjugate,
+which remember is obtained by flipping the sign of the imaginary part.
+And all that happens when we take the complex conjugate
+is we take that vector and we just flip the angle from angle of z
+to the minus angle of z, and keep the magnitude the same.
+Now once we understand the polar representation, what we can do
+is get a more pictorial understanding of multiplication of two complex numbers.
+So if I have two complex numbers, z_1 and z_2,
+and I want to take their product, which I'll call z,
+I can break that down into two operations.
+One is I can compute a new angle, which is
+the angle of the product, which is just the sum of the two angles of z_1 and z_2.
+So if I know the angle of z_1 and the angle of z_2,
+then the product will just have the sum of those two,
+so I can just take a rotation by a little bit.
+And then I'm going to scale the magnitude by the magnitude of z_2,
+and I'm going to get the product.
+So multiplication then in the complex domain
+becomes a rotation by the angle of z_2, and then
+a scaling by the magnitude of z_2.

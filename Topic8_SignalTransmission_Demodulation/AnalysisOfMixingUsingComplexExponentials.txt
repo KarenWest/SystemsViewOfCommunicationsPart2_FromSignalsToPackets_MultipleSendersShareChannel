@@ -1,0 +1,84 @@
+It turns out that we can get a more intuitive pictorial analysis of mixing,
+if we use complex exponentials, rather than cosines.
+So remember, we've broken the demodulation process into two steps.
+The first one being mixing by that cosinusoidal carrier,
+and the second one being low pass filtering.
+Now, we're looking at the mixing step, and now
+instead of using the cosinusoidal carrier,
+I know that I can express the cosine as a sum of two
+complex exponentials scaled by 1/2.
+And so if we go back and we look at the problem of modulation again,
+we'll see that that's very similar to the mixing processes we see here.
+So let's take a look at that.
+So remember in modulation, we had a cosinusoidal signal
+that we are going to send in the baseband at frequency f_s.
+We express that cosine as a sum of two complex exponentials.
+We multiply it by the carrier, also the sum of two complex exponentials,
+and when we do that product, we get the product of those two terms
+in the brackets there.
+And I'm going to look at those two terms, or that multiplication separately.
+First I'm going to do, is I'm going to look at that whole first term
+there, which corresponds to the signal that I'm going to send,
+and we're going to multiply it by the first term in the complex exponential,
+or the first complex exponential term in the second block, which corresponds
+to the frequency component at f_0.
+So when I multiply those two things together,
+remember that when I multiply two exponentials together, all I have to do
+is I have to add the exponents, right?
+So I take f_0 and I either add f_s or subtract f_s.
+I multiply the amplitude so I get 1/2 times 1/2, so I get a quarter.
+So pictorially what happens, is when I multiply these two frequency
+components times the component at f_0, I'm
+going to get a shifting and a scaling by 1/2.
+Now, I can do exactly the same thing if I look
+at the second term in the second (set of) exponentials.
+So I'm going to take the signal here.
+Multiplied it by the second term in that second component,
+and then I'm going to get exactly the same thing.
+I'm going to get a scaling by 1/2, so I get 1/4, as well as a frequency off_set.
+Now, instead of being by plus f_0, it's going to be by minus f_0.
+So I get that there.
+And so in summary, what I'm going to get is
+when I do the modulation of this signal by the carrier using
+the complex exponentials, I get a shifting
+of this signal up by f_0 and down by f_0, or down to minus f_0.
+So it turns out that if I have more complex signals, that
+have more frequency components than this,
+each of those frequency components individually
+is treated in exactly the same way.
+So pictorially, if I have, let's say, a more complex spectrum for m of t,
+let's say, M of f shown over there as a triangular spectrum.
+When I multiply it by the carrier, which consists of two complex exponentials,
+I'm just going to get two copies.
+It's going to be scaled by a half, but it's
+going to get two copies, one centered at f_0, and the other one at minus f_0.
+So given that pictorial analysis of modulation,
+we can understand the demodulation process, or at least
+the mixing step in the demodulation process in a very similar way.
+The only thing that's different is I'm going to have the x of t
+being the thing that's being mixed, rather than m of t.
+So if I take x of t and modulate it by the carrier c,
+you can see that what's going to happen is
+I'm going to get two copies of X of f, one located at plus f_0.
+And again there's that scaling by 1/2.
+And the other one that's shifted over to minus f_0.
+And you can see what I get is I get an overlap there at 0.
+And so when I get that overlap at 0, I'm going
+to add those two frequency components together, or two sets of frequency
+components, and I'm going to get now the original signal at the center part,
+except I also have the extra components at plus 2f_0 and minus 2f_0.
+So in summary then, when I do the modulation process,
+I take the original signal, I multiply it by the carrier,
+so here's my original spectrum.
+I multiply it by the carrier and I get those two copies
+scaled by 1/2 at plus f_0 and minus f_0.
+When I do the demodulation process, I simply take that original signal,
+now I've scaled it up graphically by a factor of 2,
+but the magnitude is still 0.5 there.
+And then I multiply it by exactly the same carrier
+signal, or an exact replica of that carrier signal.
+And then, what I'm going to get at the bottom is going
+to be the original signal, you see m of f, replicated down there in d of f,
+except scaled by 1/2.
+Plus I have the two extra terms that I need
+to eventually get rid of if I want to get the original sent signal.

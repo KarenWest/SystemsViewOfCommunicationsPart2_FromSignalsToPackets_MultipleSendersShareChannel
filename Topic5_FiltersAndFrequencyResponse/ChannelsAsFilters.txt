@@ -1,0 +1,86 @@
+One of the advantages of the Fourier series analysis
+is that it allows us to interpret the operation of the communication channel
+as a filter.
+To get some motivation for this idea, let's look at an everyday filter
+that we might use in our house.
+For example, a water filter.
+As we see schematically over here, the idea of a water filter
+is to take some kind of water that might be dirty and hopefully at the output,
+result in some water that is clean or maybe just pure water.
+And so from an engineering point of view, what we say is,
+we say that the input, the dirty water, might be consisting of different parts
+or different components.
+So for example, for the water example, these components
+might be water plus maybe dirt particles of various sizes: small, medium
+and large.
+Hopefully at the output of the filter, what happens
+is that all of the dirt particles are blocked or caught in the filter,
+and the only thing coming out at the output would be pure water.
+Of course, we can't always have a perfect example
+of a water filter like this, and so what we know
+is that very, very small particles might actually pass through.
+And so we can characterize the operation of a filter,
+perhaps, in terms of the percentages that we've shown over here.
+For example, we might have a filter where 100% of the water
+can get through, but it can't block the small particles.
+So let's say 90% of the small particles get through,
+but it does a pretty good job with the medium and large particles, only 10%
+and 1% of the particles get through.
+And so in this case here, we can kind of characterize
+or understand the operation of this filter by looking at these percentages.
+If we had a better water filter, maybe the percentage 90%
+for the small particles would be smaller
+and then we would have an idea of how well the filters are performing.
+And so we can look at a communication channel in a very similar way.
+What we can do is we can say look at different inputs that
+go into the channel, and look at the outputs, and we can say,
+well, it seems like some parts of the signal are passing through the channel
+and other parts are not, so some parts are being blocked.
+In particular, the very, very flat regions here, you can see,
+are replicated very well on the other side,
+but you can see that these very quick transitions that we saw over here
+on the input side are not replicated very well on the other side.
+And so can we look at this idea and say, well,
+the channel is somehow operating as a filter.
+It's kind of passing some things through or letting some things pass through
+or blocking other things.
+And so then we can kind of understand this by answering two questions.
+One, what are the components of the input signal?
+What are the things that are added together
+to create this input signal? And then secondly,
+how do we describe how much of these components
+are passed from input to output?
+So kind of like the percentages that we saw on the previous page.
+And we've already seen some way of decomposing
+the signal into different components.
+For example, we've seen the idea that we can express a signal
+as the sum of a bunch of input steps.
+For example, if we see the waveform over here,
+we can take scaled and delayed unit steps and, for example,
+here, if we assume that the input was 0 beforehand,
+then we might have a step up to 3 at time 0 and then a step from 3 to 5
+or a change in 2 at time 2 and then back down by 2 at time 11 and so on.
+And so this is one way that we can describe
+the relationship between the input and some components
+that are added together to create the input.
+But one problem with using this signal decomposition in order
+to describe the operation of the filter is
+that if we look at the communication channel, if we put in a unit step
+into the communication channel, what comes out is not a unit step.
+So the components that we use to describe the input here
+are not the same as the things that are coming out at the output.
+And that becomes a problem.
+So what we'd like to be able to do then is
+find a way of describing any signal in terms of a sum of components, where
+any signal can be expressed as a sum of those components and, in addition,
+if I put in that signal (component) alone at the input to the channel, what comes out
+is something that looks pretty much the same, which
+is not true for the unit step.
+The kind of decomposition technique that we can use in this case
+is the Fourier series, so if we recall, the Fourier series
+is an expansion which allows us to express any input waveform
+x of n in terms of the sum of a bunch of cosines at different frequencies.
+And these cosines might be scaled in amplitude and shifted in phase,
+but they all are different what we call frequency components.
+And it turns out that this is the kind of decomposition
+that we can use in order to understand the operation of a channel as a filter.

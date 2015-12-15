@@ -1,0 +1,166 @@
+Hello everyone.
+Welcome to the lab demo for Lab 3.
+Consider the communications system here
+which includes three key components.
+The transmitter, the receiver, and the channel.
+In Lab 2,
+We have introduced the time frequency analysis for my voice signals.
+Here is one example of the frequency analysis for my voice signal.
+From the frequency domain representation of the voice,
+we can identify the frequency components of my voice.
+Recall from Part 1 of this course, the key
+for designing a communication system is to develop some communication
+techniques to handle the bad effects of the channel.
+Now, since we have been able to look at signals in the frequency domain,
+can we do the same thing for the channel? Or in other words,
+can we characterize the channel in the frequency domain?
+If the answer is yes, then what kind of information we are looking for?
+Obviously, we are not looking for the frequency components of the channel,
+because channel is not a signal.
+In fact, the kind of question we want to answer
+is, how will the channel affect different frequency
+components of the signal?
+Before jumping into the frequency domain representation of the channel,
+let's first review how we characterize the channel in the time domain.
+Recall from Part 1 of this course, we have used step response
+to characterize the channel in time domain.
+In order to obtain the step response, we send a step function to the channel,
+and we observe the output from the channel.
+At that time, we have identified four channel effects,
+including offset signal, which comes from the ambient light, time
+offset, which corresponds to the propagation delay, the range, k,
+which represents the channel gain. And finally
+the exponential response, which is the major reason
+for intersymbol interference.
+At that time, we proposed this mathematical model
+to model the step response.
+And we have used this model to develop equalizer, which can help
+to remove intersymbol interference.
+The next question is, can we tell the frequency response
+from the time response of a channel?
+Let's consider this extreme case.
+Imagine we have a perfect channel, if you sent a step function
+to this perfect channel, it will react.
+It will you give you a response, the step function.
+Then, can we tell the frequency response of the channel
+from the output of the channel, which is also a step function?
+Recall that any signal, including the step function,
+can be regarded as a weighted sum of frequency components.
+Now at the receiver side, we have exactly the same waveform.
+That means the frequency components of this transmitted signal,
+which is the step function, will experience the same response
+for different frequencies.
+We call it the flat channel in frequency domain.
+Then, how can we estimate the frequency response of the IR channel
+in our experiment?
+Obviously the IR channel is not perfect, because the output
+is no longer the step function.
+Then, how can we estimate the frequency response of the IR channel?
+Recall that in order to obtain the frequency response,
+we need to get the response of the channel
+to different frequencies of the transmitted signal.
+So what we can do is, we can transmit several single tone
+sinusoid signals at different frequencies to the channel,
+and look at their corresponding responses.
+By comparing the received signal and the transmitted signal,
+we can estimate the frequency response of the channel.
+Now, let's look at one MATLAB Program to see how we can estimate the channel.
+In this program, we will see how we can estimate the frequency
+response of the channel by sending single tone sinusoid signals
+with frequencies at 1k 10k and 50k Hertz respectively.
+For each frequency, we will first create thesinusoid source
+signal, which is a sine function, with frequency f and amplitude 1.
+Then, we will transmit the signal from our transmitter.
+The signals reflected by the board will be collected by our receiver.
+Recall that the IR channel will affect a single tone sinusoid
+signal in two aspects.
+Namely, the scaled amplitude and the shifted phase.
+Here, we use the peak-to-peak value of the received signal
+to measure the scaled amplitude.
+Next, we will show both the transmit and the received signals
+in the same figure.
+If I create a break point here, and run the program,
+we can have the result for the frequency 1k hertz.
+The upper plot corresponds to the transmitted signal,
+and the lower plot corresponds to the received signal.
+We can observe that the transmitted signal has an amplitude 1.
+High were the received signal has an amplitude, which is much smaller
+compared to the transmitted signal.
+In fact, the peak-to-peak value is 0.1494.
+If we click Continue, we will have the result
+for the case of with frequency 10k hertz.
+Obviously, the peak-to-peak value of the received signal
+is further reduced to 0.1134.
+Similarly, if we run the program, the result
+for the case with frequency 50 hertz will be somehow similar.
+Basically, the peak-to-peak value of the received signal
+is further reduced to 0.0339.
+This tells us the IR channel will give a lower response for a higher
+frequency signal.
+So essentially, the IR channel here works like a low pass filter.
+In a previous example, we have estimated the frequency response of the channel,
+by sending three single tone signals at frequency 1k, 10k, and 50k hertz.
+We observed their corresponding responses at the receiver side,
+and basically the channel will give a lower response for a higher frequency.
+And essentially, it works as a low pass filter.
+Recall that the only purpose to understand the channel
+is to design some communication techniques, which
+can help to handle the bad effects of the channel.
+For example, in Part 1 of this course, we
+have modeled the response of the channel, by the step response.
+And we have used the model to develop equalizer,
+which can help to remove intersymbol interference,
+and recover the waveform from its distorted version.
+Then the next question is, can we understand the process of equalization
+also in the frequency domain?
+The answer is yes.
+So we know the IR channel is not perfect.
+It will give different responses for different frequency components.
+That is the reason why we have the exponential response,
+and also the reason why we have intersymbol interference.
+However, after going through the equalizer,
+we know that all frequency components of the signal will experience the same,
+or we can call it the equal response.
+That is also why we call this technique equalization.
+Now, let's look at one MATLAB Program to see how equalization happens
+in both time and frequency domain.
+In this program, we will see how equalizer works.
+The program here is almost the same as the previous one.
+The only difference is, we ask the received signal
+to go through the equalizer we developed in Part 1 of this course.
+After that, we will show the received signal before and after
+equalization in the same figure.
+If I create a break point here, and run the program,
+we will see the result for the case with frequency 1k hertz.
+So basically, we can see that the received signal
+before and after equalization have almost the same waveform.
+Basically, the peak-to-peak value of the
+received signal will be slightly increased from 0.1494 to 0.15.
+However, if we click Continue, the results
+for the case at frequency 10k hertz will be a little bit different.
+Basically, the peak-to-peak value of the received signal
+will be increased from 0.1134 to 0.15.
+If we click Continue again, we will have the result
+for the case at frequency 50k hertz.
+For this case, the peak-to-peak value will be significantly increased
+from 0.0339 to 0.15.
+If we look at the results here, we can see
+that the IR channel will give different responses for different frequency
+components, namely 0.1494 for 1k hertz, 0.1134 for 10k hertz,
+0.0339 for 50k hertz.
+That means the IR channel will gave a lower response for higher frequency
+signals.
+However, after going through the equalizer,
+all frequency components will experience the same response,
+that is 0.15, 0.15, 0.15.
+Basically, this tells us equalizer can guarantee
+that all frequency components of the transmitted signal
+will experience the same, or we can call it equal response.
+That's also why we call it equalizer.
+So in the previous example, we have observed
+that the IR channel will give different responses to different frequency
+components of the transmitted signal.
+Basically, the higher the frequency, the lower the response.
+However, after going through the equalizer,
+all frequency components will experience the same response.
+That's also why we call it the equalization process.

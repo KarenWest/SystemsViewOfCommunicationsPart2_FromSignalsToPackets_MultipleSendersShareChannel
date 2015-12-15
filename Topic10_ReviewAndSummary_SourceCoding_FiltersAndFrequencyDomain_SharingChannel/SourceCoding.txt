@@ -1,0 +1,153 @@
+Let's review what we've covered about source coding in this class.
+So if we recall, we have our communication system,
+where we're sending information from a source to a destination.
+And we talked about one kind of coding in Part One, which
+was channel coding, where we take into account the properties of the channel,
+in particular, noise, which can introduce bit errors.
+In this part, what we introduced was the idea of source coding,
+where we're trying to take some information that we want to send,
+and compress it, so that it takes fewer bits.
+In some sense, this offsets some of the disadvantages of channel coding, which
+requires more bits in order to send the information,
+because we're introducing redundancy to avoid bit errors,
+or at least compensate for bit errors.
+We talked about two types of data compression,
+or source coding, lossless and lossy.
+In lossless data compression, when we do the compression,
+we can do the decompression and exactly recover the original input
+file or the original data.
+The technique that we talked about for this type of coding
+was called Huffman coding.
+For lossy data compression, the output and the input are not exactly the same,
+but perceptually it's hard to tell the difference between them.
+We use this for audio files, in particular,
+and we talked about the idea of MP3 coding.
+So let's review a little bit about lossless data compression.
+So we introduced the idea of lossless data compression,
+by talking about the guessing game.
+Remember, I asked you to pick one of four colors,
+and I was going to try to guess which of the colors,
+or figure out which were the colors that you're thinking about,
+by asking you a sequence of yes or no questions.
+And we saw that there are many different possible strategies
+of asking yes and no questions.
+For example, I could ask you, according to this strategy,
+where I ask you whether it's blue or yellow first.
+And then depending on your answer, I would ask you a different question
+down here, in order to narrow down what your choice was.
+But we have this intuition though, that if you have a preference for blue,
+then a different strategy might be better.
+And by better, what we meant was that it might
+take us a shorter number of questions, in order for us to figure out
+what your favorite color was.
+And so, if I have a strong intuition or feeling
+that your favorite color or you're very likely to say blue,
+then I might ask you, “Is your favorite color blue?”, right away.
+Now, that's not always going to result in less questions.
+Because what you can see here is that, I have two questions,
+always to get to the answer here.
+But there are sometimes I have one question,
+but sometimes I have three questions I have to ask.
+And so, in what cases would this one be better?
+And in what cases would that one be better?
+And so, that depends on the properties of the source,
+or the properties of your selection of those different colors.
+And so, to characterize that, the key concept that we introduced here
+was the idea of entropy.
+So the idea of entropy is that we're measuring
+the average information contained in a source that’s
+randomly emitting k symbols, right?
+So every time I ask you, “Pick a color  from one of these four choices.”,
+you're going to randomly choose one of those colors.
+And so, in that case of the previous example, k was 4.
+Now, when k was equal to 2, right?
+We just had a single bit, and it was just a yes or no answer.
+And we saw that the most information was obtained
+when we had equal probability of answering yes or no, or 1 or 0.
+For more general cases, when we have k choices,
+it turns out that the uniform distribution, where
+I choose each of those k choices equally likely,
+has the maximum entropy, or the maximum information.
+And it turns out that the entropy is a lower bound on the average code length.
+And so, the average code length in the guessing game context you can think of
+as the average number of questions I need to ask you,
+in order to get to the answer.
+And so, the lower the entropy, the lower the number of questions
+I need to ask you on average.
+And we can see that that lower entropy occurs when
+the source becomes more predictable.
+Either it always says no, or it always says yes.
+What the Huffman coding allowed us to do was
+to get very, very close to that lower bound,
+by analyzing the probabilities of the different symbols that
+are being emitted, and constructing that tree or that guessing strategy.
+On the other hand, when we talked about lossy encoding,
+we talked about the MP3 coding.
+And this relied heavily on the idea of the frequency domain
+analysis of signals.
+In particular, we saw that, on the very, very short time scales,
+signals can be approximated by a few frequency components,
+but those frequency components may change over time.
+And so, we saw that with examples, when we look at the spectrogram.
+Where we plotted the frequency content of the signal versus time,
+in this direction over here, where each cross section
+corresponds to the Fourier Spectrum of the sound,
+at that particular point in time.
+Or the sound in a short time interval, around that particular point in time.
+Now, once we understood that a sound waveform
+can be decomposed into a bunch of different frequencies, where
+a few of those might be dominant frequencies,
+then we said, well, what are the interactions between the frequencies
+that are present inside the signal?
+And in particular, how does that interaction
+take place within our ears, which are doing--
+or our brains, that are doing the perception of the sound?
+And so, in order to do effective coding, in the lossy case,
+we needed to incorporate a model of your sound perception
+in this psychoacoustic model.
+And the key concept that we talked about there was the idea of masking.
+And so, when we talk about sound perception,
+there's an idea that there is a threshold, a hearing threshold.
+Below that threshold, for sounds below that threshold, you can't hear them.
+And above that threshold, you can hear them, they're audible.
+And that threshold changes with frequency.
+And so what that suggests, if I just look naively at this,
+low frequencies are less important, because they
+can be fairly loud before I hear them.
+So that suggests that maybe I can throw away
+more information about low frequencies.
+But it turns out that the key innovation that MP3 encoding uses, in order
+to get the high compression rates that it does,
+is that it uses the idea of masking,
+which says that if I hear a dominant tone,
+as shown in red there, what's going to happen
+is that the threshold for hearing will be raised,
+as shown by the green curve over there.
+So that's what's called the masking threshold.
+And what that means then is that, information
+around that dominant red frequency is not necessary
+to encode very precisely.
+And so, I'm going to use that knowledge, in order
+to throw away information in a step, which
+is called non-uniform quantization.
+And so, that's where actually I lose information and I cannot recover
+the original signal.
+There are additional steps or processes that take place, in order
+to further compress the signal.
+In fact, MP3 coding uses that lossless compression that we talked
+about earlier, the Huffman encoding.
+And combining all of these together, we can get very, very large data
+compression rates.
+For example, in the original input here, we had about 1.41 megabits per second,
+but we can drop that down by a factor of about 10,
+to 128 kilobits per second, when we're talking about MP3 encoding.
+And so, in summary then, source coding relies
+heavily on an understanding of the characteristics of the source
+that you're trying to encode.
+And we looked at two ways to do that.
+In the lossless case, we looked at the idea of entropy
+to characterize the source.
+And in the lossy case, we looked at the idea
+that the source can be decomposed into the sum of different frequencies.
+And we can treat those frequencies in different ways,
+based on the model of human perception.

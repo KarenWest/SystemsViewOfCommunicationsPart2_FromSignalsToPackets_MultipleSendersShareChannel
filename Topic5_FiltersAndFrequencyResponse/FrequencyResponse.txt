@@ -1,0 +1,82 @@
+The frequency response is a way of characterizing
+the operation of a communication channel,
+or in fact any linear time invariant system
+where we're kind of characterizing the operation of that channel as a filter,
+as we discussed earlier.
+So let's take a look at what the frequency response describes.
+Remember that what we want to do is, we wanted
+to describe the input of the channel as a sum
+of a bunch of different components, in this case when
+we talk about the Fourier series, those components
+are cosinusoidal waves with different amplitudes, frequencies,
+and phase shifts.
+And it turns out that for a linear time invariant system,
+that if I put in a cosine wave at the input
+to a linear time invariant system, what comes out of the system
+is another cosine wave.
+So the components look the same, they look the same in the sense
+that it's another cosine wave and it has exactly the same frequency.
+But what is different about the input and the output,
+is that that cosine when it comes out might be scaled in amplitude,
+and so we call that scaling factor S of f.
+And then we also have a shift in phase, and so that's going
+to be given by this term theta of f.
+And so, one of the interesting things about the operation of a linear time
+invariant system is that the scaling factor and the phase shift
+are frequency dependent.
+All right, so input cosine waves with different frequencies
+will come out at the output with different scaling
+factors and with different delays or phase shifts.
+And so this function, S of f, which describes how different frequencies are
+passed through the channel and scaled, is
+known as the magnitude or the amplitude response to the filter.
+And the theta of f is known as the phase response to the filter.
+And together these two things are known as the frequency response.
+Now, we can use the frequency response to predict
+the output of a filter for any given input.
+And we can do this in a way very reminiscent of the way
+we handled the prediction of the input to the output,
+using the unit step functions.
+We exploit the linearity and time invariant of the channel.
+And so this is going to follow a very similar three-step
+process that we studied earlier.
+In step one, what we're going to do is we're
+going to take the input waveform x of n, and convert from the time domain
+to a frequency based representation, by using the Fourier series.
+So we're going to express x of n as a sum of a bunch of cosine waves.
+Now we know that we can always do that for any signal,
+and so this is a very generic or general formulation.
+Now we know that if we look at each one of these input cosine waves
+individually, and we pass that through this channel or linear time invariant
+system, that we know that what's going to happen
+is that this cosine wave is going to come out at the output.
+The only difference is it's going to be scaled in amplitude by S of f,
+and shifted in phase by theta of f.
+And so if we look at each of the components individually,
+we can predict what happens to each of those components individually.
+But it turns out that due to the linearity and time
+invariant of the channel, in particular the linearity, what we can do
+is predict the output to this combined set of inputs,
+just by adding the outputs to each of the inputs applied to the channel
+individually.
+That's exactly what we did when we were analyzing the problem with the unit
+step.
+And so, the amplitude response then describes the channel,
+because what the amplitude response does is
+it tells us for different frequencies what happens to those components
+as they go through the channel.
+If the amplitude response S of f is large,
+right, then it means that those components go through,
+and they are relatively unchanged as they go through,
+or perhaps they're even magnified.
+And if S of f is small, it means those are blocked.
+So this S of f is kind of describing what
+happens to the different components, where the components are separated
+by different frequencies, or distinguished by different frequencies.
+Much in the same way when we were looking at the water filter,
+we separated the input into different components by size, and we said well,
+according to the size of the input, the components
+are blocked in different amounts.
+In this case for the linear time invariant channel,
+instead of separating things by size, we separate things by frequency or quickly
+varying and slowly varying components.

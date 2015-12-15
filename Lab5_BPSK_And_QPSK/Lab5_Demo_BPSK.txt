@@ -1,0 +1,135 @@
+Hello everyone.
+Welcome to the lab demo for lab 5.
+In lab 4, we have introduced modulation, where
+we used a carrier signal to carry the message
+from the transmitter to the receiver.
+Imagine we have a carrier signal here, which is a cosine function.
+And we also have a message signal, which we
+want to transmit from the transmitter to the receiver.
+Amplitude modulation can be achieved by multiplying the message
+signal with the carrier signal.
+If we look at the modulated signal, we can
+tell that the amplitude of the modulated signal
+will change, according to the message signal.
+That's also why we call it amplitude modulation.
+So in this case, we have used the amplitude of the carrier
+to carry the information.
+If we look at the carrier signal here, in fact,
+besides amplitude, we also have two other parameters
+we can use to carry information.
+Namely, the frequency, and also the phase.
+For example, if we change the frequency of the carrier signal,
+according to the message signal, that is
+the higher the amplitude, the higher the frequency, the lower the amplitude,
+the lower the frequency, we can obtain frequency modulation.
+By following a similar procedure, we can also obtain phase modulation.
+Most of you should have noticed that.
+In fact, AM and FM are the most popular techniques used for radio broadcasting.
+So next question is, can we also use carrier to carry digital information.
+That is, can they achieve digital modulation?
+Before talking about digital modulation, let's first
+review how we transmit binary information
+in part one of this course.
+Recall that, at that time, we used two voltage levels, A and minus A,
+to represent bit 1 and bit 0, respectively.
+We can call it the baseband signal, because its spectrum will
+occur around the DC component.
+Then, how come they use carrier signal to carry binary information?
+Look at the carrier signal again.
+We already know there are three parameters
+we can use to carry information, namely the amplitude, the frequency,
+and the phase.
+If we choose two different amplitudes, say, A equals ac and A equals 0,
+to represent bit 1 and bit 0, respectively,
+we can achieve the amplitude modulation, ASK or amplitude shift keying.
+If we use two different phases, say θ=θ₀,
+and θ=θ₀+π .
+To represent bit 1 and the bit 0, respectively,
+we can achieve phase shift keying.
+By following a similar procedure, if we choose two different frequencies
+f=fc and f = fc+ ∆f
+we can achieve frequency shift keying.
+In this lab, we will focus on the PSK case, that is phase shift keying.
+Let's start from the simplest case, BPSK,
+which is binary phase shift keying.
+For this case, we want to use one modulated waveform to carry
+1-bit information.
+Because there are two types of information, bit 1 and bit 0
+we want to transmit, we will need two phases to represent bit 1
+and bit 0, respectively.
+For example, we can use phase 0 to represent bit 1.
+And the corresponding modulated waveform
+will be Acos(2πft). We can use phase pi to represent bit 0, where
+the modulated waveform will be -Acos(2πft).
+if we treat cos(2πft) as the basis function for one signal dimension,
+then the two values here, A and -A
+will be the coordinates of the two signal points used
+to represent bit 1 and bit 0.
+In fact, if we draw the constellation map for BPSK modulation,
+we can see that cos(2πft) represents one signal dimension
+on this constellation map.
+And the two signal points we use to represent bit 1
+and bit 0 will be two points on that signal dimension.
+The next question is how can we implement BPSK modulation?
+Imagine we have the carrier signal here, and we
+have a sequence of binary information, 1, 0, 1, 1, we want to transmit.
+Then how can we perform BPSK modulation?
+Recall from previous lab that the two modulated waveforms
+we use to transmit bit 1 and bit 0 are Acos(2πft) and
+-Acos(2πft), respectively.
+So we can first generate the baseband signal,
+where we use A and minus A to represent bit 1 and bit 0, respectively.
+Next, the modulation can be achieved by multiplying the carrier
+signal with the baseband signal.
+And we will obtain the modulated signal, where the phase of the carrier
+will be used to represent bit 1 and bit 0, respectively.
+Next, we have use one MATLAB program to show
+how we can implement BPSK modulation.
+So we first define the sampling frequency, the carrier frequency,
+and also the parameter samples per bit.
+The message we want to transmit from the transmitter to the receiver
+is the text message, hello.
+Recall from previous slides, in order to implement BPSK modulation,
+we should first generate the baseband signal,
+and then multiply it with the carrier signal.
+Similar to part one of this course, there
+are several steps we need to construct the baseband signal.
+In the first step, we convert the text message to bit sequence.
+And then we form the frame structure.
+Finally, we can generate the waveform from the frame structure.
+Now, let's look at the baseband signal in time domain.
+So here's the result. We can tell that the baseband
+signal used two voltage levels, 1 and minus 1, to represent bit 1
+and bit 0, respectively.
+And also, we can tell the binary sequence here, 1, 0, 0, 1, etc.
+Instead of directly multiplying the baseband signal with the carrier signal,
+here we ask the baseband signal to go through a low-pass filter,
+with cutoff frequency 25 kHz.
+We really explain a little bit later why we want to do this.
+Now, let's look at the output from the low-pass filter.
+By comparing the signal after, and before the low-pass filter,
+we can tell that the signal becomes much smoother
+after the low-pass filter.
+But still, we can also tell the binary sequence here, 0, 1, 0, 1, 1, 1, etc.
+The next step, we will multiply the output of the low-pass filter
+with the carrier signal, cos(2πft), and obtain the modulated signal.
+Now, let's see, the modulated signal.
+So here is the BPSK signal after the BPSK modulation.
+We can tell that now the amplitude of the carrier
+will change, according to the message signal.
+Then, why do we want to use the low-pass filter in this process?
+To answer that question, let's look at the three signals in frequency domain.
+For that purpose, we perform the FFT operation
+on the baseband signal.
+The signal after the low-pass filter, and also the BPSK signal, respectively.
+Here's the result.
+So in this figure, there are three plots.
+The first plot corresponds to the amplitude spectrum of the baseband signal.
+And the second one is the spectrum after the low-pass filter.
+By comparing those two signals, we can tell
+that the low-pass filter limits the bandwidth of the signal
+to be less than 5kHz.
+It guarantees that, after modulation, when
+the spectrum is moved to the position of the carrier frequencies,
+the modulated signal will not affect other signal.
+That is basically the reason why we want to use the low-pass filter.

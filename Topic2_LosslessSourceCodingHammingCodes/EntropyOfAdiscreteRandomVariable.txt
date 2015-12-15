@@ -1,0 +1,90 @@
+Now that we understand the idea of the entropy of a single bit which
+can assume one of two possible values, either 0 or 1.
+We need to extend these ideas to more complex random variables.
+In particular, discrete random variables, which
+can assume one of K possible values.
+And so we're going to indicate our notation here
+as x_k being the possible values.
+For example, 1, 2, 3 up to 10 or something like that
+and the probabilities being p_k.
+And so we can obtain our single bit that we talked about before (no period)
+Just by setting K is equal to two (two possible values) or we
+can handle more complex cases.
+For example, choosing a number from 1 to 10, in which case K is equal to 10,
+or throwing a die with 6 sides.
+We can extend the idea of the entropy
+to this more complex case in a fairly straightforward manner.
+Remember that the information from a single outcome was -log_2(p).
+And so if we take -log_2(p) and take the expected value of that,
+we just multiply each of them by the probability,
+and then add all of those together, and we get the entropy.
+And so in particular, if you look at the case when K is equal to 2,
+then 2 minus 1 is just 1.
+I just have the sum over two terms, and we get the expression for the entropy
+that we had previously.
+Now, it's interesting to note here that the x_k
+are the actual values of the random variables,
+don't enter into this equation.
+So it only depends on the probabilities or how likely it
+is I am to choose one over the other, but whether I'm talking about,
+say 1 to 10, or 11 to 20, that doesn't really make any difference.
+Let's take a look at two example entropy calculations.
+We'll start with the uniform distribution.
+In this case, all outcomes are equally likely.
+For example, if I ask you to choose a number from 1 to 10,
+the probabilities would all be 1/10.
+In this case, the entropy takes a relatively simple form.
+If we simply substitute p_k is equal to 1 over K
+into the expression for the entropy, we get
+the expression shown on the right-hand side,
+and what's happening there is that we're summing over, or averaging over,
+a bunch of terms that are all the same.
+They're all minus log to the base 2 of 1 over K,
+and because log to the base 2 of 1 over K is just minus log to the base 2 of K,
+the two minus signs cancel.
+In particular, if we look at specific examples for different values of K,
+we notice that when we set K equal to 2,
+we're just back to the original example of the single bit
+that we talked about earlier, and we know
+in that case, the entropy when the 0 and 1 outcomes are equally likely
+was 1 bit.
+From our knowledge of binary numbers, we wouldn't
+be surprised to see that if we have 4 possibilities,
+we have 2 bits of information, 8 possibilities, 3 bits of information.
+And so you can see that for 16, we'll have 4 bits.
+For 32, we’ll have 5 bits, and so on.
+However, the entropy calculation also allows
+us to assign entropies to intermediate values between powers of 2.
+For example, if I throw a six-sided die, then the amount
+of average information contained in the outcome of that die is 2.6 bits.
+We can also apply the entropy calculation in more complex cases
+where the distribution is not uniform.
+For example, let's go back to the idea that I
+might have a preference for certain colors over the others.
+So if you ask me to choose from one of these four colors.
+Because I like the color blue, I'm more likely to choose it.
+For example, 1/2 the time I'll choose it,
+and the remaining time, I'll choose yellow 1/2 the time,
+and then green only 1/8 of the time, and red 1/8 of the time overall.
+Now, if I look at the formula for the information in each of those outcomes,
+we see that for the blue outcome, the information, negative log to the base 2
+of p_k is just 1 bit.
+So there's not that much information I'm giving you
+when I tell you I chose blue.
+That's because you've already expected that, so it's not surprising to you.
+There's no real new information there.
+However, if we look at some of the more uncommon situations, for example,
+green or red, you can see there's 3 bits of information assigned to those,
+because those are very unlikely.
+And so if we want to compute the entropy, what
+we do is we calculate the expected value of all of those information values.
+Take the weighted average. And when we do that calculation, we get 1.75.
+Now remember, for the case where we had the four outcomes,
+and they were all equally likely, then the entropy was 2 bits.
+And so now what we see is there's a reduction in the entropy when I don't
+have uniformly distributed outcomes.
+This is because things are becoming, in some sense, more predictable,
+so there's less information in me telling you what's happening there.
+In fact, it turns out that the uniform distribution will always
+have the largest entropy over any other possible distribution of probabilities
+assigned to those different choices there.

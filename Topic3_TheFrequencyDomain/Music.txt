@@ -1,0 +1,83 @@
+We will be introducing the idea of analyzing signals
+in the frequency domain, which is the idea that any signal can
+be decomposed into a sum of simpler signals at different frequencies.
+In order to motivate this idea, I'd like to talk
+about music, something that we're all familiar with.
+And the idea that music is a combination of sounds at different frequencies.
+What I show you here is a piano keyboard.
+And we have this idea that, if we play different keys
+on this keyboard, what we'll hear are notes with different frequencies.
+So for example, if I play this key here, what I'll hear
+is something like this.
+[C]
+And as I go up the keyboard, what I'll hear
+is notes with higher and higher frequencies.
+So if I play these three, in succession, what I'll hear is something like this.
+[C]
+[E]
+[G]
+And what you can hear there, is that the notes
+have higher and higher frequency.
+And of course, music is much more complex than that.
+For example, we could play these three together,
+and we'd hear something like this.
+[C MAJOR CHORD]
+Now the sounds that you just heard don't sound exactly like a piano.
+They're much simpler.
+They're what we call "sine waves."
+And I plot the sine waves in these graphs over here,
+amplitude as a function of time.
+And what we can see is that, as we go up the keyboard
+to higher and higher frequencies, the sine waves
+start to change faster and faster.
+So we have this idea that low frequencies correspond
+to slow oscillations and high frequencies
+correspond to fast oscillations.
+And when we talk about combining these kinds of things
+into more complex sounds like chords, what we're really talking about
+is adding these three things together.
+And if we add those three things together, what we'll see
+is a signal that looks something like this.
+So you can see it's much more complex than these.
+But this is really the sum of a bunch of simpler signals like that.
+And it turns out that we can analyze any signal in this way,
+as the sum of simple sine waves or cosine waves.
+And we can actually visualize music, in this way, using our computers.
+For example, if you have Windows, we can use Windows Media Player.
+And I show you how to set up your media player
+so that you can show some of the diagrams
+that we'll see in the next slide.
+What I show you here is the Windows Media screen, set up in the way
+that I showed you before, so that we can visualize
+the frequency content of music.
+And so what you see here is a set of bars.
+Along the horizontal axis, we have frequency, going from low frequencies
+over to high frequencies.
+And along this axis here, what we see is the energy in the signal.
+So what we're seeing is the energy in the signal at different frequencies.
+And as the music plays, what we'll see is
+that energy or the frequency content of the music changes.
+And so what we'll see is a very strong peak here
+at a particular frequency corresponding to the note that's being played.
+And we'll start out with very, very simple sounds or music
+from very simple sounds and then make it a little bit more complex.
+And you can see how the frequency content changes.
+So let's play some simple music then.
+[F SHARP]
+[E]
+So this is just a single sine wave.
+And what you can see is really just a single peak.
+And as the music changes, what you can see is that the location of that peak
+changes.
+[SEQUENTIAL NOTES PLAY]
+[CHORD ADDED UNDER PRIMARY NOTE LINE]
+Now we've added a chord.
+And what you can see is that there are more than one peak now.
+You can see, in fact, there's two peaks here corresponding to the idea
+that two notes are being played at the same time.
+[MORE NOTES PLAYING TUNELESSLY]
+[NOTES STOP]
+So what we've seen, then, is that music can
+be considered the combination of signals at different frequencies.
+And what we'll be seeing, moving forward,
+is that we can describe any signal in this way.

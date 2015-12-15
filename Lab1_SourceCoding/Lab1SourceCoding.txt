@@ -1,0 +1,111 @@
+Hello, everyone.
+Welcome to the lab demo for Part 2 of this course.
+In Part 1, we have built a simple communications system
+where we have investigated the effects of the channel
+and also proposed several solutions to handle
+the bad effects of the channel, which include framing, equalization,
+and channel coding.
+In the last two labs of Part 1, we have introduced
+channel coding to improve the BER performance of our communications
+system by adding some redundancy.
+Today, we will introduce another coding scheme, named "source coding."
+The kind of question we want to answer is something like,
+is it necessary to transmit all raw data?
+For example, let's assume I have this photo
+about the beautiful campus of the Hong Kong
+University of Science and Technology.
+I want to send it to you through internet.
+For sure, I can send the photo pixel by pixel.
+But that may not be the best way to do it.
+Why?
+Because you can tell from the photo that large areas of the photo
+are filled with the same color, say blue or green.
+Obviously, some of the pixels are not necessary.
+The idea of source coding is to reduce the traffic data
+by removing those redundancies.
+And interestingly, channel coding can improve the BER performance
+by adding redundancy. And the source coding can reduce the data traffic
+by removing redundancy.
+You have learned several source coding schemes.
+So the first one is run length encoding.
+By its name, run length encoding will transmit the length
+of the run instead of the raw data.
+For example, if I have 100 zeros to transmit, I will not transmit 100 zeros.
+Instead, I will transmit a code word "0, 100,"
+which indicates there are 100 repeated zeros.
+Let's now look at one actual example.
+Assume the raw data has 1 zero, 2 ones, followed by 2 zeros, 6 ones, and 383 zeros
+The run length encoding will use an 8-bit binary number
+to represent the run length.
+You have noticed here, that we did not include the information about whether
+the lengths are about repeated zeros or repeated ones.
+Because here we have made an assumption that the raw data always starts from zero.
+Another fact we should notice is that an 8-bit binary
+number can represent, at most, 255.
+So, for all those run lengths that are less than 255,
+we can directly use the 8-bit binary number to represent the length.
+Then how can we represent a run length which
+is greater than 255, say 383 in our case?
+For this kind of situation, we should use what we call the run-length 0
+code.
+So basically, if I want to transmit 383 zeros, I will first transmit 255
+to indicate that there are 255 zeros.
+Then I will transmit zero to indicate that there are no ones following those 255 zeros.
+Then I will transmit 128.
+So in total, there are 255 plus 128 equals 383 zeros.
+This is how we can use run length encoding to transmit the length
+of those repeated 0's and 1's.
+By comparing the length of the run length code
+and the original raw data, we can see that run length encoding can indeed
+reduce the data traffic.
+However, there is one fact we have noticed.
+That is, we are using a fixed length, which is 8-bit binary number
+to transmit the length.
+This is perfectly fine if all of those run lengths
+will occur with the same probability.
+However, this is not true.
+Let's look at the same photo again.
+We can easily tell the chance of seeing a run length of 10000 bits
+is definitely smaller than the probability of seeing
+a run length of 5 bits.
+So, if we can take the distribution of the run lengths into consideration
+and create some variable-length codes,
+we will achieve a better performance.
+And Huffman code is one of those variable-length coding schemes.
+In order to create Huffman code, there are two steps.
+In the first step, we need to understand the distribution for the run lengths.
+And then, based on this understanding, we
+can create what we call the "Huffman dictionary."
+And then we can finally translate the run length code to Huffman code.
+In your lab exercise, you will build the Huffman dictionary
+by looking into the actual distribution of the run lengths here.
+But for the demo here, I'm going to use a dumb dictionary.
+Why we call it "dumb," because you can easily
+tell that we are using the same length code words to represent different run
+lengths.
+For this example, there are 11 code words.
+For the first 10, the code words correspond to the run lengths
+from 0 to 9.
+So the last one, 1 0 1 0, corresponds to the set of run lengths
+that are greater or equal to 10.
+For ease of illustration, I will use the same run length code
+to show you how to create the Huffman coding.
+Or technically speaking, this is not Huffman encoding
+because the dictionary here is not a dictionary with variable length codes.
+Let's look at an example here.
+Imagine I'm having the same run length code.
+And I want to use the dumb dictionary to translate it to Huffman code.
+Obviously, for those run lengths which are less than 10,
+I can simply use the corresponding code word from the dictionary.
+However, how can I tell the difference between 255 and 128?
+Because both of them are greater than 10.
+Under such circumstances, we should use the idea of escape code.
+So basically, when we want to transmit a length greater than 10,
+we will first put the escape code, 1 0 1 0.
+And the following 8-bit binary number will
+indicate the actual length of the run.
+For example, if we want to transmit 255,
+we put the escape code 1 0 1 0 and then the following 8 bits
+will be the value 255.
+Similarly, if I want to transmit 128, I will transmit the escape code first,
+followed by the number 128.

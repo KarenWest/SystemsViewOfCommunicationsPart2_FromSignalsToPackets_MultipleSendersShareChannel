@@ -1,0 +1,53 @@
+% Load the input image
+lorem_img = imread('lorem_img.png');
+
+% display the raw image
+figure(1);
+imshow(lorem_img);
+title('Original image');
+
+
+% % % % run-length encode % % %
+% reshape the image to a 1D vector
+image= lorem_img'; % transpose the image to vectorize row by row
+img_1D = image(:)';
+
+runs = [];
+run_len = 0;
+pixel_value = 1; % Assume white pixel run at first
+for bit_count = 1:length(img_1D),
+    if img_1D(bit_count) == pixel_value,
+        run_len = run_len + 1;
+    else
+        pixel_value = img_1D(bit_count);
+        runs = [runs run_len];
+        run_len = 1;
+    end
+    % % % % Revise the following code to split runs longer than 255 bits  % % % %  
+    if run_len == 255,
+        runs = [runs 255 0];
+        run_len = 0;
+    end
+end
+runs = [runs run_len];
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % % % Do not change the code below % % % %    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+% encode runs as 8 bit binary vectors
+run_length_code = reshape(dec2binArray(runs).',1,length(runs)*8);
+
+% % % end run-length encode % % %
+
+size_raw_data = length(image(:))
+size_run_length = length(run_length_code)
+
+% recreate 500 by 500 image
+img_new = runlength_decode(run_length_code);
+figure(2);
+imshow(img_new);
+title('Recreated image');
+
+% Put figure 1 on top by calling it again
+figure(1);

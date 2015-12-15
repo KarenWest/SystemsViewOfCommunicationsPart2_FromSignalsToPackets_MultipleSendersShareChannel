@@ -1,0 +1,71 @@
+﻿% Load a speech waveform from a file and store it in the variable x
+% The sample frequency is stored as Fs
+[x,Fs] = audioread('lab04_speech1.wav');
+% Transpose x to a row vector
+x=x';
+
+% Create vector of sample times 
+Ts = 1/Fs; %  sample period
+Tmax= (length(x)-1)*Ts; 
+t=0:Ts:Tmax;
+
+% Carrier frequency in Hz
+freq_carrier =20e3;
+
+% % % % % % % %
+% Transmitter %
+% % % % % % % % 
+
+% % % % Revise the following code  % % % % 
+tx_wave = x;  % modulated signal
+% % % % Do not change the code below % % % %
+
+% % % % % % 
+% Channel %
+% % % % % %  
+rx_wave = txrx(tx_wave,1,'ideal');
+
+% % % % % % %
+% Receiver  %
+% % % % % % % 
+rx = demodulate(rx_wave,Fs, freq_carrier);
+
+% Plot amplitude spectra of signals
+figure(1);
+subplot(3,1,1);
+plotAmplitudeSpectrum(x,Fs,'Amplitude Spectrum of Message');
+subplot(3,1,2);
+plotAmplitudeSpectrum(tx_wave,Fs,'Amplitude Spectrum of Transmitted Signal');
+subplot(3,1,3);
+plotAmplitudeSpectrum(rx,Fs,'Amplitude Spectrum of Recovered Message');
+
+% Plot original and recovered message waveforms
+
+% The received message is half as big, so we double it to compare
+% with the original message
+rxa = 2*rx;
+
+figure(2); 
+subplot(2,1,1)
+plot(t,x,'b'); hold on;
+plot(t,rxa,'--r'); hold off;
+legend('Original message','Recovered message');
+xlabel('Time(sec)')
+ylabel('Amplitude')
+nmse = sum((x-rxa).^2)/sum((x).^2);
+title(['Original and recovered message waveforms: nmse = ' num2str(nmse)]);
+subplot(2,1,2)
+zoom_start =200000;
+zoom_stop =210001;
+ind = zoom_start:zoom_stop;
+plot(t(ind),x(ind),'b'); hold on;
+plot(t(ind),rxa(ind),'--r'); hold off;
+legend('Original message','Recovered message');
+xlabel('Time(sec)')
+ylabel('Amplitude')
+title(['Original and recovered messages (zoomed in)']);
+axis([t(zoom_start) t(zoom_stop) -0.4 0.4]);
+grid;
+
+% figure 1 on top
+figure(1);

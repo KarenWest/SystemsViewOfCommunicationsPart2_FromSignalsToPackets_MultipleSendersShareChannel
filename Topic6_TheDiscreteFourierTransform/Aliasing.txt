@@ -1,0 +1,124 @@
+Aliasing is an interesting phenomena that occurs when we sample a sine wave,
+and it can be understood using the complex exponential.
+So let's consider the problem of sampling a cosine.
+So suppose we have a continuous cosine, x tilde
+where I'm going to use tilde to indicate continuous time quantities.
+So I'm going to talk about f tilde as being the continuous frequency.
+And so this cosine wave that we see over here is a 1 hertz sine wave.
+So it repeats itself once every second.
+So on the top here, I have seconds.
+Now, suppose that I sample this at a sampling frequency, Fs.
+In this case, I'll choose a sampling frequency of 6 hertz.
+And so that means I'm going to be sampling it at these points over here.
+Now, I know that when I sample these things here,
+I'm going to get a discrete time waveform, as seen over here
+where each of the green dots here indicates a sample point,
+and I can index those by an index n, where
+the relationship between the index n and the original cosine wave
+is shown on the right hand side over there.
+So x n is equal to cosine 2 pi f n, where
+f is what we call the normalized frequency, which
+is the ratio of f tilde, the continuous frequency divided by the sampling
+frequency F_s.
+And so aliasing describes an interesting phenomenon
+that occurs when the frequency of the continuous time cosine wave
+is too high in comparison with the sampling frequency F_s.
+And in that case what happens is that it is aliased to
+or it looks like a cosine wave, but a different cosine wave.
+It doesn't look like the original cosine wave,
+but it looks like a cosine wave with a lower frequency.
+So to show you that here, what I show you on the top slide here,
+or the top plot there, is a plot of the sampling
+situation we talked about before.
+I have a 1 hertz sine wave sampled at a 6 hertz sampling frequency.
+On the bottom here, I show you a 5 hertz continuous time sine wave.
+And if I sample it at exactly the same sample
+points, so exactly the same sampling frequency, Fs, is
+equal to 6 hertz, what you can see is I get these sample
+points that are shown here.
+And if I look at those sample points, those
+are exactly the same sample points that I got
+when I sampled the 1 hertz cosine wave.
+So from the point of view of the samples,
+we have no idea whether there was a 1 hertz sine wave there
+or a 5 hertz sine wave.
+So the 5 hertz sine wave is kind of disguising itself
+or is aliasing as a 1 hertz sine wave.
+And so the question then is what is the maximum limit
+that we can put in as the continuous time sine wave
+before we run into this aliasing phenomenon?
+And that limit then is called the Nyquist limit.
+And so to understand the Nyquist limit, let's just look at the samples
+and see what the conditions are on the normalized frequency.
+So if we just look at the samples as cosine 2 pi f n,
+then I know that because the cosine function is periodic with period 2 pi,
+then if I add 2 pi or any multiple of 2 pi to that, right, so if I,
+in particular, if I add 2 pi n to that, I'm
+going to get exactly the same value.
+So cosine 2 pi f n and cosine f n minus 2 pi n,
+since that's a constant multiple of 2 pi, are going to be exactly the same.
+Now, what I can do is I can separate the 2 pi at the beginning
+and factor out the n at the end, and what
+I get is 2 cosine 2 pi f minus 1 n.
+And since I can change the sign inside the cosine without changing it's value,
+I can flip f minus 1 and 1 minus f without changing the value there.
+And so now what you can see is there's a critical point when f passes 1/2,
+because when f passes 1/2 then this cosine 2 pi f n will appear as a lower
+frequency, as we can see over here.
+So for example, suppose f was 0.75, then if f was 0.75 here,
+it would actually look like an equivalent frequency of 0.25.
+So it would like a lower frequency, 1 minus f.
+Equivalently, since the normalized frequency
+f is given by f tilde divided by Fs, then
+the Nyquist limit can be expressed in continuous time
+by saying that if I have a continuous time cosine with frequency
+f bigger than 1/2 the sampling frequency, and 1/2
+the sampling frequency is commonly called the Nyquist limit, then
+that continuous time cosine will be aliased.
+It will look like a lower frequency sine wave
+or cosine wave than it actually is.
+Now, we can also get a pictorial or graphical interpretation of aliasing
+if we use complex exponentials.
+So if we use a complex exponential and we
+consider sampling a complex exponential, then if I consider,
+let's say the value of a sampled complex exponential at sample k plus 1,
+then I can just distribute this as 2 pi fk and 2 pi f.
+And you know that if I add two things in the exponent,
+it's the same thing as multiplying two exponentials together.
+So I can separate those two things out as e to the j 2 pi f and e to the j 2
+pi fk.
+And I can see that this thing over here, e to the j 2 pi fk,
+is just the sampled complex exponential at sample k.
+So remember what happens when the complex exponential oscilliated. It rotates
+around the origin.
+And what I'm going to do is I'm going to freeze
+that rotation at different points in time determined by the sample index k.
+So for example, if I have that complex exponential
+rotating around and at sample k, it's exactly here,
+colinear with the real axis here.
+Then at the next time instant, it's going to rotate by an amount 2 pi f.
+And in this case here, I've set f is equal to 0.25.
+So it makes a quarter of a turn, or a quarter of a rotation,
+before the next sample.
+So 2 pi times 1 over 4 is pi over 2 and so that's 90 degrees.
+Now, aliasing is going to occur when f is bigger than 0.5.
+In other words, it's going to rotate by more than half way.
+So 0.5 means it rotates by exactly a half.
+So if it rotates by more than a half, what's going to happen
+is it's going to look like a similar rotation,
+and so I show you that on the bottom.
+So suppose that the frequency was equal to 0.75.
+Then in that case, what's going to happen
+is that the thing's going to rotate by 3/4,
+so it's going to go all the way around halfway and then come around again.
+And so if I look at that, that looks exactly the same
+as an equivalent rotation, but in the opposite direction by 0.25.
+And so in fact, we can often see this in movies.
+And sometimes people call this the wagon-wheel effect, especially
+in older movies.
+Sometimes, you'll see a wheel in a movie and it'll actually
+look like the wheel is rotating backwards, even
+though the car or the wagon is going forward.
+And so that's because of the fact that if I have a movie, it actually
+consists of frames or discrete images that are sampled in time.
+And so that is exactly what's happening with aliasing.

@@ -1,0 +1,85 @@
+It turns out that it's easier to understand modulation
+using complex exponentials, because the mathematics become easier,
+and also it gives us a nice pictorial interpretation of what's
+happening when we perform modulation.
+So let's recap where we were.
+We saw that modulation is the idea of taking a baseband signal at some lower
+frequency, maybe around f_s, and multiplying it, or modulating it,
+by a cosine with a higher frequency f_0.
+That gives us a signal that looks like that yellow one over there,
+and we can express that as a sum of 2 cosinusoidal frequency components,
+one at f_0 minus f_s, and the other one at f_0 plus f_s.
+We also have this idea that what modulation is trying to do
+is take a frequency spectrum, and move it up into a different frequency band.
+Right?
+So take this baseband signal over here, and move it up into the band around f_0.
+And in order to connect this idea with this picture
+down here, what we're going to do is we're
+going to reanalyze this situation over here using complex exponentials.
+So I'm going to take my carrier, which is
+going to be a signal around some low frequency in the baseband f_s.
+I'm going to look at it in the frequency domain using the Fourier series
+expansion. It has a single frequency component here
+at f_s, corresponding that cosine.
+I can also express that cosine as the sum of two complex exponentials,
+one at f_s, and the other one at minus f_s.
+But when I add those two together, I have to divide by 2,
+and so what I'm going to get in the frequency domain for the Fourier
+transform is two symmetrically located frequency components
+around the origin, one at f_s, the other one at minus f_s,
+with a magnitude of 1/2.
+I can do the same thing with the carrier that I'm going to multiply,
+that's going to be a higher frequency f_0.
+Again in the Fourier series expansion, I have a single frequency component,
+but when I look at the Fourier transform representation,
+I have two frequency components, two complex exponentials symmetrically
+located around the origin, but again the magnitude is dropped by 1/2.
+When I multiply those two together, doing
+the modulation, what I'm going to do is instead of multiplying
+the cosine by the cosine, I'm going to multiply
+this sum of complex exponentials with this sum of complex exponentials.
+Remember that when I multiply two complex exponentials together,
+the exponents are just going to add.
+So in that case, what I'm going to get is four terms there.
+I'm going to get one,
+if I multiply the first term in the first one
+by the first term in the second one, I'm going to get f_0 plus f_s.
+Then first one times the second one in the second term, f_0 minus f_s.
+And then I'm going to get the same thing, but centered around minus f_0.
+And so if I look in the frequency domain on the right hand side over there,
+what you can see is I'm going to get four components,
+at f_0 plus fs, f_0 minus f_s, and the same thing centered around minus f_0.
+But now because I've multiplied 1/2 by 1/2, all of those amplitudes
+drop down to about a quarter.
+But I can take those complex exponentials
+and recombine them together, in order to get two cosines again,
+but now the amplitude is going to go up again to 1/2.
+Let's pull everything together with this example here.
+What I'd like to do is send two different messages
+that I show you here.
+They share the same frequency band, somewhere around a low frequency
+around 0, with this bandwidth BW.
+Now if I tried to transmit these two messages at the same time,
+because they're in the same frequency band,
+they would interfere with each other.
+So in order to avoid that, what I'm going to do
+is I'm going to modulate them by two different frequencies
+to try to separate them in the frequency domain.
+So when I take this first message here, 0.
+What I show you here is the amplitude spectrum using the Fourier series
+expansion, but I want to do this with complex exponentials.
+So when I take the Fourier transform, what I'm going to get
+is a similar looking thing, except it becomes
+symmetric, but with half the amplitude.
+And now I can just send this through the modulator,
+and that's going to put that in the frequency range around f_0.
+I can do the exact same thing with message 1.
+I'm going to take this one and now what's going to happen
+is I'm going to make it symmetric.
+Now, you can see the bandwidth has doubled.
+The magnitude has dropped by a half.
+I can send this again through the second modulator here with frequency f_1,
+and now what happens is that they are now separated in frequency.
+And so what I can do now is I can simultaneously transmit these two
+signals at the same time, but because they're separated in frequency,
+I don't have to worry about them overlapping.

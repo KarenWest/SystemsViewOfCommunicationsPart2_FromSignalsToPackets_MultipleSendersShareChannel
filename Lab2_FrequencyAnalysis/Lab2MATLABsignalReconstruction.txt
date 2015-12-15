@@ -1,0 +1,40 @@
+From the time and frequency analysis of my voice signal,
+we have observed that the energy of my voice
+is not uniformly distributed over the spectrum.
+In fact there are some major frequency components.
+This is very useful because it indicates
+that whenever I want to transmit my voice,
+I do not need to transmit all the frequency components.
+So in this program, I will show you how we can reconstruct the time domain
+signal by using only part of the frequency components.
+First, we define the number of samples for FFT operation.
+We also define a digital frequency to be 4 over N.
+Recall that when performing FFT operation,
+the sampling frequency is normalized to 1.
+So 4 over N here is a frequency less than the sampling frequency.
+Then we create a signal x, which is the summation of 3 sinusoid signals, whose
+frequencies are f, 2f, 3f, and their amplitudes
+are 10, 5, and 1, respectively.
+If I create a break point here and ask the program
+to run until the line above the break point,
+we can observe the time domain representation of the signal.
+Obviously, the summation of 3 sinusoid signals is no longer a sinusoid.
+If I create another break point and run the program,
+we can have the frequency domain representation of the same signal.
+Obviously, there are three key frequency components.
+We have six peaks because both the positive and negative spectrums
+are included here.
+If we look closely, we can even identify the frequencies to be 4 over N,
+8 over N, and 12 over N, respectively.
+This tells us there are three key components in the signal.
+If we use all the three components and perform inverse Fourier transform,
+we can definitely recover the original time domain signal.
+In the following, we will use a "for loop" to compare
+the performance of reconstructing the original signal by using
+1, 2, or 3 of the most significant frequency components.
+And the result is shown here.
+So obviously, if we only use the first component, which is a sinusoid,
+it is not good to use this signal to approximate the original signal.
+However, when we use two of the most significant frequency components,
+the approximation is almost acceptable. And if we use all three frequency
+components, we can perfectly recover the original signal.

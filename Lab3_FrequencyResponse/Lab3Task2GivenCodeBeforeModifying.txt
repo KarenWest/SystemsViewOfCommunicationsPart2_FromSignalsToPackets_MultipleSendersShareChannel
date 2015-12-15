@@ -1,0 +1,39 @@
+% Exponential factor controlling step response of channel
+a = 0.93;
+% Create list of logarithmically space frequencies 
+% from 10^(-3)=0.001 to 10^(-1)=0.1
+flist = logspace(-3,-1);
+% Pre-allocate vector to hold peak to peak amplitudes of outputs
+rx_peak2peak = zeros(1,length(flist));
+% Length and sample indicies of input waveform
+nsamp = 1200;
+n=0:(nsamp-1);
+        
+for i=1:length(flist)
+    % % % % Revise the following code   % % % %  
+    % normalized frequency of the signal (cycles/sample)
+    freq = 0;
+        
+    % create a sinosuidal function with frequency freq and nsamp samples
+    tx_wave = cos(2*pi*freq*n);
+
+    % send the signal through the channel
+    rx_wave = txrx(tx_wave,a,'pureexp');
+    
+    % remove the transient and get the peak to peak value 
+    rx_peak2peak(i)= 0;
+      
+    % % % % Do not change the code below % % % %   
+end
+figure(1);
+% Estimate the amplitude response by dividing the peak-to-peak
+% amplitude of the output by the peak-to-peak amplitude of the input (2)
+S = rx_peak2peak/2;
+% Plot the amplitude response using logarithmic scaling on 
+% horizontal and vertical axes
+loglog(flist,S,'b'); 
+grid
+xlabel('Frequency');
+ylabel('Amplitude');
+title('Frequency response of the IR channel');
+      

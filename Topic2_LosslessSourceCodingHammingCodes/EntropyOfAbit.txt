@@ -1,0 +1,135 @@
+So when we think about this guessing game,
+we have this intuition that the more predictable our opponent is,
+the easier the game is to play.
+The question we have then is, is there some way
+to formalize mathematically this idea of predictability or ease to play?
+And it turns out that the entropy is a way to do that.
+So let's start taking a look at the concept of entropy,
+starting with the simplest example, that of a single bit, or more
+formally a binary random variable that assumes values either 0 or 1.
+Now, this harkens back to something that we
+talked about in part 1 of the course when we looked at the binary channel
+model, or the effective errors.
+So you remember that under the binary channel model,
+we have inputs that are either 0 or 1.
+They pass through the channel.
+Hopefully, they come out the same, but occasionally bit errors are introduced,
+and we came up with a way of computing the bit error rate if we know how often
+it is that 0's come out 1's and 1's come out 0's.
+And so that was a weighted sum that the weighting factors
+depend on the probability that the input bit is 0 or 1.
+And in part 1, I said that well, the transmitter controls that probability,
+and usually it tries to control the probability so that P(IN=0) and P(IN=1)
+are the same.
+So input bits 1 and 0 are equally likely.
+And at that time, I gave an intuitive idea
+that this might be the most informative situation.
+For example, if the input bit was always 1, then
+there would really be no reason to send it,
+because I know in advance what you're going to say.
+So the entropy is a way then of showing formally that this is really
+the most informative situation.
+And so in order to define the entropy, let's define two quantities,
+P₁ and P₀, just being the probability
+that the input bit is either 1 or 0.
+And then given those two, and remember that those two sum to 1,
+we can compute the entropy as shown in the next equation over there.
+And so the entropy then is the sum of two terms.
+1 is the term, let's say, P₀ log 2 P₀.
+And since P₀ can be expressed as 1 minus P₁,
+I can do the substitution shown on the next line.
+And so those two terms are plotted here on the curve here.
+The first term is plotted here in green, and the second term
+is plotted in blue here.
+And when I add those two things together, I get the red curve here,
+which is the total entropy.
+And so the entropy is in some sense a measure
+of the average information in the bit, and we
+can see that the entropy here receives its maximum value when
+the probability that the input bit is equal to 1 is 0.5.
+It achieves its maximum value of 1, and its minimum value's here at 0 or 1.
+Those are the two cases where really nothing new
+is being said because you always say 0 or always say 1.
+So in order to formalize this idea that the entropy is
+kind of the average information in the bit,
+we need to formalize this idea of the expected value or the average value.
+So, if we consider a random variable, so some random number,
+that assumes one of two values.
+Let's say, i₀ or i₁ with certain probabilities P₀ and P₁,
+then the expected value of x, which can intuitively
+We thought of as the long term average, can be computed
+as the weighted sum of i₀ and i₁.
+So to make this more concrete, for example, suppose I have a friend.
+And every time I go out with my friend, he either has $10 or he has no money.
+And so every time he has no money, I have to pay for my friend.
+And so the question is, well, is that not such a big
+deal, or is that a big deal.
+And that depends on how often my friend is in the state where his wallet either
+has, let's say, no money, i₀ is equal to 0, or $10.
+And so obviously what I would want is my friend to normally have $10.
+In other words P₁ is equal to 1.
+So in that case, the expected value then is P₀ is 0 in that case.
+So it would be 0 times 0 plus 1 times 10, or 10.
+So on average my friend has a $10.
+But let's say only 75% of the time he's bringing the $10,
+then on average the amount of money that he's carrying is 0.75 times 10 plus
+0.25 times 0, about $7.50.
+So to understand how the entropy can be interpreted
+as the average amount of information, let's apply
+this idea of the expected or long term average
+value of a random variable to some notion of the information
+gained when the bit is either 0 or 1.
+So let's focus on the bottom one there, i₁, which is the information
+gained when a bit is 1.
+That expression is plotted in blue as shown over here.
+And what you can see is that as the probability that the bit is 1
+goes to 0, the information increases.
+Intuitively, this is capturing the idea that if the bit is always 1,
+that's not very interesting or not very informative.
+It's just like your friend who always tells
+the same story every time you see him.
+What's more informative is if you find something that you don't expect.
+So for example, if I tell you a statement like,
+the sun rose this morning.
+That's not very informative, because that event happens all the time.
+On the other hand, if I tell you something
+like, there's a huge thunderstorm outside. That's very informative
+because huge thunderstorms are not very likely.
+So as the probability of the input bit being 1,
+or some kind of information that you're getting gets lower and lower,
+it becomes more and more informative.
+And so then in that case, you might think, well,
+what I want to do is have the probability that the input bit is equal
+to 1 be as close to 0 as possible, because then the input bit,
+1 are the most informative, but there's something you have to trade off against
+that, because you're going to be observing both 1's and 0's.
+And so if we look at the i sub 0, which is the amount of information
+you observe when the bit is 0, then because the fact that P₁ plus P₀ is
+equal to 1. That also depends on P₁, and is basically just the blue curve
+rotated around the 0.5.
+So that's what 1 minus does.
+It just rotates it around 0.5.
+And so I get the fact that the information
+I observe when I get a 0 bit becomes less and less informative.
+For example, that's the statement that there's not a huge thunderstorm
+outside.
+So that kind of statement is not that informative.
+And so the entropy of the bit then is the average information.
+Remember
+going back to that idea of the expected value,
+I take the weighted average where I weight the information i1 by P₁ and i₀
+by P₀, and I get that expression, which we saw for the entropy before.
+And so now you can see that there's this trade off.
+It has to combine information from P₁ from when the input bit is 1
+and when the input bit is 0.
+And so then to conclude, then the entropy
+is a measure of the average information carried by a binary random variable.
+It's shown in that expression over there.
+And the units of entropy are in bits, if we use log to the base 2.
+If we use some other base.
+For example, natural log, then we have another unit called nats.
+But in any event, entropy is maximized when the probability of 1
+and probability of 0 are equal to each other at 0.5, and at that point
+you get what we call 1 bit of information.
+But if the probability is different than that,
+then you're actually getting less than 1 bit of information from that bit.

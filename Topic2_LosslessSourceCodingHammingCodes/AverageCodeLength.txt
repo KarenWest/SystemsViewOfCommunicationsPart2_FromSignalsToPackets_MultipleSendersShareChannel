@@ -1,0 +1,104 @@
+So let's take what we know about the guessing game and entropy
+and bring that together to understand something about source coding.
+So remember in the guessing game, I gave two possible strategies.
+Now, from the point of view of source coding, what these two
+strategies correspond to are two different code books
+encoding the four possible values: red, green, yellow, or blue.
+And to see that, we can look at the encoding tables.
+So for example, for this strategy here, I
+can also think about this as being an encoding for the four possible values,
+blue, yellow, green, or red, where the encoding is just
+given by the sequence of yes or no answers
+according to the strategy that lead me to B.
+So for example, B would be encoded by 1 1.
+Yellow would be 1 0 and so on.
+I can also look at the length of all those code words,
+and it turns out, because of the regular structure of this tree,
+all of the lengths of the code words have the same value, 2.
+I can also look at the other strategy over there.
+And that also corresponds to a encoding of the four different outcomes.
+But it's different than the one shown here.
+For blue, I encode it with just a single digit, 1.
+And so the length is 1.
+But for green and red, you can see that I
+need to have 3 digits in the code word to encode that.
+Now the question is, which one of these is better in any particular situation.
+And that depends.
+And so in order to answer that question, we
+need a way of evaluating how good this particular encoding
+might be versus that particular encoding.
+Now, when we're talking about strategy in the guessing game,
+we might suspect that one of these strategies
+might be better in one situation than the other.
+And it turns out that those two notions are very closely related to each other.
+And what we can talk about then to evaluate the different encoding
+schemes is the average code length.
+So the average code length of random code
+is the expected value of the length.
+So remember each of those code words that I
+used to encode all of the outcomes has a potentially different length,
+but they occur with different probabilities.
+So if I say, on average, how long does it take me
+or how many bits does it take me to encode a particular outcome?
+It will be that expected value shown there, L bar.
+This also corresponds to, in the strategies context,
+the average number of questions I would have to ask before I could guess
+your answer, assuming that you're choosing the response to my question--
+Which of those is your favorite color?-- according to the probability
+distribution shown.
+Now, it turns out that we can tie this to our discussion of the entropy
+because it turns out that the entropy of the distribution of p_k
+is a lower bound on the average code length.
+So that tells us really how well we can do.
+And so the lower the entropy is, the better we can do, and to some extent
+the easier that guessing game is.
+Let's take a look at two different probability distributions
+and evaluate the average code length for those two different strategies
+or code books.
+Let's first take a look at the uniform probability distribution
+where all of the four choices are equally likely to occur.
+We've already seen that the entropy of this distribution, H is equal to 2.
+If we use this strategy here, it turns out
+that the average number of questions or the length of the code word in order
+to encode all four of these choices all the same, it's 2.
+And so when I take the average of 2, I just get 2.
+For the other strategy over there, what we can see
+is that sometimes it takes us one, sometimes 2,
+and sometimes 3 questions, or bits to encode the outcome.
+Those occur with different probabilities.
+Or actually they all occur with the same probability in this case.
+And so if I take the expected value of the different code lengths, what I get
+is 9.
+3 plus 3 plus 2 plus 1, divided by 4, or 2.25.
+And so what we can see here is the average code length
+for this strategy here is smaller than the average code
+length for that strategy there.
+So that means that it will take less bits
+to encode on average if I use this coding scheme,
+or if I'm playing the guessing game, if I
+use this strategy for that probability distribution,
+I'm going to be able to get to the answer on average faster.
+Now, let's change the probability distribution and see what happens.
+So we'll use a new probability distribution
+that captures the idea that I have a preference for blue, and then
+yellow, and then green and red.
+And so we've seen this probability distribution before
+and we know that the entropy is 1.75.
+Now, if I use this coding scheme or guessing strategy,
+it's going to take me always 2 bits, or two questions, to get to the answer
+or encode the value.
+And so even though I've changed the weighting factors here,
+the weighted average is still 2.
+On the other hand, if I use the other strategy, what you can see
+is that because B occurs very often, there are many times
+that I'm going to be using the code word that has length 1, and relatively
+infrequently, you can see for probabilities 1/8 and 1/8,
+that I'm going to use the longer code words of 3.
+And so if I compute that weighted sum, what I'll get is 1.75.
+And that suggests then, that for this probability distribution
+that I show here, the coding strategy shown over there
+is going to be the better one in terms of lower bits on average.
+In fact, we can tell that this is actually the optimum strategy because
+of the fact that the average code length shown here
+is exactly the same as the entropy. And remember the entropy tells us
+the best performance that we can get.

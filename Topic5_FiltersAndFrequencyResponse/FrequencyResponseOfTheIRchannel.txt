@@ -1,0 +1,115 @@
+Let's take what we've learned and apply that to the infrared channel or IR
+channel that we've been using in the labs in this course.
+If we recall, the IR channel tends to respond relatively slowly,
+so the slowly varying, or the flat regions of the signal
+tend to pass through.
+And then the sharp transitions, or high frequencies do not.
+And from our analysis before, what we would expect,
+then, is that the IR channel should have a low pass characteristic.
+Now, you might be asking, well, we've already studied the IR channel,
+and we already know what its step response is, so how is the frequency
+response different?
+And the answer is that, the step response and the frequency response
+are really equivalent.
+Both of them provide enough information to compute
+the output of the channel in response to any input.
+And therefore, if I know the step response,
+I should be able to figure out the frequency response.
+And if I know the frequency response, I should be
+able to figure out the step response.
+And in fact, that's true.
+So what's the difference?
+The difference is, really, it's a different way of understanding
+the operation of the channel.
+They're really just different ways of looking
+at the same kind of information.
+So the step response tells us how the output
+is changing over time in response to a very stereotypical input, the step
+input.
+And so, this was very useful, for example,
+when we are looking at the eye diagram, or looking at the response of the waveform
+to bits.
+The frequency response, on the other hand,
+gives us a different kind of perspective on the channel.
+It says, rather than looking at it as a bunch of unit steps,
+let's look at it as the composition of many, many different co-sinusoids
+at different frequencies.
+And this is a better way to understand the signal, especially
+the operation of the channel, especially if we
+want to understand the effect of the channel in response
+to more complex signals than these kinds of very square bitstreams
+that we've talked about before.
+And so, because of the fact that the step response and the frequency
+response are equivalent, we should be able to look at a step response
+and at least see or predict something about what the frequency response might
+look like.
+And what I show you in this slide here is
+that we have four different step responses for four different channels,
+and you can see that these four different channels have different step responses.
+On the other side, we see amplitude responses
+in the frequency domain for the same channels, but they're not matched.
+In other words, this one at the top doesn't
+correspond to that one at the top.
+And so the question then is, which of these step responses
+corresponds to which of those frequency responses over here?
+So in order to figure out this, we can look
+at the properties of the step response and how they change, and look
+at the properties of the frequency response and how they change,
+and try to do that matching.
+So if we look from top to bottom here, what we see
+is that the step responses become slower and slower.
+So this one is very fast and this one is very slow.
+So we can look at the two extreme cases and try to do that matching first.
+And so in this case here, let's look at the fastest step response here.
+Which of those frequency responses would correspond to the channel that
+has this very, very fast step response?
+And so in order to think about that, we think about,
+well, if we have a fast step response, what
+does that mean about the kind of components
+that we would expect to pass through?
+And in this case here, if it responds very quickly,
+then it should be the output of the channel
+should be able to change very quickly.
+And so, therefore, we would expect very fast changes
+to be able to pass through.
+Remember, in the frequency domain, those kinds
+of fast responses correspond to very, very high frequencies.
+And if those high frequencies are going to pass through, what it means
+is that, for those high frequencies, the amplitude response of the filter
+should be relatively large.
+So now, if we look across those four responses on the other side,
+we can look and, say, let's look at the frequency at 0.2, which
+is relatively high, which of those responses has the largest value?
+And we see that it's the third one, so it turns out
+that this one here corresponds to the third amplitude
+response shown over there.
+What about this one down here?
+This one responds very, very slowly.
+So if one responds very, very slowly, then what we would expect is that,
+only very slowly varying or low frequency signals can pass through.
+So the amplitude response should be large for low frequencies,
+but should drop down very quickly as the frequency increases.
+And so, if we look on the other side and we say,
+which of those amplitude responses starts out high and then drops down
+very quickly, we see that it's the first one.
+And so, the bottom one here corresponds to the first amplitude
+response over there.
+And if we look at these two channels here in the middle, what we see
+is that this one here is going to be faster than this one.
+And so, therefore, the frequency response
+or the amplitude response of this one should drop down slower than this one
+here.
+So if we look at the remaining two, which one decays slower, drops down slower,
+as the frequency increases?
+We see that, for this one, it corresponds
+to the second one over there.
+And for, then, finally, by elimination, the third one
+here corresponds to the fourth amplitude response over there.
+And what we see here is that the IR channel does not
+have that kind of ideal response, or cutoff
+that we saw in the previous lecture.
+It kind of drops off more gradually.
+But the general shape of the amplitude response
+can be used to infer properties of the channel
+that we know from the step response, but it's
+a kind of different in a way of looking at the operation of the IR channel.
